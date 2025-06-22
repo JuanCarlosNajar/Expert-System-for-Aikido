@@ -7,8 +7,119 @@ Descripción: A través de la librería Owlready2 gestionamos la ontología crea
 formato owl. Implementa el patrón Singleton para que se cree una única instancia del gestor
 """
 from owlready2 import get_ontology, Thing
+import itertools # importo herramientas de iteradores
+
+"""
+CREO LAS CLASES DE LAS ONTOLOGIAS
+No podemos usar el método estándar de  owlready2 de class Actividades(onto.Actividades)
+por que no tengo "onto" en el momento de la declaración y por que no coincide exactamente
+con la declarada en la ontología
+"""
+# Clase para gestionar las Actividades
+class Actividades:
+    def __init__(self, ontologia):
+        self.Actividades_fisicas = ontologia.Actividades_fisicas
+        self.Actividades_tecnicas = ontologia.Actividades_técnicas
+        self.Actividades_sociales_emocionales = ontologia.Actividades_sociales_emocionales
+        self.Actividades_valores = ontologia.Actividades_valores
+
+    # Crea un iterador único, uniendo los iteradores instances de los cuatro tipos de actividades
+    def instances(self): 
+        return itertools.chain(self.Actividades_fisicas,
+                               self.Actividades_sociales_emocionales,
+                               self.Actividades_tecnicas,
+                               self.Actividades_valores)
 
 
+    # Devuelve una isntancia de la "actividad" especificada
+    def actividad(self, actividad):
+        actividades = self.instances()
+        act = None
+        for a in actividades:
+            if a.name == actividad:
+                act = a
+                break
+        return act
+    
+    # Se ha sobrecargado el método, puedo llamarlo con el nombre de la actividad "actividad1"
+    # o directamente con una instancia de Actividades
+    def objetivos(self, actividad):
+        objetivos = []
+        if isinstance(actividad,str):
+            act = self.actividad(actividad)
+        else:
+            act = actividad
+        
+        # tiene_objetivo es una Object Property de Actividad
+        if isinstance(act.tiene_objetivo,list) # compruebo si una lista o un solo elemento
+            objetivos.extend(act.tiene_objetivo)
+        elif act.tiene_objetivo # compruebo que tenga al menos un elemento
+            objetivos.append(act.tiene_objetivo)
+        else:
+            print("No se encontraron objetivos")
+        return objetivos
+    
+# Clase para gestionar los Grupos
+class Grupos:
+    def __init__(self,ontologia):
+        self.grupo = ontologia.Grupo
+
+class Contextos:
+    def __init__(self,ontologia):
+        self.contexto = ontologia.Clasificaciones
+        self.ontologia = ontologia
+
+    # Es necesario inferir el contexto edad a partir de la edad del alumno
+    # Contexto_edad es una clase de la ontología
+    def contexto_edad(self, edad):
+        contextos_edad = self.ontología.Contexto_edad.instances()
+        for contexto in contextos_edad:
+            if contexto.edad_final >= edad >=contexto.edad_inicial:
+                return contexto 
+        return None
+
+    # Es necesario inferir el contexto género a partir del género del alumno
+    # Contexto_género es una clase de la ontología
+    def contexto_genero(self, genero):
+        contextos_genero = self.ontología.Contexto_género.instances()
+        for contexto in contextos_genero:
+            if contexto.name == genero:
+                return contexto 
+        return None    
+    
+    # Devuelve la instancia del contexto, "contexto1", solicitado.
+    # Clasificaciones es una clase de la ontologia
+    def contexto(self, contexto):
+        contexto = None
+        for instancia in self.ontologia.Clasificaciones.instances():
+            if instancia.name == contexto:
+                contexto = instancia
+                break
+        return contexto
+    
+    # Devuelve las funciones corporales afectadas por los contextos
+    # contexto es una instancia de la clase Clasificaciones, es decir, de los contextos
+    def funciones_afectadas(self, contexto):
+    
+        funciones_afectadas = []
+
+        # ctx_tiene_impacto es una Object Property de Contextos (Clasificaciones)
+        if contexto:
+            for impacto in contexto.ctx_tiene_impacto:
+                # funcion es una Object Property de Impactos
+                # La propiedad 'funcion' puede ser una lista o una sola instancia
+                if isinstance(impacto.funcion, list):
+                    funciones_afectadas.extend(impacto.funcion)
+                elif impacto.funcion:
+                    funciones_afectadas.append(impacto.funcion)
+                else:
+                    print("No se encontró el contexto")
+
+            # Eliminar duplicados si es necesario
+            funciones_afectadas = list(set(funciones_afectadas))
+
+        return funciones_afectadas
+    
 class GestorOntologia:
     _instance = None
 

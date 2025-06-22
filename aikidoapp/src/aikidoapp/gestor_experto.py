@@ -19,8 +19,9 @@ criterios_usuario = {
     "grupo": "GrupoA",
     "alumnos": ["Lucas", "Ana"],
     "contextos": ["edad_6a8", "género_hombre"],
-    "fundamentos": ["Autocontrol", "Respeto"],
-    "tipo_actividad": ["grupal", "parejas"]
+    "fundamentos": ["fundamentos fisicos", "fundamentos técnicos"],
+    "objetivos": ["objetivo1", "objetivo2"],
+    "modalidad": ["grupal", "parejas"]
 }
 """
 class SistemaExperto(KnowledgeEngine):
@@ -161,5 +162,5 @@ class GestorExperto:
     def declara(self):    
         self._motor_sistema.declare(Actividad(  nombre="Estiramiento",grupo="GrupoA", 
                                               alumnos=["Juan","Pepe"], 
-                                fundamentos["fundamentos_fisicos","fundamentos_valor"],
+                                fundamentos=["fundamentos_fisicos","fundamentos_valor"],
                                 tipo="individual",))

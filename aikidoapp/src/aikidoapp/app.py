@@ -38,6 +38,7 @@ class AikidoTraining(toga.App):
         # Inicializa la ontología
         archivo_owl = self.paths.app / "resources" / "aikido.owl"
         self.gestor_ontología = GestorOntologia(str(archivo_owl.resolve()))
+        
 
         # Configurar los gestores de la aplicación
         GestoresApp.set_pantallas(self.gestor_pantallas)
@@ -91,7 +92,7 @@ class AikidoTraining(toga.App):
                      EstadoContexto.INACTIVO)
         ]
         # Inicializar el gestor de contextos
-        self.gestor_contextos = GestorContextos(self.contextos)
+        self.gestor_contextos=GestorContextos(self.contextos)
 
     def borraGrupoComados(self, group):
         """Elimina todos los comandos de un grupo específico."""
