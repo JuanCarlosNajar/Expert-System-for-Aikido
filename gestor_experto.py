@@ -1,5 +1,9 @@
 # GESTOR SISTEMA EXPERTO
 # gestor_experto.py
+# Autor: Juan Carlos Nájar Compán
+# Fecha última modificación: 24/06/2025
+# Institución: Universidad Internacional de La Rioja
+# TRABAJO FIN DE GRADO 2025
 
 from .gestores_app import GestoresApp
 from experta import *
@@ -15,25 +19,14 @@ from collections import defaultdict
 class ActividadCandidata(Fact):
     nombre = Field(str)
 
-
-"""
-criterios_usuario = {
-    "grupo": "GrupoA",
-    "alumnos": ["Lucas", "Ana"],
-    "contextos": [ "edad_6a8", "género_hombre","género_mujer"]
-    "fundamentos": ["fundamentos fisicos", "fundamentos técnicos"],
-    "objetivos": ["objetivo1", "objetivo2"],
-    "modalidades": ["grupal", "parejas"]
-}
-"""
 # Representa los criterios para realizar las recomendaciones 
 class CriteriosUsuario(Fact):
-    grupo = Field(str, default=None)
-    alumnos = Field(list, default=[])
+    grupo = Field(str, default=None)            # "grupo_A"
+    alumnos = Field(list, default=[])           # ["Lucas", "Ana"]
     contextos_entrada = Field(list, default=[]) # ["edad_6a8", "género_hombre", ...]
-    fundamentos = Field(list, default=[])
-    modalidades = Field(list, default=[])
-    objetivos = Field(list, default=[])
+    fundamentos = Field(list, default=[])       # ["fundamentos_físicos"]
+    modalidades = Field(list, default=[])       # ["actividad_grupal"]
+    objetivos = Field(list, default=[])         # ["obj_mejorar_fuerza_superior"]
 
 # Representa un contexto asociado a un alumno
 class ContextoAlumno(Fact):
@@ -48,12 +41,14 @@ class Recomendacion(Fact):
     alumno = Field(str)
     razon = Field(str, default="") # Puede ser "Beneficiosa" o "Neutra"
 
+# Representa un alumno junto a los contextos que le afectan
 class AlumnoConContextos(Fact):
     alumno = Field(str)
     # Lista de tuplas: (contexto1, [funcion_afectada1, ...])
     contextos_detallados = Field(list, default=[])
 
 
+# IMPLEMENTACIÓN DE 
 class SistemaExperto(KnowledgeEngine):
     criterios = None
     resultados = []
