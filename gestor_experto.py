@@ -48,7 +48,8 @@ class AlumnoConContextos(Fact):
     contextos_detallados = Field(list, default=[])
 
 
-# IMPLEMENTACIÓN DE 
+# IMPLEMENTACIÓN DEL MOTOR DE INFERENCIA DEL SISTEMA EXPERTO
+
 class SistemaExperto(KnowledgeEngine):
     criterios = None
     resultados = []
@@ -67,14 +68,10 @@ class SistemaExperto(KnowledgeEngine):
         self.init_criterios()
         self.init_resultados()
 
-    """
-    # lo he quitado por redundante 
 
-    # Inicia el motor con los criterios del usuario 
-    @DefFacts()
-    def _initial_facts(self):
-        yield CriteriosUsuario(**self.criterios) 
-    """
+    # PRIMERA REGLA
+    # FILTRAR ACTIVIDADES POR CRITERIOS (MODALIDAD, OBJETIVOS, FUNDAMENTOS)
+    # SOLO SE EXAMINARAN LAS ACTIVIDADES QUE CUMPLAN ESTOS CRITERIOS
 
     @Rule( 
         AS.actividad_criterios << CriteriosUsuario(
@@ -82,20 +79,18 @@ class SistemaExperto(KnowledgeEngine):
             fundamentos=MATCH.fundamentos & P(lambda x: x != []), # Verifica si fundamentos existe y no está vacía 
             objetivos=MATCH.objetivos & P(lambda x: x != []) # Verifica si objetivos existe y no está vacía
         ),
-        salience = 20
+        salience = 20   # le indico la prioridad de la regla
     )         
     def filtrar_actividades_por_criterios(self, actividad_criterios, modalidades, fundamentos, objetivos):
         """
             Aplica filtros de modalidad, objetivos y fundamentos de forma acumulativa (intersección).
         """
-        print("FILTRAR ACTIVIDADES POR CRITERIOS")
 
         actividades_candidatas_set = set() # Usar set para intersecciones eficientes
 
         # Primer filtro: Modalidad 
         
-    
-        if modalidades: # 
+        if modalidades:
             # Obtener actividades que tienen *al menos una* de las modalidades especificadas
             actividades_filtro = set()
             for m in modalidades: # 
@@ -134,22 +129,23 @@ class SistemaExperto(KnowledgeEngine):
 
         if actividades_candidatas_set:
             for actividad in actividades_candidatas_set:
-                self.declare(ActividadCandidata(nombre = actividad))
-            self.declare(Fact(actividades_iniciales_filtradas=True))
+                self.declare(ActividadCandidata(nombre = actividad))    # marco la actividad para evaluarla
+            self.declare(Fact(actividades_iniciales_filtradas=True))    # indico que he terminado de filtrar
         else:
             self.declare(Fact(no_actividades_candidatas=True)) # Marcador para el caso de no resultados
-    
+
+    # SEGUNDA REGLA
+    # OBTENGO LOS ALUMNOS PARA LOS QUE VAMOS A HACER LAS RECOMENDACIONES Y SUS CONTEXTOS    
     @Rule(
         AS.criterios_entrada << CriteriosUsuario(),
         Fact(actividades_iniciales_filtradas=True),
         NOT(Fact(alumnos_con_contextos_procesados=True)),
-        salience=15
+        salience=15 # le indico la prioridad de la regla
     )
     def procesar_alumnos_y_contextos_agrupados(self, criterios_entrada):
         """
             Obtiene los alumnos y agrupa TODOS sus contextos válidos en un solo hecho AlumnoConContextos.
         """
-        print("Regla: procesar_alumnos_y_contextos_agrupados")
         alumnos_a_procesar = []
 
         if criterios_entrada["alumnos"]:
@@ -157,11 +153,13 @@ class SistemaExperto(KnowledgeEngine):
                 alumnos_a_procesar.append(alumno)
         elif criterios_entrada["grupo"]:
             alumnos_a_procesar = self.obtener_alumnos_grupo(criterios_entrada["grupo"])
+        elif criterios_entrada["contextos_entrada"]: # no se ha especificado ni grupo ni alumnos pero si contextos
+            alumnos_a_procesar = [a.name for a in self.todos_los_alumnos()]
 
         if alumnos_a_procesar:
+            algun_alumno_con_contexto = False
             for alumno in alumnos_a_procesar:
                 contextos_del_alumno = self.obtener_contextos_de_alumno(alumno)
-                
                 contextos_detallados_para_alumno = []
                 for ctxt in contextos_del_alumno:
                     if criterios_entrada["contextos_entrada"]:
@@ -173,19 +171,29 @@ class SistemaExperto(KnowledgeEngine):
                         contextos_detallados_para_alumno.append([ctxt, funciones_afectadas])
                 
                 if contextos_detallados_para_alumno:
+                    algun_alumno_con_contexto = True
                     self.declare(AlumnoConContextos(
                         alumno=alumno,
                         contextos_detallados=contextos_detallados_para_alumno
                     ))
-        
-        self.declare(Fact(alumnos_con_contextos_procesados=True))
+            if algun_alumno_con_contexto:
+                self.declare(Fact(alumnos_con_contextos_procesados=True))
+            else:
+                # Si no hay ningún alumno con contextos válidos, NO declares alumnos_con_contextos_procesados
+                # Así no se dispara la regla general
+                self.declare(Fact(no_actividades_candidatas=True))
+        else:
+            self.declare(Fact(no_actividades_candidatas=True)) # indico que he terminado de procesar a los alumnos
 
-    # --- REGLA CLAVE: Evalúa la actividad para un ALUMNO, aplicando la nueva lógica ---
+    # TERCERA REGLA
+    # REGLA CLAVE: Evalúa la actividad para un ALUMNO
+    # SI LA ACTIVIDAD TIENE ALGUNA CONTRAINDICACIÓN PARA ALGUNOS DE LOS CONTEXTOS DEL ALUMNO, LA DESCARTAMOS
+    # SI NO ES DESCARTADA, COMPROBAMOS SI APORTA BENEFICIOS PARA ALGUNO DE LOS CONTEXTOS DEL ALUMNO
     @Rule(
         AS.act_candidata_fact << ActividadCandidata(),
         AS.alumno_ctxt_fact << AlumnoConContextos(),
         Fact(alumnos_con_contextos_procesados=True),
-        salience=10
+        salience=10 # marca la prioridad de la regla
     )
     def evaluar_actividad_para_alumno(self, act_candidata_fact, alumno_ctxt_fact):
         """
@@ -200,15 +208,12 @@ class SistemaExperto(KnowledgeEngine):
         if not actividad or not alumno:
             return
 
-        # Pseudocódigo: "Contraindicaciones = obtener_contraindicaciones(actividad)"
-        # Esto nos da los CONTEXTOS OWL que contraindican la actividad
+        # Esto nos da los CONTEXTOS que contraindican la actividad
         contextos_que_contraindican_actividad = self.obtener_contraindicaciones(actividad)
         
-        # Pseudocódigo: "Funciones_beneficiadas = obtener_funciones_beneficiadas(actividad)"
         funciones_beneficiadas = {f for f in self.obtener_funciones_beneficiadas(actividad)}
 
         # 1. PASO: COMPROBAR SI LA ACTIVIDAD ESTÁ CONTRAINDICADA POR CUALQUIER CONTEXTO DEL ALUMNO
-        # Pseudocódigo: "PARA CADA contexto_alumno EN Contextos_alumno HACER ... SI ACTIVIDAD CONTRAINDICADA"
            
         for ctxt_alumno, funciones_afectadas_alumno in alumno_ctxt_fact["contextos_detallados"]:
             contexto_alumno = ctxt_alumno
@@ -221,10 +226,6 @@ class SistemaExperto(KnowledgeEngine):
                 return
 
         # 2. PASO: EVALUAR BENEFICIOS Y NEUTRALIDAD (Solo si no está contraindicada globalmente)
-        # Pseudocódigo: "Contextos_a_evaluar = RESTO(contextos_Alumno, contraindicaciones)"
-        # En nuestra implementación, ya filtramos por 'is_contraindicated_for_alumno_overall',
-        # así que cualquier contexto que quede en 'alumno_ctxt_fact.contextos_detallados'
-        # ya no es una contraindicación principal.
         
         es_beneficiosa = False
         contexto_beneficiado = None # Para la salida, qué contexto específico la hizo beneficiosa
@@ -233,14 +234,14 @@ class SistemaExperto(KnowledgeEngine):
             contexto_alumno = ctxt_alumno
             if not contexto_alumno: continue
 
-            # Pseudo: "Si funciones_afectadas ESTÁN EN funciones_beneficiadas ENTONCES ACTIVIDAD ES RECOMENDABLE"
+            # "Si funciones_afectadas ESTÁN EN funciones_beneficiadas ENTONCES ACTIVIDAD ES RECOMENDABLE"
             if funciones_beneficiadas.intersection(set(funciones_afectadas_alumno)):
                 es_beneficiosa = True
                 contexto_beneficiado = ctxt_alumno # Registra el contexto que aporta el beneficio
                 break # Encontramos un beneficio, podemos parar
 
         if es_beneficiosa:
-            # Pseudocódigo: "ACTIVIDAD ES RECOMENDABLE"
+            # "ACTIVIDAD ES RECOMENDABLE"
             self.declare(Recomendacion(
                 actividad=actividad,
                 contexto=contexto_beneficiado, # El contexto específico que la hizo beneficiosa
@@ -249,11 +250,11 @@ class SistemaExperto(KnowledgeEngine):
             ))
             print(f"  --> {actividad} RECOMENDADA (Beneficiosa) para {alumno} por {contexto_beneficiado}.")
         else:
-            # Pseudocódigo: "ELSE ACTIVIDAD NEUTRA"
+            #  "EN CASO CONTRARIO ACTIVIDAD NEUTRA"
             # Si no es beneficiosa (no hay intersección de funciones) y no está contraindicada, es neutra.
             # Se asocia a un contexto relevante del alumno o a un contexto general para el formato.
         
-            contexto_para_neutra = alumno_ctxt_fact["contextos_detallados"][0][0] if alumno_ctxt_fact["contextos_detallados"] else "Contexto GEneral"
+            contexto_para_neutra = alumno_ctxt_fact["contextos_detallados"][0][0] if alumno_ctxt_fact["contextos_detallados"] else "Contexto General"
             self.declare(Recomendacion(
                 actividad=actividad,
                 contexto=contexto_para_neutra,
@@ -263,7 +264,9 @@ class SistemaExperto(KnowledgeEngine):
             print(f"  --> {actividad} RECOMENDADA (Neutra) para {alumno}.")
 
  
-   
+    # CUARTA REGLA
+    # SI NO SE ESPECIFICARON ALUMNOS O LOS ALUMNOS NO TIENEN ASIGNADOS CONTEXTOS
+    # ENTONCES TODAS LAS ACTIVIDADES SON VÁLIDAS
     @Rule(
         Fact(actividades_iniciales_filtradas=True),
         Fact(alumnos_con_contextos_procesados=True),
@@ -288,6 +291,8 @@ class SistemaExperto(KnowledgeEngine):
                 ))
 
 
+    # QUINTA REGLA
+    # REGLA FINAL, CUANDO YA SE HA TERMINADO DE FILTRAR Y EVALUAR LAS ACTIVIDADES
     @Rule(
         Fact(actividades_iniciales_filtradas=True), # Asegurarse de que el proceso principal ha pasado
         Fact(alumnos_con_contextos_procesados=True),  # Asegurarse de que los contextos se han procesado
@@ -327,7 +332,10 @@ class SistemaExperto(KnowledgeEngine):
 
         self.resultados = recomendaciones_formateadas
 
-     # Obtener los contextos del alumno
+    # obtener todos los alumnos
+    def todos_los_alumnos(self):
+        return self.alumnos.instances()
+    # Obtener los contextos del alumno
     def obtener_contextos_de_alumno(self,alumno):
         return self.alumnos.contextos(alumno)
     
@@ -369,8 +377,6 @@ class SistemaExperto(KnowledgeEngine):
      
     # devuelve los resultados de evaluar las reglas y los hechos
     def get_resultados(self):
-        if not self.resultados:
-            print("EN GET_RESULTADOS ESTÁ VACIA")
         return self.resultados
 
     # inicializa los resultados
@@ -422,4 +428,3 @@ class GestorExperto:
     def declara(self):
         criterios = self._motor_sistema.criterios    
         self._motor_sistema.declare(CriteriosUsuario(**criterios))
-        print(criterios)

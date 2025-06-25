@@ -2646,7 +2646,15 @@ Incluye: crecimiento y pigmentación de las uñas, calidad de las uñas</rdfs:co
     <owl:NamedIndividual rdf:about="https://juancarlosnajar.github.io/AikidoOntology/aikido#alumno_12">
         <rdf:type rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#Alumnos"/>
         <aikido1:tiene_contexto rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#condición_media"/>
-        <aikido1:tiene_género>hombre</aikido1:tiene_género>
+        <aikido1:tiene_género>otro</aikido1:tiene_género>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://juancarlosnajar.github.io/AikidoOntology/aikido#alumno_13 -->
+
+    <owl:NamedIndividual rdf:about="https://juancarlosnajar.github.io/AikidoOntology/aikido#alumno_13">
+        <rdf:type rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#Alumnos"/>
     </owl:NamedIndividual>
     
 
@@ -4173,6 +4181,15 @@ Variantes:
     
 
 
+    <!-- https://juancarlosnajar.github.io/AikidoOntology/aikido#grupo_D -->
+
+    <owl:NamedIndividual rdf:about="https://juancarlosnajar.github.io/AikidoOntology/aikido#grupo_D">
+        <rdf:type rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#Grupos"/>
+        <rdfs:comment>Grupo sin alumnos, para pruebas</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://juancarlosnajar.github.io/AikidoOntology/aikido#gyaku_hanmi -->
 
     <owl:NamedIndividual rdf:about="https://juancarlosnajar.github.io/AikidoOntology/aikido#gyaku_hanmi">
@@ -4187,6 +4204,8 @@ Variantes:
     <owl:NamedIndividual rdf:about="https://juancarlosnajar.github.io/AikidoOntology/aikido#género_hombre">
         <rdf:type rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#Clasificaciones"/>
         <rdf:type rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#Contexto_género"/>
+        <aikido1:ctx_tiene_impacto rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#impacto_e11a12_b730_f3"/>
+        <aikido1:tiene_género>hombre</aikido1:tiene_género>
         <rdfs:comment>Ser del género hombre.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -4197,6 +4216,8 @@ Variantes:
     <owl:NamedIndividual rdf:about="https://juancarlosnajar.github.io/AikidoOntology/aikido#género_mujer">
         <rdf:type rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#Clasificaciones"/>
         <rdf:type rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#Contexto_género"/>
+        <aikido1:ctx_tiene_impacto rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#impacto_e11a12_b760_f3"/>
+        <aikido1:tiene_género>mujer</aikido1:tiene_género>
         <rdfs:comment>Ser del género mujer.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -4207,6 +4228,8 @@ Variantes:
     <owl:NamedIndividual rdf:about="https://juancarlosnajar.github.io/AikidoOntology/aikido#género_otro">
         <rdf:type rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#Clasificaciones"/>
         <rdf:type rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#Contexto_género"/>
+        <aikido1:ctx_tiene_impacto rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#impacto_e11a12_b180_f2"/>
+        <aikido1:tiene_género>otro</aikido1:tiene_género>
         <rdfs:comment>Cualquier otro tipo de género que afecte a las funciones corporales o condiciones físicas.</rdfs:comment>
     </owl:NamedIndividual>
     
@@ -5938,6 +5961,7 @@ Luego, se puede invitar a comentar cómo se sienten y qué pueden hacer diferent
 
     <owl:NamedIndividual rdf:about="https://juancarlosnajar.github.io/AikidoOntology/aikido#transforma_el_pensamiento">
         <rdf:type rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#Actividades_sociales_emocionales"/>
+        <aikido1:act_tiene_contraindicación rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#e9a10"/>
         <aikido1:act_tiene_dificultad rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#Medio"/>
         <aikido1:act_tiene_fundamento rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#fundamentos_sociales_y_emocionales"/>
         <aikido1:act_tiene_modalidad rdf:resource="https://juancarlosnajar.github.io/AikidoOntology/aikido#actividad_individual"/>

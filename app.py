@@ -39,23 +39,7 @@ class AikidoTraining(toga.App):
         # Inicializa la ontología
         archivo_owl = self.paths.app / "resources" / "aikido.owl"
         self.gestor_ontología = GestorOntologia(str(archivo_owl.resolve()))
-
-        actividades = Actividades(self.gestor_ontología.ontologia)
-        fundamentos = actividades.fundamentos("carreras_con_arrastre")
-        print("ACTIVIDAD ","carrera_con_arrastre")
-        for f in fundamentos:
-            print("fundamento: ", f.name)                     
-
-        alumnos = Alumnos(self.gestor_ontología.ontologia)
-        alumnos_grupo = alumnos.alumnos_grupo("grupo_A")
-        print("ALUMNOS DE: grupo_A:")
-        for a in alumnos_grupo:
-            print(a)
-
-        contextos = alumnos.contextos("alumno_02")
-        print("CONTEXTOS DEL alumno_02:")
-        for c in contextos:
-            print(c)
+           
         # Configurar los gestores de la aplicación
         GestoresApp.set_pantallas(self.gestor_pantallas)
         GestoresApp.set_contextos(self.gestor_contextos)
@@ -125,74 +109,184 @@ class AikidoTraining(toga.App):
     # VERIFICAMOS EL FUNCIONAMIENTO DEL SISTEMA EXPERTO
     def verificar_sistema_Experto(self):
         # CASO 1
-        # SOLO INDICO GRUPO
-        criterios_caso1 = {
-            "grupo": "grupo_A",
+        # INDICO  FUNDAMENTO: "fundamentos_físicos"
+        criterios_caso = {
+            "grupo": "",
+            "alumnos": [], 
+            "contextos_entrada": [],
+            "fundamentos": ["fundamentos_físicos"],
+            "modalidades": [],
+            "objetivos": []
+    }
+        # self.caso_prueba("CASO 1", criterios_caso)
+
+        # CASO 2
+        # INDICO  OBJETIVOS
+        criterios_caso = {
+            "grupo": "",
+            "alumnos": [], 
+            "contextos_entrada": [],
+            "fundamentos": [],
+            "modalidades": [],
+            "objetivos": ["obj_mejorar_desplazamientos_rodillas_postura"]
+    }
+#        self.caso_prueba("CASO 2", criterios_caso)
+        # CASO 3
+        # INDICO  MODALIDADES
+        criterios_caso = {
+            "grupo": "",
+            "alumnos": [], 
+            "contextos_entrada": [],
+            "fundamentos": [],
+            "modalidades": ["actividad_juego"],
+            "objetivos": []
+    }
+        # self.caso_prueba("CASO 3", criterios_caso)
+        # CASO 4
+        # FILTRO VARIOS CAMPOS
+        criterios_caso = {
+            "grupo": "",
+            "alumnos": [], 
+            "contextos_entrada": [],
+            "fundamentos": [],
+            "modalidades": ["actividad_individual"],
+            "objetivos": ["obj_desarrollar_fuerza_explosiva"]
+    }
+        # self.caso_prueba("CASO 4", criterios_caso)
+        # CASO 5
+        # GRUPO SIN ALUMNOS
+        criterios_caso = {
+            "grupo": "grupo_D",
             "alumnos": [], 
             "contextos_entrada": [],
             "fundamentos": [],
             "modalidades": [],
             "objetivos": []
     }
-        """
-        criterios_caso1 = {
-            "grupo": "grupo_A",
-            "alumnos": ["alumno_01", "alumno_02"], 
-            "contextos_entrada": ["edad_6a8", "género_hombre", "género_mujer"],
+        # self.caso_prueba("CASO 5", criterios_caso)
+       # CASO 6
+        # GRUPO CON ALUMNOS
+        criterios_caso = {
+            "grupo": "grupo_C",
+            "alumnos": [], 
+            "contextos_entrada": [],
             "fundamentos": ["fundamentos_físicos"],
-            "modalidades": ["actividad_individual", "actividad_grupal"],
-            "objetivos": ["obj_desarrollar_fuerza_explosiva","obj_mejorar_resistencia_muscular"]
+            "modalidades": [],
+            "objetivos": []
     }
-        """
-     #   self.caso_prueba("CASO 1", criterios_caso1)
-        # CASO 2
-        # INDICO ALUMNO alumno_01
-        criterios_caso2 = {
+        # self.caso_prueba("CASO 6", criterios_caso)     
+
+        # CASO 7
+        # GRUPO CON ALUMNOS, ALGUNOS SELECCIONADOS
+        criterios_caso = {
+            "grupo": "grupo_C",
+            "alumnos": ["alumno_7","alumno_9"], 
+            "contextos_entrada": [],
+            "fundamentos": ["fundamentos_físicos"],
+            "modalidades": [],
+            "objetivos": []
+    }
+        # self.caso_prueba("CASO 7", criterios_caso)        
+        # CASO 8
+        # SIN GRUPO, ALGUNOS ALUMNOS SELECCIONADOS
+        criterios_caso = {
             "grupo": "",
-            "alumnos": ["alumno_01"], 
+            "alumnos": ["alumno_07","alumno_09"], 
             "contextos_entrada": [],
             "fundamentos": [],
             "modalidades": [],
             "objetivos": []
     }
-      #  self.caso_prueba("CASO 2", criterios_caso2)
-        
-        # CASO 3
-        # INDICO ALUMNO alumno_01, FUNDAMENTO: "fundamentos_físicos"
-        criterios_caso3 = {
+    #    self.caso_prueba("CASO 8", criterios_caso)  
+        # CASO 9
+        # SIN GRUPO, SIN ALUMNOS SELECCIONADOS
+        criterios_caso = {
             "grupo": "",
-            "alumnos": ["alumno_01"], 
+            "alumnos": [], 
             "contextos_entrada": [],
-            "fundamentos": ["fundamentos_físicos"],
+            "fundamentos": [],
             "modalidades": [],
             "objetivos": []
     }
-       # self.caso_prueba("CASO 3", criterios_caso3)
-
-        # CASO 4
-        # INDICO ALUMNOs alumno_01 y alumno_02, FUNDAMENTO: "fundamentos_físicos"
-        criterios_caso4 = {
+       #  self.caso_prueba("CASO 9", criterios_caso)  
+       # CASO 10
+        # ALUMNOS SELECCIONADOS CON MISMO CONTEXTO
+        criterios_caso = {
             "grupo": "",
-            "alumnos": ["alumno_01","alumno_02"], 
+            "alumnos": ["alumno_11","alumno_12"], 
             "contextos_entrada": [],
-            "fundamentos": ["fundamentos_físicos"],
-            "modalidades": [],
-            "objetivos": []
-    }        
-        # self.caso_prueba("CASO 4", criterios_caso4)
-        # CASO 5
-        # INDICO ALUMNOs alumno_01 y alumno_02, FUNDAMENTO: "fundamentos_técnicos"
-        # MODALIDAD "actividad_individual"
-        criterios_caso5 = {
-            "grupo": "",
-            "alumnos": ["alumno_01","alumno_02"], 
-            "contextos_entrada": [],
-            "fundamentos": ["fundamentos_técnicos","fundamentos_valores"],
+            "fundamentos": [],
             "modalidades": [],
             "objetivos": []
     }
-        self.caso_prueba("CASO 5", criterios_caso5)
-        
+        # self.caso_prueba("CASO 10", criterios_caso)  
+ 
+         # CASO 11
+        # GRUPO HETEROGÉNEO, ALUMNOS CON DISTINTOS CONTEXTOS
+        criterios_caso = {
+            "grupo": "",
+            "alumnos": ["alumno_01","alumno_02","alumno_03"], 
+            "contextos_entrada": [],
+            "fundamentos": [],
+            "modalidades": [],
+            "objetivos": []
+    }
+        #self.caso_prueba("CASO 14", criterios_caso)       
+        # CASO 14
+        # contexto inferido, Actividad recomendable para un género (mujer, por ejemplo)
+        criterios_caso = {
+            "grupo": "",
+            "alumnos": ["alumno_03","alumno_04"], 
+            "contextos_entrada": ["género_mujer"],
+            "fundamentos": [],
+            "modalidades": [],
+            "objetivos": []
+    }
+       # self.caso_prueba("CASO 14", criterios_caso)   
+        # CASO 15
+        # alumnos con varios contextos funcionales
+        criterios_caso = {
+            "grupo": "",
+            "alumnos": ["alumno_02"], 
+            "contextos_entrada": [],
+            "fundamentos": [],
+            "modalidades": [],
+            "objetivos": []
+    }
+        #self.caso_prueba("CASO 15", criterios_caso)   
+           # CASO 16
+        # alumnos con varios contextos funcionales
+        criterios_caso = {
+            "grupo": "",
+            "alumnos": ["alumno_13"], 
+            "contextos_entrada": [],
+            "fundamentos": [],
+            "modalidades": [],
+            "objetivos": []
+    }
+        #self.caso_prueba("CASO 16", criterios_caso)   
+                  # CASO 17
+        # actividad beneficiosa para un contexto específico
+        criterios_caso = {
+            "grupo": "",
+            "alumnos": [], 
+            "contextos_entrada": ["género_mujer"],
+            "fundamentos": [],
+            "modalidades": [],
+            "objetivos": []
+    }
+        self.caso_prueba("CASO 17", criterios_caso)   
+                         # CASO 20
+        # no hay actividades que cumplan las condiciones
+        criterios_caso = {
+            "grupo": "grupo_D",
+            "alumnos": [], 
+            "contextos_entrada": ["género_mujer"],
+            "fundamentos": [],
+            "modalidades": [],
+            "objetivos": []
+    }
+        # self.caso_prueba("CASO 20", criterios_caso)  
     def caso_prueba(self, titulo, criterios):
         # IMPRIMO CRITERIOS
 

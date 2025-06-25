@@ -187,8 +187,9 @@ class Contextos:
     def contexto_genero(self, genero):
         contextos_genero = self.ontologia.Contexto_género.instances()
         for contexto in contextos_genero:
-            if contexto.name == genero:
-                return contexto
+            if contexto.tiene_género:
+                if contexto.tiene_género[0] == genero:
+                    return contexto
         return None    
     
     # Devuelve la instancia del contexto, "contexto1", solicitado.
@@ -239,6 +240,10 @@ class Alumnos():
                 return a
         return None
     
+    # Devuelve todos los alumnos
+    def instances(self):
+        return self.alumnos.instances()
+    
     # Devuelve los alumnos de un grupo dado
     def alumnos_grupo(self, grupo):
         alumnos = []
@@ -255,10 +260,10 @@ class Alumnos():
     def contextos_inferidos(self, alumno):
         contextos = []
         gestor_contextos = Contextos(self.ontologia)
-        contexto_edad = gestor_contextos.contexto_edad(alumno.tiene_edad[0]) # tiene_edad es una Data Property
+        contexto_edad = gestor_contextos.contexto_edad(alumno.tiene_edad[0] if alumno.tiene_edad else 0) # tiene_edad es una Data Property
         if contexto_edad:
             contextos.append(contexto_edad)
-        contexto_genero = gestor_contextos.contexto_genero(alumno.tiene_género[0]) # tiene_género es un Data property
+        contexto_genero = gestor_contextos.contexto_genero(alumno.tiene_género[0] if alumno.tiene_género else "otro") # tiene_género es un Data property
         if contexto_genero:
             contextos.append(contexto_genero)
         return [c.name for c in contextos]
