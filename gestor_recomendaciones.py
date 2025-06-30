@@ -5,6 +5,7 @@ Fecha creación: 27/06/2025
 Versión: 1.0
 Descripción: Gestiona las recomendaciones: crearlas, guardarlas, consultarlas, etc.
 """
+from .config import DEBUG
 from .gestor_experto import GestorExperto
 from .gestor_ontología import Alumnos, Contextos, Actividades, Grupos, Fundamentos, Objetivos
 from uuid import uuid4
@@ -312,31 +313,49 @@ class Recomendaciones:
                 }
         return None
     
-    def set_recomendaciones(self, recomendaciones=None):
+    def set_recomendaciones(self, recomendaciones):
         if self.actual:
-            if recomendaciones:
-                actividades_recomendadas_items = []
-                nueva_arc = Actividades_recomendadas(self.ontologia)
-                for rec in recomendaciones:
-                    actividad_nombre = rec[0]
-                    contexto_nombre = rec[1]
-                    alumnos = rec[2]
-                    nueva = nueva_arc.crear()
-                    if nueva:
-                        nueva_arc.actividad(actividad_nombre)  # enlaza la actividad recomendada
-                        nueva_arc.recomendacion(self.actual)  # enlaza la recomendación con la actividad recomendada
-                        nueva_arc.contexto(contexto_nombre)  # enlaza el contexto con la actividad recomendada
-                        nueva_arc.alumnos(alumnos)  # enlaza los alumnos con la actividad recomendada
-                        actividades_recomendadas_items.append(nueva)
-                            
-                self.actual.rcm_tiene_actividad = actividades_recomendadas_items  # enlaza las actividades recomendadas con la recomendación
-            else:  # si no se proporcionan las recomendaciones devuelve las actuales
-                return {
-                    "actividad": self.actual.arc_tiene_actividad.name if self.actual.arc_tiene_actividad else None,
-                    "contexto": self.actual.arc_tiene_contexto.name if self.actual.arc_tiene_contexto else None,
-                    "alumnos": [alumno.name for alumno in self.actual.arc_tiene_alumnos.instances()]
-                }
-        return None
+            devolver = True
+            actividades_recomendadas_items = []
+            nueva_arc = Actividades_recomendadas(self.ontologia)
+            for rec in recomendaciones:
+                actividad_nombre = rec[0]
+                contexto_nombre = rec[1]
+                alumnos = rec[2]
+                nueva = nueva_arc.crear()
+                if nueva:
+                    nueva_arc.actividad(actividad_nombre)  # enlaza la actividad recomendada
+                    nueva_arc.recomendacion(self.actual)  # enlaza la recomendación con la actividad recomendada
+                    nueva_arc.contexto(contexto_nombre)  # enlaza el contexto con la actividad recomendada
+                    nueva_arc.alumnos(alumnos)  # enlaza los alumnos con la actividad recomendada
+                    actividades_recomendadas_items.append(nueva)                                       
+        else:
+            devolver = False
+        return devolver
+
+    def get_recomendaciones(self):
+        """
+        Devuelve una lista de recomendaciones en la forma:
+        [[actividad, contexto, [alumno1, alumno2, ...]], ...]
+        leyendo de la ontología todas las actividades recomendadas asociadas a la recomendación actual
+        mediante la object property arc_tiene_recomendacion.
+        self.actual tiene que contener la entidad o intancia de Recomendaciones_realizadas que
+        se quiere consultar.
+        """
+        resultado = []
+        if self.actual:
+            # Buscar todas las instancias de Actividades_recomendadas que apunten a esta recomendación
+            for arc in self.ontologia.Actividades_recomendadas.instances():
+                # arc_tiene_recomendacion es una lista de recomendaciones asociadas a esta actividad recomendada
+                if hasattr(arc, "arc_tiene_recomendación") and self.actual in arc.arc_tiene_recomendación:
+                    # Obtener nombre de la actividad recomendada
+                    actividad = arc.arc_tiene_actividad[0].name if hasattr(arc, "arc_tiene_actividad") and arc.arc_tiene_actividad else None
+                    # Obtener contexto
+                    contexto = arc.arc_tiene_contexto[0].name if hasattr(arc, "arc_tiene_contexto") and arc.arc_tiene_contexto else None
+                    # Obtener alumnos
+                    alumnos = [alumno.name for alumno in getattr(arc, "arc_tiene_alumno", [])]
+                    resultado.append([actividad, contexto, alumnos])
+        return resultado
 
 class GestorRecomendaciones:
     ontologia = None
@@ -408,12 +427,12 @@ class GestorRecomendaciones:
     # Método para leer una recomendación desde la ontología
     # id = identificador de la recomendación en la ontología
     def leer_recomendación(self, id):
-        recomendacion = {"datos": {}, "criterios": {}, "recomendaciones": []}
+        if DEBUG:
+            print("Leyendo recomendación con id:", id)
+        recomendacion = []
         rcm = self.recomendaciones.buscar(id)
         if rcm:
-            recomendacion["datos"] = rcm.datos()
-            recomendacion["criterios"] = rcm.criterios()
-            recomendacion["recomendaciones"] = rcm.recomendaciones()
+            recomendacion = self.recomendaciones.get_recomendaciones()  # obtiene las recomendaciones asociadas a la recomendación
         return recomendacion
 
      

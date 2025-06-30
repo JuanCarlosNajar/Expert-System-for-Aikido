@@ -1,0 +1,1 @@
+DEBUG = True # Puesta a True para depurar

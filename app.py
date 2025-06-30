@@ -9,6 +9,7 @@ import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW, RIGHT, LEFT, CENTER
 
+from .config import DEBUG
 from .gestor_contextos import EstadoContexto, Contexto, GestorContextos
 from .gestor_pantallas import GestorPantallas, Pantalla
 from .gestor_iconos import GestorIconos
@@ -300,7 +301,10 @@ class AikidoTraining(toga.App):
         datos = {"descripcion": titulo, "evaluacion": "defectuosa", "fecha_creacion":"fecha", 
                "fecha_evaluacion":"fecha", "fecha_modificacion":"fecha",
               "motivo":"mis motivos tendré", "observaciones":"observo mucho"}
-        gr.nueva_recomendacion(datos, criterios, recomendaciones)
+        nc = gr.nueva_recomendacion(datos, criterios, recomendaciones)
+        recomendaciones_leidas = gr.leer_recomendación(nc.name)
+        if DEBUG:
+            print("Recomendaciones leídas: ", recomendaciones_leidas)
         self.gestor_ontología.guardar()
 
 
