@@ -18,6 +18,7 @@ from .gestores_app import GestoresApp
 from .gestor_ontología import GestorOntologia, Actividades, Contextos, Alumnos
 from .gestor_experto import GestorExperto
 from .contextos import ContextoGrupo
+from .gestor_recomendaciones import GestorRecomendaciones
 from collections import defaultdict
      
  
@@ -110,7 +111,7 @@ class AikidoTraining(toga.App):
     def verificar_sistema_Experto(self):
         # CASO 1
         # INDICO  FUNDAMENTO: "fundamentos_físicos"
-        criterios_caso = {
+        criterios_caso1 = {
             "grupo": "",
             "alumnos": [], 
             "contextos_entrada": [],
@@ -118,11 +119,10 @@ class AikidoTraining(toga.App):
             "modalidades": [],
             "objetivos": []
     }
-        # self.caso_prueba("CASO 1", criterios_caso)
 
         # CASO 2
         # INDICO  OBJETIVOS
-        criterios_caso = {
+        criterios_caso2 = {
             "grupo": "",
             "alumnos": [], 
             "contextos_entrada": [],
@@ -130,10 +130,9 @@ class AikidoTraining(toga.App):
             "modalidades": [],
             "objetivos": ["obj_mejorar_desplazamientos_rodillas_postura"]
     }
-#        self.caso_prueba("CASO 2", criterios_caso)
         # CASO 3
         # INDICO  MODALIDADES
-        criterios_caso = {
+        criterios_caso3 = {
             "grupo": "",
             "alumnos": [], 
             "contextos_entrada": [],
@@ -141,10 +140,9 @@ class AikidoTraining(toga.App):
             "modalidades": ["actividad_juego"],
             "objetivos": []
     }
-        # self.caso_prueba("CASO 3", criterios_caso)
         # CASO 4
         # FILTRO VARIOS CAMPOS
-        criterios_caso = {
+        criterios_caso4 = {
             "grupo": "",
             "alumnos": [], 
             "contextos_entrada": [],
@@ -152,10 +150,9 @@ class AikidoTraining(toga.App):
             "modalidades": ["actividad_individual"],
             "objetivos": ["obj_desarrollar_fuerza_explosiva"]
     }
-        # self.caso_prueba("CASO 4", criterios_caso)
         # CASO 5
         # GRUPO SIN ALUMNOS
-        criterios_caso = {
+        criterios_caso5 = {
             "grupo": "grupo_D",
             "alumnos": [], 
             "contextos_entrada": [],
@@ -163,10 +160,9 @@ class AikidoTraining(toga.App):
             "modalidades": [],
             "objetivos": []
     }
-        # self.caso_prueba("CASO 5", criterios_caso)
        # CASO 6
         # GRUPO CON ALUMNOS
-        criterios_caso = {
+        criterios_caso6 = {
             "grupo": "grupo_C",
             "alumnos": [], 
             "contextos_entrada": [],
@@ -174,11 +170,10 @@ class AikidoTraining(toga.App):
             "modalidades": [],
             "objetivos": []
     }
-        # self.caso_prueba("CASO 6", criterios_caso)     
 
         # CASO 7
         # GRUPO CON ALUMNOS, ALGUNOS SELECCIONADOS
-        criterios_caso = {
+        criterios_caso7 = {
             "grupo": "grupo_C",
             "alumnos": ["alumno_7","alumno_9"], 
             "contextos_entrada": [],
@@ -186,10 +181,9 @@ class AikidoTraining(toga.App):
             "modalidades": [],
             "objetivos": []
     }
-        # self.caso_prueba("CASO 7", criterios_caso)        
         # CASO 8
         # SIN GRUPO, ALGUNOS ALUMNOS SELECCIONADOS
-        criterios_caso = {
+        criterios_caso8 = {
             "grupo": "",
             "alumnos": ["alumno_07","alumno_09"], 
             "contextos_entrada": [],
@@ -197,10 +191,9 @@ class AikidoTraining(toga.App):
             "modalidades": [],
             "objetivos": []
     }
-    #    self.caso_prueba("CASO 8", criterios_caso)  
         # CASO 9
         # SIN GRUPO, SIN ALUMNOS SELECCIONADOS
-        criterios_caso = {
+        criterios_caso9 = {
             "grupo": "",
             "alumnos": [], 
             "contextos_entrada": [],
@@ -208,10 +201,9 @@ class AikidoTraining(toga.App):
             "modalidades": [],
             "objetivos": []
     }
-       #  self.caso_prueba("CASO 9", criterios_caso)  
        # CASO 10
         # ALUMNOS SELECCIONADOS CON MISMO CONTEXTO
-        criterios_caso = {
+        criterios_caso10 = {
             "grupo": "",
             "alumnos": ["alumno_11","alumno_12"], 
             "contextos_entrada": [],
@@ -219,11 +211,10 @@ class AikidoTraining(toga.App):
             "modalidades": [],
             "objetivos": []
     }
-        # self.caso_prueba("CASO 10", criterios_caso)  
  
          # CASO 11
         # GRUPO HETEROGÉNEO, ALUMNOS CON DISTINTOS CONTEXTOS
-        criterios_caso = {
+        criterios_caso11 = {
             "grupo": "",
             "alumnos": ["alumno_01","alumno_02","alumno_03"], 
             "contextos_entrada": [],
@@ -231,10 +222,9 @@ class AikidoTraining(toga.App):
             "modalidades": [],
             "objetivos": []
     }
-        #self.caso_prueba("CASO 14", criterios_caso)       
         # CASO 14
         # contexto inferido, Actividad recomendable para un género (mujer, por ejemplo)
-        criterios_caso = {
+        criterios_caso14 = {
             "grupo": "",
             "alumnos": ["alumno_03","alumno_04"], 
             "contextos_entrada": ["género_mujer"],
@@ -242,10 +232,9 @@ class AikidoTraining(toga.App):
             "modalidades": [],
             "objetivos": []
     }
-       # self.caso_prueba("CASO 14", criterios_caso)   
         # CASO 15
         # alumnos con varios contextos funcionales
-        criterios_caso = {
+        criterios_caso15 = {
             "grupo": "",
             "alumnos": ["alumno_02"], 
             "contextos_entrada": [],
@@ -253,10 +242,9 @@ class AikidoTraining(toga.App):
             "modalidades": [],
             "objetivos": []
     }
-        #self.caso_prueba("CASO 15", criterios_caso)   
            # CASO 16
         # alumnos con varios contextos funcionales
-        criterios_caso = {
+        criterios_caso16 = {
             "grupo": "",
             "alumnos": ["alumno_13"], 
             "contextos_entrada": [],
@@ -264,29 +252,28 @@ class AikidoTraining(toga.App):
             "modalidades": [],
             "objetivos": []
     }
-        #self.caso_prueba("CASO 16", criterios_caso)   
                   # CASO 17
         # actividad beneficiosa para un contexto específico
-        criterios_caso = {
+        criterios_caso17 = {
             "grupo": "",
             "alumnos": [], 
             "contextos_entrada": ["género_mujer"],
             "fundamentos": [],
             "modalidades": [],
             "objetivos": []
-    }
-        self.caso_prueba("CASO 17", criterios_caso)   
+        }
                          # CASO 20
         # no hay actividades que cumplan las condiciones
-        criterios_caso = {
+        criterios_caso20 = {
             "grupo": "grupo_D",
             "alumnos": [], 
             "contextos_entrada": ["género_mujer"],
             "fundamentos": [],
             "modalidades": [],
             "objetivos": []
-    }
-        # self.caso_prueba("CASO 20", criterios_caso)  
+        }
+        self.caso_prueba("CASO 14", criterios_caso14)
+
     def caso_prueba(self, titulo, criterios):
         # IMPRIMO CRITERIOS
 
@@ -308,7 +295,15 @@ class AikidoTraining(toga.App):
         print("RECOMENDACIONES")
         for r in self.reestructura_recomendaciones(recomendaciones):
             print(r)
-    
+        
+        gr = GestorRecomendaciones(self.gestor_ontología.ontologia,sistema_experto)
+        datos = {"descripcion": titulo, "evaluacion": "defectuosa", "fecha_creacion":"fecha", 
+               "fecha_evaluacion":"fecha", "fecha_modificacion":"fecha",
+              "motivo":"mis motivos tendré", "observaciones":"observo mucho"}
+        gr.nueva_recomendacion(datos, criterios, recomendaciones)
+        self.gestor_ontología.guardar()
+
+
     def reestructura_recomendaciones(self, recomendaciones):
         agrupado = defaultdict(lambda: defaultdict(list))
 

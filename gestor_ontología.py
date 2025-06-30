@@ -15,6 +15,28 @@ No podemos usar el método estándar de  owlready2 de class Actividades(onto.Act
 por que no tengo "onto" en el momento de la declaración y por que no coincide exactamente
 con la declarada en la ontología
 """
+class Fundamentos:
+    def __init__(self, ontologia):
+        self.ontologia = ontologia
+        self.fundamentos = ontologia.Fundamentos
+
+    def buscar(self, fundamento):
+        for f in self.fundamentos.instances():
+            if f.name == fundamento:
+                return f
+        return None
+
+class Objetivos:
+    def __init__(self, ontologia):
+        self.ontologia = ontologia
+        self.objetivos = ontologia.Objetivos
+
+    def buscar(self, objetivo):
+        for o in self.objetivos.instances():
+            if o.name == objetivo:
+                return o
+        return None
+
 # Clase para gestionar las Actividades
 class Actividades:
     def __init__(self, ontologia):
@@ -191,6 +213,14 @@ class Contextos:
                 if contexto.tiene_género[0] == genero:
                     return contexto
         return None    
+    
+    def buscar(self, contexto):
+        # Devuelve la instancia del contexto, "contexto1", solicitado.
+        # Clasificaciones es una clase de la ontologia
+        for instancia in self.ontologia.Clasificaciones.instances():
+            if instancia.name == contexto:
+                return instancia
+        return None
     
     # Devuelve la instancia del contexto, "contexto1", solicitado.
     # Clasificaciones es una clase de la ontologia
