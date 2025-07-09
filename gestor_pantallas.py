@@ -6,9 +6,9 @@ from .gestores_app import GestoresApp
 class Pantalla:
     def __init__(self, nombre, cabecera=None, cuerpo=None, pie=None):
         self.nombre = nombre
-        self.cabecera = cabecera or toga.Box()
-        self.cuerpo = cuerpo or toga.Box()
-        self.pie = pie or toga.Box()
+        self.cabecera = cabecera or self._crear_cabecera()
+        self.cuerpo = cuerpo or self._crear_cuerpo()
+        self.pie = pie or self._crear_pie()
 
         # Caja contenedora de toda la pantalla (column layout)
         self.contenedor = toga.Box(style=Pack(direction=COLUMN,flex=1, padding=0, background_color="#282828"))
@@ -16,12 +16,27 @@ class Pantalla:
         self.contenedor.add(self.cuerpo)
         self.contenedor.add(self.pie)
 
+    def _crear_cabecera(self):
+        return toga.Box()  # Método a implementar en las pantallas derivadas
+    
+    def _crear_pie(self):
+        return toga.Box()
+    
+    def _crear_cuerpo(self):
+        return toga.Box()
+    
     def mostrar(self):
         self.actualizar()
         return self.contenedor
 
     # Cada Pantalla derivada tiene que implementar lo que hace actualizar
     def actualizar(self):
+        pass
+    
+    def salva_datos(self):
+        pass
+
+    def carga_datos(self):
         pass
     
     def on_press(self, contexto):
@@ -62,12 +77,22 @@ class GestorPantallas:
         print(f"[GestorPantallas] Mostrando pantalla: '{pantalla.nombre}'.")
 
     def ir_a(self, nombre):
+        pantalla_actual = self.pantallas[self.indice_actual] 
+            # Salva datos de la pantalla actual si corresponde
+        if pantalla_actual and hasattr(pantalla_actual, "salva_datos"):
+            pantalla_actual.salva_datos()
         for i, p in enumerate(self.pantallas):
             if p.nombre == nombre:
                 if self.indice_actual != -1:
                     self.historial.append(self.indice_actual) # guardo la pantalla desde la que vengo
                 self.indice_actual = i
+
+                # Carga datos en la nueva pantalla si corresponde
+                pantalla_actual = self.pantallas[self.indice_actual] 
+                if hasattr(pantalla_actual, "carga_datos"):
+                    pantalla_actual.carga_datos()
                 self.mostrar_pantalla_actual()
+
                 return
         print(f"[GestorPantallas] Pantalla '{nombre}' no encontrada.")
 

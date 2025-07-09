@@ -10,15 +10,14 @@ from toga.style import Pack
 from toga.style.pack import COLUMN, ROW, RIGHT, LEFT, CENTER
 
 from .config import DEBUG
-from .gestor_contextos import EstadoContexto, Contexto, GestorContextos
-from .gestor_pantallas import GestorPantallas, Pantalla
+from .gestor_contextos import *
+from .gestor_pantallas import *
 from .gestor_iconos import GestorIconos
-from .pantallas import PantallaInicio, PantallaGrupo, PantallaAlumnos, PantallaActividades
-from .pantallas import PantallaProblemas, PantallaRecomendaciones, PantallaFichaGrupo
+from .pantallas import *
 from .gestores_app import GestoresApp
 from .gestor_ontología import GestorOntologia, Actividades, Contextos, Alumnos
 from .gestor_experto import GestorExperto
-from .contextos import ContextoGrupo
+from .contextos import *
 from .gestor_recomendaciones import GestorRecomendaciones
 from collections import defaultdict
      
@@ -46,9 +45,11 @@ class AikidoTraining(toga.App):
         GestoresApp.set_pantallas(self.gestor_pantallas)
         GestoresApp.set_contextos(self.gestor_contextos)
         GestoresApp.set_ontologia(self.gestor_ontología)
+        GestoresApp.set_sistema_experto(GestorExperto())
+
 
         # VERIFICAR EL FUNCIONAMIENTO DEL SISTEMA EXPERTO DE RECOMENDACIONES
-        self.verificar_sistema_Experto()
+        # self.verificar_sistema_Experto()
 
         self.gestor_contextos.ir_a_contexto("inicio")
         self.gestor_pantallas.ir_a("inicio")
@@ -69,6 +70,15 @@ class AikidoTraining(toga.App):
         pantalla_problemas = PantallaProblemas("problemas")
         pantalla_recomendaciones = PantallaRecomendaciones("recomendaciones")
         pantalla_ficha_grupo = PantallaFichaGrupo("ficha_grupo")    
+        pantalla_rcm_detalles = PantallaRcmDetalles("rcm_detalles")
+        pantalla_rcm_datos = PantallaRcmDatos("rcm_datos")
+        pantalla_rcm_filtros_1 = PantallaRcmFiltros_1("rcm_filtros_1")
+        pantalla_rcm_filtros_2 = PantallaRcmFiltros_2("rcm_filtros_2")
+        pantalla_rcm_actividades_1 = PantallaRcmActividades_1("rcm_actividades_1")
+        pantalla_rcm_actividades_2 = PantallaRcmActividades_2("rcm_actividades_2")
+        pantalla_rcm_datos_alta = PantallaRcmDatos_alta("rcm_datos_alta")
+        pantalla_rcm_filtros_1_alta = PantallaRcmFiltros_1_alta("rcm_filtros_1_alta")
+        pantalla_rcm_filtros_2_alta = PantallaRcmFiltros_2_alta("rcm_filtros_2_alta")
 
         self.gestor_pantallas.agregar_pantalla(pantalla_inicio)
         self.gestor_pantallas.agregar_pantalla(pantalla_grupo)
@@ -77,7 +87,15 @@ class AikidoTraining(toga.App):
         self.gestor_pantallas.agregar_pantalla(pantalla_problemas)
         self.gestor_pantallas.agregar_pantalla(pantalla_recomendaciones)
         self.gestor_pantallas.agregar_pantalla(pantalla_ficha_grupo)
-
+        self.gestor_pantallas.agregar_pantalla(pantalla_rcm_detalles)
+        self.gestor_pantallas.agregar_pantalla(pantalla_rcm_datos)
+        self.gestor_pantallas.agregar_pantalla(pantalla_rcm_filtros_1)
+        self.gestor_pantallas.agregar_pantalla(pantalla_rcm_filtros_2)
+        self.gestor_pantallas.agregar_pantalla(pantalla_rcm_actividades_1)
+        self.gestor_pantallas.agregar_pantalla(pantalla_rcm_actividades_2)
+        self.gestor_pantallas.agregar_pantalla(pantalla_rcm_datos_alta)
+        self.gestor_pantallas.agregar_pantalla(pantalla_rcm_filtros_1_alta)
+        self.gestor_pantallas.agregar_pantalla(pantalla_rcm_filtros_2_alta)
 
         self.contextos = [
             Contexto("inicio", 
@@ -91,10 +109,14 @@ class AikidoTraining(toga.App):
                      EstadoContexto.INACTIVO),
             Contexto("problemas", 
                      EstadoContexto.INACTIVO),
-            Contexto("recomendaciones", 
+            ContextoRecomendaciones("recomendaciones", 
                      EstadoContexto.INACTIVO),
             Contexto("ficha_grupo", 
-                     EstadoContexto.INACTIVO)
+                     EstadoContexto.INACTIVO),
+            ContextoActividadRecomendada("actividad_recomendada",
+               EstadoContexto.INACTIVO),
+            ContextoRecomendaciones_alta("recomendaciones_alta", 
+                     EstadoContexto.INACTIVO),                            
         ]
         # Inicializar el gestor de contextos
         self.gestor_contextos=GestorContextos(self.contextos)

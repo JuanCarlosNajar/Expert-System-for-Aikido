@@ -100,7 +100,7 @@ class GestorContextos:
         if self.historial:
             self.contexto_actual=self.historial.pop()
 
-    # Es igual que ir_a_contexto pero si cambiar el contexto actual
+    # Es igual que ir_a_contexto pero si actualizar el historial
     def get_contexto(self, nombre_contexto):
         for ctx in self.contextos:
             if ctx.nombre == nombre_contexto:
@@ -118,6 +118,17 @@ class GestorContextos:
         else:
             pantalla = self.contexto_actual.pantalla
         return pantalla
+    
+    def get_objetos(self, nombre_contexto=None):
+        if nombre_contexto:
+            for ctx in self.contextos:
+                if ctx.nombre == nombre_contexto:
+                    return ctx.objetos
+            print(f"[ERROR] Objetos para el contexto '{nombre_contexto}' no encontrados.")
+            objetos = None
+        else:
+            objetos = self.contexto_actual.objetos
+        return objetos  
 
     def ir_siguiente(self):
         if self.contexto_actual:

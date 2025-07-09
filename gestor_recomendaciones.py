@@ -98,6 +98,12 @@ class Recomendaciones:
         self.ontologia = ontologia
         self.actual =  None
 
+    def instances(self):
+        """
+        Devuelve una lista de instancias de Recomendaciones_realizadas
+        """
+        return self.recomendaciones.instances()
+    
     # Devuelve la instancia de una recomendación, None si no la encuentra
     # y actualiza la recomendación actual
     def buscar(self, id):
@@ -108,6 +114,14 @@ class Recomendaciones:
         self.actual = None
         return self.actual
 
+    # Devuelve el identificador de la recomendación actual
+    def get_id(self):
+        if self.actual:
+            if DEBUG:
+                print(f"ID de la recomendación actual: {self.actual.name}")
+            return self.actual.name
+        return None
+    
     # Crea una nueva recomendación con un identificador único
     # si ya existe devuelve None
     def crear(self):
@@ -234,6 +248,7 @@ class Recomendaciones:
                 self.motivo(datos.get("motivo", None))
                 self.observaciones(datos.get("observaciones", None))
             return {
+                "id": self.get_id(),
                 "descripcion": self.descripcion(),
                 "evaluacion": self.evaluacion(),
                 "fecha_creacion": self.fecha_creacion(),
@@ -243,6 +258,17 @@ class Recomendaciones:
                 "observaciones": self.observaciones()
             }
         return None
+    def crea_datos(self):
+        return {
+                "id": "",
+                "descripcion": "",
+                "evaluacion": "",
+                "fecha_creacion": "",
+                "fecha_evaluacion": "",
+                "fecha_modificacion": "",
+                "motivo": "",
+                "observaciones": ""
+            }
     
     # Si se proporcionan los criterios de la recomendación los actualiza
     # si no devuelve los criterios actuales
@@ -294,10 +320,9 @@ class Recomendaciones:
 
                 # MODALIDADES
                 # Registro las modalidades de la recomendación
-                onto_modalidades = self.ontologia.Modalidad_actividades
                 lista_modalidades = []
                 for modalidad in criterios.get("modalidades", []):
-                    m = onto_modalidades.buscar(modalidad)
+                    m = self.buscar_modalidad(modalidad)
                     if m:
                         lista_modalidades.append(m)
                 self.actual.rcm_tiene_modalidad = lista_modalidades
@@ -305,14 +330,28 @@ class Recomendaciones:
             else: # si no se proporcionan los criterios devuelve los actuales              
                 return {
                 "grupo": self.grupo(),
-                "alumnos": [alumno.name for alumno in self.actual.rcm_tiene_alumno.instances()],
-                "contextos": [contexto.name for contexto in self.actual.rcm_tiene_contexto.instances()],
-                "fundamentos": [fundamento.name for fundamento in self.actual.rcm_tiene_fundamento.instances()],
-                "objetivos": [objetivo.name for objetivo in self.actual.rcm_tiene_objetivo.instances()],
-                "modalidades": [modalidad.name for modalidad in self.actual.rcm_tiene_modalidad.instances()]
+                "alumnos": [alumno.name for alumno in self.actual.rcm_tiene_alumno],
+                "contextos": [contexto.name for contexto in self.actual.rcm_tiene_contexto],
+                "fundamentos": [fundamento.name for fundamento in self.actual.rcm_tiene_fundamento],
+                "objetivos": [objetivo.name for objetivo in self.actual.rcm_tiene_objetivo],
+                "modalidades": [modalidad.name for modalidad in self.actual.rcm_tiene_modalidad]
                 }
         return None
-    
+    def buscar_modalidad(self,id):
+        onto_modalidades = self.ontologia.Modalidad_actividades
+        for modalidad in onto_modalidades.instances():
+            if modalidad.name == id:
+                return modalidad
+        return None
+    def crear_criterios(self):
+        return {
+                "grupo": "",
+                "alumnos": [],
+                "contextos": [],
+                "fundamentos": [],
+                "objetivos": [],
+                "modalidades": []
+                }
     def set_recomendaciones(self, recomendaciones):
         if self.actual:
             devolver = True
@@ -333,7 +372,7 @@ class Recomendaciones:
             devolver = False
         return devolver
 
-    def get_recomendaciones(self):
+    def get_actividades_recomendadas(self):
         """
         Devuelve una lista de recomendaciones en la forma:
         [[actividad, contexto, [alumno1, alumno2, ...]], ...]
@@ -354,7 +393,7 @@ class Recomendaciones:
                     contexto = arc.arc_tiene_contexto[0].name if hasattr(arc, "arc_tiene_contexto") and arc.arc_tiene_contexto else None
                     # Obtener alumnos
                     alumnos = [alumno.name for alumno in getattr(arc, "arc_tiene_alumno", [])]
-                    resultado.append([actividad, contexto, alumnos])
+                    resultado.append([actividad, contexto, alumnos, arc.name])
         return resultado
 
 class GestorRecomendaciones:
@@ -389,6 +428,17 @@ class GestorRecomendaciones:
             self.sistema_experto = sistema_experto
         return self.sistema_experto  
     
+    def get_recomendaciones_obj(self, recomendaciones = None):
+        """
+        Si se especifica un objeto de tipo Recomendaciones lo enlaza con él
+        en todo caso devuelve el objeto de tipo Recomendaciones con el que está enlazado
+        """
+        if recomendaciones:
+            self.recomendaciones = recomendaciones
+        else:
+            print("RECOMENDACIONES NO INICIALIZADAS")
+        return self.recomendaciones
+    
     # Método para genera recomendaciones en base a unos criterios
     def generar_recomendaciones(self, criterios):
         if not self.sistema_experto:
@@ -400,8 +450,8 @@ class GestorRecomendaciones:
     # Hace un commit de todos los cambios realizados en la ontología
     def salvar(self):
         if self.ontologia:
-           # self.ontologia.save()
-            return False
+          # self.ontologia.save()
+          return False
 
     # Método para crear una nueva recomendación en la ontología
     # Recomendación: [datos, criterios, recomendaciones]
@@ -432,9 +482,108 @@ class GestorRecomendaciones:
         recomendacion = []
         rcm = self.recomendaciones.buscar(id)
         if rcm:
-            recomendacion = self.recomendaciones.get_recomendaciones()  # obtiene las recomendaciones asociadas a la recomendación
+            recomendacion = self.recomendaciones.get_actividades_recomendadas()  # obtiene las actividades recomendadas asociadas a la recomendación
         return recomendacion
 
-     
+    # Método para leer una recomendación desde la ontología
+    # id = identificador de la recomendación en la ontología
+    def leer_datos_recomendación(self, id):
+        if DEBUG:
+            print("Leyendo recomendación con id:", id)
+        datos_recomendacion = []
+        rcm = self.recomendaciones.buscar(id)
+        if rcm:
+            
+            # self.recomendaciones -> recomendación.id == id
+            datos = self.leer_datos() 
+            criterios = self.leer_criterios()
+            actividades_recomendadas = self.leer_actividades_recomendadas()
 
-  
+            datos_recomendacion = {"datos":datos, "criterios":criterios, "actividades":actividades_recomendadas}
+        return datos_recomendacion
+    
+    # LEER LOS METADATOS DE LA RECOMENDACIÓN (fecha_creación, fecha_modificación, etc.)
+    # REQUISITO: ANTES DE LLAMARLO HAY QUE HACER self.recomendaciones.buscar(id)
+    def leer_datos(self):
+        # self.recomendaciones es un objeto Recomendaciones(ontologia)
+        """
+        datos = {
+                "id", "descripcion", "evaluacion","fecha_creacion", "fecha_evaluacion",
+                "fecha_modificacion","motivo", "observaciones"
+                }
+        """
+        return self.recomendaciones.datos()
+
+    # LEER LOS CRITERIOS SOBRE LOS QUE SE GENERÓ LA RECOMENDACIÓN (grupo, alumnos, contextos, etc.)
+    # REQUISITO: ANTES DE LLAMARLO HAY QUE HACER self.recomendaciones.buscar(id)
+    def leer_criterios(self):
+        # self.recomendaciones es un objeto Recomendaciones(ontologia)
+        """
+        criterios = {
+                    "grupo", "alumnos", "contextos", "fundamentos",
+                    "objetivos", "modalidades"
+                }
+        """
+        return self.recomendaciones.criterios()
+    
+    # LEER LAS ACTIVIDADES RECOMENDADAS GENERADAS PARA ESTA RECOMENDACIÓN
+    # REQUISITO: ANTES DE LLAMARLO HAY QUE HACER self.recomendaciones.buscar(id)
+    def leer_actividades_recomendadas(self):
+        actividades = Actividades(self.ontologia)
+        actividades_recomendadas = []
+        lista_arc = self.recomendaciones.get_actividades_recomendadas()
+        """
+        lista_Arc = [
+                        [actividad, contexto, alumnos, arc.name]
+                    ]
+        """
+        for arc in lista_arc:
+            arc_datos = {"id":arc[3],"nombre":arc[0],"contexto":arc[1],"alumnos":arc[2]}
+            actividad = actividades.actividad(arc[0])
+            if actividad:
+                arc_actividad = {"beneficio":actividad.tiene_beneficio[0] if actividad.tiene_beneficio else "",
+                                 "desarrollo":actividad.tiene_desarrollo[0] if actividad.tiene_desarrollo else ""}
+
+            else:
+                arc_actividad = {}
+            actividades_recomendadas.append({"datos":arc_datos, "actividad":arc_actividad})
+        return actividades_recomendadas
+    
+    def get_instances(self):
+        """
+        Devuelve una lista de instancias de Recomendaciones_realizadas
+        """
+        return self.recomendaciones.instances() if self.recomendaciones else []
+    
+    def crear_datos_recomendacion(self):
+        datos = self.crear_datos() 
+        criterios = self.crear_criterios()
+        actividades_recomendadas = [] # la creo vacia por que se añadirán en el momento de creación
+        datos_recomendacion = {"datos":datos, "criterios":criterios, "actividades":actividades_recomendadas}
+        return datos_recomendacion
+    
+    def crear_datos(self):
+        # self.recomendaciones es un objeto Recomendaciones(ontologia)
+        """
+        datos = {
+                "id", "descripcion", "evaluacion","fecha_creacion", "fecha_evaluacion",
+                "fecha_modificacion","motivo", "observaciones"
+                }
+        """
+        return self.recomendaciones.crea_datos()
+
+
+    def crear_criterios(self):
+        # self.recomendaciones es un objeto Recomendaciones(ontologia)
+        """
+        criterios = {
+                    "grupo", "alumnos", "contextos", "fundamentos",
+                    "objetivos", "modalidades"
+                }
+        """
+        return self.recomendaciones.crear_criterios()
+
+    def crear_actividades_recomendadas(self):
+        arc_actividad = {"beneficio":"","desarrollo":""}
+        arc_datos = {"id":"","nombre":"","contexto":"","alumnos":[]}
+        return {"datos":arc_datos, "actividad":arc_actividad}

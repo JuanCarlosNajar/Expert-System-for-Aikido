@@ -679,8 +679,38 @@ Se trata de un identificador único que identifica a la actividad recomendada.</
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Parte operativa o de gestión, más orientada a la organización escolar (alumnos, horarios, sesiones) que a los conceptos del arte marcial en sí.</rdfs:comment>
 </owl:Class>
 
+<owl:Class rdf:about="#Aikido"/>
+
 <owl:Class rdf:about="#Recomendaciones">
   <rdfs:subClassOf rdf:resource="#Enseñanza"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Fundamentos_valores">
+  <rdfs:subClassOf rdf:resource="#Fundamentos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fundamentos éticos y morales desarrollados por la práctica del Aikido.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Fundamentos_sociales_y_emocionales">
+  <rdfs:subClassOf rdf:resource="#Fundamentos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fundamentos para el desarrollo emocional y social de los individuos.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Fundamentos_tecnicos">
+  <rdfs:subClassOf rdf:resource="#Fundamentos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Contiene todos los fundamentos, conceptos, clases y entidades propias de la parte técnica de Aikido.</rdfs:comment>
+</owl:Class>
+
+<owl:Class rdf:about="#Conceptos_técnicos">
+  <rdfs:subClassOf rdf:resource="#Fundamentos_tecnicos"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Contextos">
+  <rdfs:subClassOf rdf:resource="#Problematicas"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Fundamentos_fisicos">
+  <rdfs:subClassOf rdf:resource="#Fundamentos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fundamentos para el desarrollo corporal de los alumnos.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="#Actividades_técnicas">
@@ -697,17 +727,6 @@ Se trata de un identificador único que identifica a la actividad recomendada.</
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tipos de ataque</rdfs:comment>
 </owl:Class>
 
-<owl:Class rdf:about="#Aikido"/>
-
-<owl:Class rdf:about="#Conceptos_técnicos">
-  <rdfs:subClassOf rdf:resource="#Fundamentos_tecnicos"/>
-</owl:Class>
-
-<owl:Class rdf:about="#Fundamentos_fisicos">
-  <rdfs:subClassOf rdf:resource="#Fundamentos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fundamentos para el desarrollo corporal de los alumnos.</rdfs:comment>
-</owl:Class>
-
 <owl:Class rdf:about="#Capacidades_físicas_básicas">
   <rdfs:subClassOf rdf:resource="#Capacidades_físicas"/>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Son aquellas que determinan directamente el nivel de rendimiento físico del individuo y dependen fundamentalmente de los procesos energéticos y metabólicos del organismo.</rdfs:comment>
@@ -718,18 +737,9 @@ Se trata de un identificador único que identifica a la actividad recomendada.</
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Son aquellas que regulan y organizan el movimiento, permitiendo una ejecución eficaz, económica y adaptada a diferentes situaciones. Dependen más del sistema nervioso central.</rdfs:comment>
 </owl:Class>
 
-<owl:Class rdf:about="#Fundamentos_tecnicos">
-  <rdfs:subClassOf rdf:resource="#Fundamentos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Contiene todos los fundamentos, conceptos, clases y entidades propias de la parte técnica de Aikido.</rdfs:comment>
-</owl:Class>
-
 <owl:Class rdf:about="#Contexto_condición_física">
   <rdfs:subClassOf rdf:resource="#Contextos"/>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Indica en qué condición o estado físico se encuentra el alumno</rdfs:comment>
-</owl:Class>
-
-<owl:Class rdf:about="#Contextos">
-  <rdfs:subClassOf rdf:resource="#Problematicas"/>
 </owl:Class>
 
 <owl:Class rdf:about="#Contexto_discapacidades">
@@ -873,16 +883,6 @@ Se trata de un identificador único que identifica a la actividad recomendada.</
 <owl:Class rdf:about="#Funciones_voz_y_habla">
   <rdfs:subClassOf rdf:resource="#Funciones_corporales"/>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Funciones implicadas en la producción de sonidos y del habla.</rdfs:comment>
-</owl:Class>
-
-<owl:Class rdf:about="#Fundamentos_sociales_y_emocionales">
-  <rdfs:subClassOf rdf:resource="#Fundamentos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fundamentos para el desarrollo emocional y social de los individuos.</rdfs:comment>
-</owl:Class>
-
-<owl:Class rdf:about="#Fundamentos_valores">
-  <rdfs:subClassOf rdf:resource="#Fundamentos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fundamentos éticos y morales desarrollados por la práctica del Aikido.</rdfs:comment>
 </owl:Class>
 
 <owl:Class rdf:about="#Golpes">
@@ -1572,6 +1572,22 @@ Por ejemplo: Se fatiga fácilmente. No mantiene el esfuerzo.</rdfs:comment>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tiene afectadas las rodillas.</rdfs:comment>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="#impacto_lesión_rodilla_b280_d2">
+  <rdf:type rdf:resource="#Impactos"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#impacto_lesión_rodilla_b710_d3">
+  <rdf:type rdf:resource="#Impactos"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#impacto_lesión_rodilla_b715_d3">
+  <rdf:type rdf:resource="#Impactos"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#impacto_lesión_rodilla_b780_d3">
+  <rdf:type rdf:resource="#Impactos"/>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="#alumno_03">
   <rdf:type rdf:resource="#Alumnos"/>
   <es_alumno_de rdf:resource="#grupo_A"/>
@@ -1665,11 +1681,674 @@ Por ejemplo: Se fatiga fácilmente. No mantiene el esfuerzo.</rdfs:comment>
   <rdf:type rdf:resource="#Apartados_clase"/>
 </owl:NamedIndividual>
 
+<owl:NamedIndividual rdf:about="#arc_0c19260b-2458-48a1-8020-ef021cc53bda">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#técnica_reactiva"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#técnica_reactiva">
+  <rdf:type rdf:resource="#Actividades_técnicas"/>
+  <act_tiene_dificultad rdf:resource="#Alto"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_técnicos"/>
+  <act_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
+  <act_tiene_objetivo rdf:resource="#obj_desarrollar_respuesta_espontanea"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El instructor o compañero cambia la energía o dirección del ataque (por ejemplo, empuje fuerte o suave), y el alumno debe elegir una técnica adecuada en función del estímulo.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#género_mujer">
+  <rdf:type rdf:resource="#Clasificaciones"/>
+  <rdf:type rdf:resource="#Contexto_género"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b760_f3"/>
+  <tiene_género rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mujer</tiene_género>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ser del género mujer.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c">
+  <rdf:type rdf:resource="#Recomendaciones_realizadas"/>
+  <rcm_tiene_alumno rdf:resource="#alumno_03"/>
+  <rcm_tiene_alumno rdf:resource="#alumno_04"/>
+  <rcm_tiene_contexto rdf:resource="#género_mujer"/>
+  <rcm_tiene_descripción rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CASO 14</rcm_tiene_descripción>
+  <rcm_tiene_evaluación rdf:datatype="http://www.w3.org/2001/XMLSchema#string">defectuosa</rcm_tiene_evaluación>
+  <rcm_tiene_fecha_creación rdf:datatype="http://www.w3.org/2001/XMLSchema#string">23/05/2025</rcm_tiene_fecha_creación>
+  <rcm_tiene_fecha_evaluación rdf:datatype="http://www.w3.org/2001/XMLSchema#string">01/07/2025</rcm_tiene_fecha_evaluación>
+  <rcm_tiene_fecha_modificación rdf:datatype="http://www.w3.org/2001/XMLSchema#string">05/07/2025</rcm_tiene_fecha_modificación>
+  <rcm_tiene_motivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mis motivos tendré</rcm_tiene_motivo>
+  <rcm_tiene_observaciones rdf:datatype="http://www.w3.org/2001/XMLSchema#string">observo mucho</rcm_tiene_observaciones>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#fundamentos_técnicos">
+  <rdf:type rdf:resource="#Tipos_fundamentos"/>
+  <usa_capacidad rdf:resource="#capacidad_actitud"/>
+  <usa_capacidad rdf:resource="#capacidad_adaptación"/>
+  <usa_capacidad rdf:resource="#capacidad_comprensión_táctica"/>
+  <usa_capacidad rdf:resource="#capacidad_concentración"/>
+  <usa_capacidad rdf:resource="#capacidad_coordinación"/>
+  <usa_capacidad rdf:resource="#capacidad_equilibrio"/>
+  <usa_capacidad rdf:resource="#capacidad_memoria_motriz"/>
+  <usa_capacidad rdf:resource="#capacidad_orientación"/>
+  <usa_capacidad rdf:resource="#capacidad_principios"/>
+  <usa_capacidad rdf:resource="#capacidad_ritmo"/>
+  <usa_capacidad rdf:resource="#capacidad_tiempo_reacción"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_desarrollar_respuesta_espontanea">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desarrollar la capacidad de respuesta espontánea ante estímulos inesperados</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#impacto_e11a12_b760_f3">
+  <rdf:type rdf:resource="#Impactos"/>
+  <edad rdf:resource="#e11a12"/>
+  <funcion rdf:resource="#b760"/>
+  <impacto rdf:resource="#f3"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#capacidad_actitud">
+  <rdf:type rdf:resource="#Capacidades_técnicas"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de mantener una actitud marcial correcta, con una actitud corporal correcta, y concentrado en la ejecución.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#capacidad_adaptación">
+  <rdf:type rdf:resource="#Capacidades_técnicas"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de adaptarse a uke y a las circunstancias del momento.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#capacidad_comprensión_táctica">
+  <rdf:type rdf:resource="#Capacidades_técnicas"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de cuándo aplicar qué técnica</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#capacidad_concentración">
+  <rdf:type rdf:resource="#Capacidades_técnicas"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de estar concentrado en la ejecución de la técnica.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#capacidad_coordinación">
+  <rdf:type rdf:resource="#Capacidades_técnicas"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de coordinar todos los elementos corporales implicados en la ejecución.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#capacidad_equilibrio">
+  <rdf:type rdf:resource="#Capacidades_técnicas"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de mantener un correcto equilibrio en la realización de los ejercicios.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#capacidad_memoria_motriz">
+  <rdf:type rdf:resource="#Capacidades_técnicas"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de recordar la secuencia de movimientos de la técnica.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#capacidad_orientación">
+  <rdf:type rdf:resource="#Capacidades_técnicas"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad necesaria para evitar colisiones, mantener la distancia, etc.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#capacidad_principios">
+  <rdf:type rdf:resource="#Capacidades_técnicas"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de usar correctamente los principios del Aikido: distancia, coordinación, actitud, visión, etc.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#capacidad_ritmo">
+  <rdf:type rdf:resource="#Capacidades_técnicas"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de mantener un ritmo sostenido y adecuado en la realización de la técnica.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#capacidad_tiempo_reacción">
+  <rdf:type rdf:resource="#Capacidades_técnicas"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de reaccionar en el momento adecuado</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#e11a12">
+  <rdf:type rdf:resource="#Clasificaciones"/>
+  <rdf:type rdf:resource="#Contexto_edad"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b117_f3"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b164_f3"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b180_f2"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b210_f3"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b440_f3"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b445_f2"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b730_f3"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b760_f3"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b830_f1"/>
+  <edad_final rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</edad_final>
+  <edad_inicial rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</edad_inicial>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Edad ente 11 y 12 años, última etapa de primaria</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#f3">
+  <rdf:type rdf:resource="#Facilitador_fuerte"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_0cdfdcf0-eb37-43d4-b204-bbdc92ab8689">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#técnica_en_espejo"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#técnica_en_espejo">
+  <rdf:type rdf:resource="#Actividades_técnicas"/>
+  <act_tiene_dificultad rdf:resource="#Medio"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_técnicos"/>
+  <act_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
+  <act_tiene_objetivo rdf:resource="#obj_mejorar_coordinacion_observacion"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El alumno ejecuta una técnica básica (por ejemplo, ikkyo omote) frente a un compañero que hace de espejo, imitando el movimiento.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_mejorar_coordinacion_observacion">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mejorar la coordinación con un compañero y la capacidad de observación e imitación</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_150f8323-6fba-47b1-bc48-cbde4da0b0fa">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#encadenamiento_técnicas"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#encadenamiento_técnicas">
+  <rdf:type rdf:resource="#Actividades_técnicas"/>
+  <act_tiene_dificultad rdf:resource="#Medio"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_técnicos"/>
+  <act_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
+  <act_tiene_objetivo rdf:resource="#obj_desarrollar_fluidez_memoria_motriz"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Realización secuencial de tres técnicas básicas (por ejemplo, ikkyo, shihonage, iriminage) de forma fluida, con cambios al ritmo de una señal sonora.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_desarrollar_fluidez_memoria_motriz">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desarrollar fluidez en la transición entre técnicas y mejorar la memoria motriz</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_1a84a897-d272-486a-957d-891e9fcafa0b">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#desplazamientos_en_shikko_girando"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#desplazamientos_en_shikko_girando">
+  <rdf:type rdf:resource="#Actividades_técnicas"/>
+  <act_tiene_contraindicación rdf:resource="#lesión_rodilla"/>
+  <act_tiene_dificultad rdf:resource="#Medio"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_técnicos"/>
+  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
+  <act_tiene_objetivo rdf:resource="#obj_mejorar_desplazamientos_rodillas_postura"/>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desplazarse en shikko, avanzando hacia adelante y ejecutando un giro 360º, hasta llegar al límite del tatami.</tiene_desarrollo>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desplazarse en shikko, avanzando hacia adelante y ejecutando un giro 360º, hasta llegar al límite del tatami.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_mejorar_desplazamientos_rodillas_postura">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mejorar los desplazamientos re rodillas y el control postural</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_1d108d06-9514-49c4-8bc1-295a733447b6">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#el_oso_y_el_cangrejo"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#el_oso_y_el_cangrejo">
+  <rdf:type rdf:resource="#Actividades_fisicas"/>
+  <act_tiene_dificultad rdf:resource="#Bajo"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_físicos"/>
+  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
+  <act_tiene_objetivo rdf:resource="#obj_desarrollar_fuerza_tronco_brazos"/>
+  <act_tiene_objetivo rdf:resource="#obj_estimular_coordinacion_general"/>
+  <usa_capacidad rdf:resource="#fuerza"/>
+  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mejora fuerza funcional y coordinación</tiene_beneficio>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carrera en cuadrupedia frontal (oso) o supina (cangrejo)</tiene_desarrollo>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El oso y el cangrejo</tiene_nombre>
+  <tiene_objetivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desarrollar fuerza general</tiene_objetivo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#fundamentos_físicos">
+  <rdf:type rdf:resource="#Tipos_fundamentos"/>
+  <usa_capacidad rdf:resource="#flexibilidad"/>
+  <usa_capacidad rdf:resource="#fuerza"/>
+  <usa_capacidad rdf:resource="#resistencia"/>
+  <usa_capacidad rdf:resource="#velocidad"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fundamentos para la mejora física de las personas</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_desarrollar_fuerza_tronco_brazos">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mejorar fuerza en brazos, core y piernas</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_estimular_coordinacion_general">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Estimular la coordinación general y lateralidad</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#fuerza">
+  <rdf:type rdf:resource="#Capacidades_físicas_básicas"/>
+  <usa_funcion rdf:resource="#b710"/>
+  <usa_funcion rdf:resource="#b715"/>
+  <usa_funcion rdf:resource="#b730"/>
+  <usa_funcion rdf:resource="#b765"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Es la capacidad del músculo o de un grupo muscular para vencer una resistencia externa o para oponerse a ella. Es fundamental en casi todas las actividades físicas y deportivas.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#flexibilidad">
+  <rdf:type rdf:resource="#Capacidades_físicas_básicas"/>
+  <usa_funcion rdf:resource="#b710"/>
+  <usa_funcion rdf:resource="#b715"/>
+  <usa_funcion rdf:resource="#b720"/>
+  <usa_funcion rdf:resource="#b735"/>
+  <usa_funcion rdf:resource="#b740"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Es la capacidad de los músculos y articulaciones para realizar movimientos con la máxima amplitud posible, sin sufrir daños. Está influenciada por la elasticidad muscular y la movilidad articular.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#resistencia">
+  <rdf:type rdf:resource="#Capacidades_físicas_básicas"/>
+  <usa_funcion rdf:resource="#b410"/>
+  <usa_funcion rdf:resource="#b440"/>
+  <usa_funcion rdf:resource="#b455"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Es la capacidad del organismo para soportar y oponerse a la fatiga durante esfuerzos prolongados. Permite mantener un nivel de rendimiento durante un tiempo determinado.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#velocidad">
+  <rdf:type rdf:resource="#Capacidades_físicas_básicas"/>
+  <usa_funcion rdf:resource="#b210"/>
+  <usa_funcion rdf:resource="#b260"/>
+  <usa_funcion rdf:resource="#b760"/>
+  <usa_funcion rdf:resource="#b765"/>
+  <usa_funcion rdf:resource="#b770"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Es la capacidad de realizar acciones motrices en el menor tiempo posible. No se refiere solo a la velocidad de desplazamiento, sino también a la velocidad de reacción y a la velocidad de movimiento de segmentos corporales.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b710">
+  <rdf:type rdf:resource="#b710_funciones_movilidad_articulaciones"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b715">
+  <rdf:type rdf:resource="#b715_funciones_estabilidad_articulaciones"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b730">
+  <rdf:type rdf:resource="#b730_funciones_fuerza_muscular"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b765">
+  <rdf:type rdf:resource="#b765_funciones_movimiento_involuntario"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_2b7e39f6-a8d1-4174-be8d-31400adce718">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#desplazamientos_en_shikko_lucha_espadas"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#desplazamientos_en_shikko_lucha_espadas">
+  <rdf:type rdf:resource="#Actividades_técnicas"/>
+  <act_tiene_contraindicación rdf:resource="#lesión_rodilla"/>
+  <act_tiene_dificultad rdf:resource="#Medio"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_técnicos"/>
+  <act_tiene_modalidad rdf:resource="#actividad_grupal"/>
+  <act_tiene_objetivo rdf:resource="#obj_mejorar_desplazamientos_rodillas_postura"/>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Se dispone a medio grupo en un lado del tatami, y al otro medio en el otro. CAda alumno porta una trozo de churro de piscina, a la manera de espada. Cada lado avanza, en shikko, hacia el lado contrario, y en el momento de encuentro realizan una lucha de espadas, para quitarle al contrario la suya y volver a su lado.</tiene_desarrollo>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Se dispone a medio grupo en un lado del tatami, y al otro medio en el otro. CAda alumno porta una trozo de churro de piscina, a la manera de espada. Cada lado avanza, en shikko, hacia el lado contrario, y en el momento de encuentro realizan una lucha de espadas, para quitarle al contrario la suya y volver a su lado.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_45293e38-627c-4c8d-b963-9c3ebafbfedb">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#carrera_a_la_pata_coja"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#carrera_a_la_pata_coja">
+  <rdf:type rdf:resource="#Actividades_valores"/>
+  <act_tiene_dificultad rdf:resource="#Bajo"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_valores"/>
+  <act_tiene_modalidad rdf:resource="#actividad_grupal"/>
+  <act_tiene_modalidad rdf:resource="#actividad_teatralizada"/>
+  <act_tiene_objetivo rdf:resource="#obj_reflexión_sobre_rectitud"/>
+  <usa_capacidad rdf:resource="#rectitud_gi"/>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1) Elegimos a dos alumnos, de similares características, para realizar una carrera a la pata coja.
+2) A parte, le decimos a uno de ellos, que no vaya a la pata coja y corra todo lo que pueda.
+3) Cuando llegue primero, declaramos vencedor al tramposo.
+4)  Iniciamos la discusión:
+- ¿es justo que declare vencedor al tramposo?
+- ¿quién ha actuado bien?</tiene_desarrollo>
+  <tiene_enseñanza rdf:datatype="http://www.w3.org/2001/XMLSchema#string">jugar de forma justa para que todos se diviertan</tiene_enseñanza>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">La carrera a la pata coja</tiene_nombre>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reflexionar sobre la rectitud</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#fundamentos_valores">
+  <rdf:type rdf:resource="#Tipos_fundamentos"/>
+  <usa_capacidad rdf:resource="#compasion_jin"/>
+  <usa_capacidad rdf:resource="#coraje_yu"/>
+  <usa_capacidad rdf:resource="#honestidad_makoto"/>
+  <usa_capacidad rdf:resource="#honor_meiyo"/>
+  <usa_capacidad rdf:resource="#lealtad_chugi"/>
+  <usa_capacidad rdf:resource="#rectitud_gi"/>
+  <usa_capacidad rdf:resource="#respeto_rei"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_reflexión_sobre_rectitud">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fomentar la reflexión crítica sobre la rectitud  y el valor de respetar las normas en situaciones de desigualdad o injusticia aparente.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#rectitud_gi">
+  <rdf:type rdf:resource="#Valores"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#autocontrol"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#autoeficacia"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#responsabilidad"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gi representa la idea de actuar correctamente, tomar decisiones justas y hacer lo que es correcto sin dudar.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#compasion_jin">
+  <rdf:type rdf:resource="#Valores"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#empatía"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#regulación_emocional"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jin es la bondad y la compasión hacia los demás, ser generoso y ayudar cuando sea necesario.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#coraje_yu">
+  <rdf:type rdf:resource="#Valores"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#autocontrol"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#autoeficacia"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#perseverancia"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Yu implica tener el coraje de hacer lo correcto incluso en situaciones difíciles o peligrosas.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#honestidad_makoto">
+  <rdf:type rdf:resource="#Valores"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#responsabilidad"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#trabajo_en_equipo"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Makoto significa ser siempre honesto y sincero en palabras y acciones, sin falsedad ni engaño.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#honor_meiyo">
+  <rdf:type rdf:resource="#Valores"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#autocontrol"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#autoestima"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#responsabilidad"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Meiyo representa el honor, vivir y actuar de una manera que sea digna y que refleje bien en uno mismo y en su comunidad.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#lealtad_chugi">
+  <rdf:type rdf:resource="#Valores"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#empatía"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#responsabilidad"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#trabajo_en_equipo"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chugi implica ser leal y fiel a las personas que te rodean, a tus principios y a tus responsabilidades.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#respeto_rei">
+  <rdf:type rdf:resource="#Valores"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#empatía"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#regulación_emocional"/>
+  <desarrolla_habilidad_social_emocional rdf:resource="#trabajo_en_equipo"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rei se refiere a la cortesía, el respeto hacia los demás y la manera de tratar a las personas con dignidad.</rdfs:comment>
+</owl:NamedIndividual>
+
 <owl:NamedIndividual rdf:about="#autocontrol">
   <rdf:type rdf:resource="#Habilidades_sociales_y_emocionales"/>
   <usa_funcion rdf:resource="#b130"/>
   <usa_funcion rdf:resource="#b152"/>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de manejar emociones y controlar impulsos</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#autoeficacia">
+  <rdf:type rdf:resource="#Habilidades_sociales_y_emocionales"/>
+  <usa_funcion rdf:resource="#b126"/>
+  <usa_funcion rdf:resource="#b164"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Creencia en la propia capacidad para lograr objetivos</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#responsabilidad">
+  <rdf:type rdf:resource="#Habilidades_sociales_y_emocionales"/>
+  <usa_funcion rdf:resource="#b126"/>
+  <usa_funcion rdf:resource="#b164"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de ser confiable y cumplir con las obligaciones.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_4daf55ea-714a-4409-a198-85fb14fb69c7">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#secuencia_ciega"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#secuencia_ciega">
+  <rdf:type rdf:resource="#Actividades_técnicas"/>
+  <act_tiene_dificultad rdf:resource="#Alto"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_técnicos"/>
+  <act_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
+  <act_tiene_objetivo rdf:resource="#obj_fomentar_atencion_sensopercepcion"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El alumno realiza una secuencia aprendida (3 técnicas) con los ojos cerrados o vendados, guiado solo por la voz del uke o del instructor.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_fomentar_atencion_sensopercepcion">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fomentar la conciencia corporal y la atención sin depender de la visión</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_5083e148-696e-43d7-891c-f3e7f5052ad9">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#empuje_de_sumo"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#empuje_de_sumo">
+  <rdf:type rdf:resource="#Actividades_fisicas"/>
+  <act_tiene_beneficio rdf:resource="#b730"/>
+  <act_tiene_beneficio rdf:resource="#b735"/>
+  <act_tiene_dificultad rdf:resource="#Medio"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_físicos"/>
+  <act_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
+  <act_tiene_objetivo rdf:resource="#obj_mejorar_equilibrio_estrategia"/>
+  <act_tiene_objetivo rdf:resource="#obj_potenciar_fuerza_maxima"/>
+  <usa_capacidad rdf:resource="#fuerza"/>
+  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fortalece piernas, brazos y equilibrio postural</tiene_beneficio>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En parejas, intentan empujarse fuera de un círculo con el torso recto</tiene_desarrollo>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Empuje de sumo</tiene_nombre>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b735">
+  <rdf:type rdf:resource="#b735_funciones_tonto_muscular"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_mejorar_equilibrio_estrategia">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Trabajar la estrategia y el equilibrio</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_potenciar_fuerza_maxima">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Potenciar la fuerza máxima y control del centro de gravedad</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_52772de4-b1ea-46e1-b9c3-af3939a3b4f7">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#el_reparto_de_los_dulces"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#el_reparto_de_los_dulces">
+  <rdf:type rdf:resource="#Actividades_valores"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_valores"/>
+  <act_tiene_modalidad rdf:resource="#actividad_grupal"/>
+  <act_tiene_modalidad rdf:resource="#actividad_teatralizada"/>
+  <act_tiene_objetivo rdf:resource="#obj_reflexión_equidad_responsabilidad"/>
+  <tiene_valor rdf:resource="#rectitud_gi"/>
+  <usa_capacidad rdf:resource="#rectitud_gi"/>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1) Hacemos dos equipos
+2) Elegimos a un miembro de uno de los equipos para repartir los caramelos
+3) Le pedimos (aparte, sin que lo escuchen los compañeros) que reparta los caramelos dando un caramelo a cada uno, pero que a los de su equipo les dé dos caramelos, en lugar de uno.
+4) Iniciar la discusión: 
+ - ¿les parece que ha actuado bien? 
+- ¿cómo debería haberlo hecho? 
+- ¿qué harían ellos?
+
+Variantes: 
+- Hay caramelos para todos
+- No hay caramelos para todos
+- Hay un caramelo para todos, y sobran algunos más</tiene_desarrollo>
+  <tiene_enseñanza rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Justicia es tratar a todos por igual.</tiene_enseñanza>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El reparto de los dulces</tiene_nombre>
+  <usa_materiales rdf:datatype="http://www.w3.org/2001/XMLSchema#string">caramelos</usa_materiales>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_reflexión_equidad_responsabilidad">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Favorecer la reflexión sobre la equidad, el trato justo entre iguales y la importancia de actuar con imparcialidad cuando se tiene una responsabilidad sobre los demás.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_58eb3299-e755-4d7d-815b-adc4cd26e939">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#la_carrera"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#la_carrera">
+  <rdf:type rdf:resource="#Actividades_valores"/>
+  <act_tiene_dificultad rdf:resource="#Bajo"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_valores"/>
+  <act_tiene_modalidad rdf:resource="#actividad_grupal"/>
+  <act_tiene_modalidad rdf:resource="#actividad_teatralizada"/>
+  <act_tiene_objetivo rdf:resource="#obj_reflexión_equidad_igualdad"/>
+  <usa_capacidad rdf:resource="#rectitud_gi"/>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1) Elegimos a tres alumnos: uno más mayor y rápido, otro menos rápido, y otro de los más pequeños.
+2) Planteamos dos situaciones:
+- La primera, los tres parten desde la misma posición, salen corriendo y tienen que llegar al otro extremo.
+-  La segunda, se le da una ventaja al menos rápido y una ventaja mayor al más pequeño.
+3) Iniciar la discusión:
+    ¿Qué situación es más justa, la primera o la segunda?</tiene_desarrollo>
+  <tiene_enseñanza rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Justicia es darle a cada uno lo que necesita y que esto, muchas veces implica, no darles lo mismo a todos en cada momento.</tiene_enseñanza>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">La carrera</tiene_nombre>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1) Elegimos a tres alumnos: uno más mayor y rápido, otro menos rápido, y otro de los más pequeños.
+2) Planteamos dos situaciones:
+- La primera, los tres parten desde la misma posición, salen corriendo y tienen que llegar al otro extremo.
+-  La segunda, se le da una ventaja al menos rápido y una ventaja mayor al más pequeño.
+3) Iniciar la discusión:
+    ¿Qué situación es más justa, la primera o la segunda?</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_reflexión_equidad_igualdad">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fomentar la reflexión sobre el valor de la equidad frente a la igualdad, y comprender que la justicia puede implicar adaptar las condiciones para que todos tengan las mismas oportunidades.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_60e2d951-089e-4662-9464-99e87c812f49">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#caminar_en_silencio"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#caminar_en_silencio">
+  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
+  <act_tiene_beneficio rdf:resource="#b126"/>
+  <act_tiene_beneficio rdf:resource="#b180"/>
+  <act_tiene_dificultad rdf:resource="#Bajo"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
+  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
+  <act_tiene_objetivo rdf:resource="#obj_fomentar_atencion_plena"/>
+  <usa_capacidad rdf:resource="#autocontrol"/>
+  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Este ejercicio mejora la concentración, la paciencia y la capacidad de los niños para controlar sus acciones y reacciones.</tiene_beneficio>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Los niños caminan lentamente por el tatami en completo silencio, prestando atención a cada paso, a su postura y a su respiración. Se les anima a ser conscientes de su entorno y de sus propios movimientos.</tiene_desarrollo>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Caminar en Silencio</tiene_nombre>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b126">
+  <rdf:type rdf:resource="#b126_funciones_personalidad"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#b180">
+  <rdf:type rdf:resource="#b180_funciones_experiencias_con_uno_mismo_y_el_tiempo"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#fundamentos_sociales_y_emocionales">
+  <rdf:type rdf:resource="#Tipos_fundamentos"/>
+  <usa_capacidad rdf:resource="#autocontrol"/>
+  <usa_capacidad rdf:resource="#autoeficacia"/>
+  <usa_capacidad rdf:resource="#autoestima"/>
+  <usa_capacidad rdf:resource="#empatía"/>
+  <usa_capacidad rdf:resource="#perseverancia"/>
+  <usa_capacidad rdf:resource="#regulación_emocional"/>
+  <usa_capacidad rdf:resource="#responsabilidad"/>
+  <usa_capacidad rdf:resource="#trabajo_en_equipo"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_fomentar_atencion_plena">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fomentar la conciencia plena y la atención al entorno y al propio cuerpo</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#autoestima">
+  <rdf:type rdf:resource="#Habilidades_sociales_y_emocionales"/>
+  <usa_funcion rdf:resource="#b126"/>
+  <usa_funcion rdf:resource="#b152"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Confianza en uno mismo y valoración personal</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#empatía">
+  <rdf:type rdf:resource="#Habilidades_sociales_y_emocionales"/>
+  <usa_funcion rdf:resource="#b122"/>
+  <usa_funcion rdf:resource="#b130"/>
+  <usa_funcion rdf:resource="#b164"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Comprensión y sensibilidad hacia los sentimientos y perspectivas de los demás.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#perseverancia">
+  <rdf:type rdf:resource="#Habilidades_sociales_y_emocionales"/>
+  <usa_funcion rdf:resource="#b130"/>
+  <usa_funcion rdf:resource="#b152"/>
+  <usa_funcion rdf:resource="#b164"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Persistencia para alcanzar objetivos a pesar de los obstáculos.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#regulación_emocional">
+  <rdf:type rdf:resource="#Habilidades_sociales_y_emocionales"/>
+  <usa_funcion rdf:resource="#b130"/>
+  <usa_funcion rdf:resource="#b152"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#trabajo_en_equipo">
+  <rdf:type rdf:resource="#Habilidades_sociales_y_emocionales"/>
+  <usa_funcion rdf:resource="#b122"/>
+  <usa_funcion rdf:resource="#b134"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Colaboración y cooperación con otros para alcanzar metas comunes.</rdfs:comment>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#b130">
@@ -1680,22 +2359,518 @@ Por ejemplo: Se fatiga fácilmente. No mantiene el esfuerzo.</rdfs:comment>
   <rdf:type rdf:resource="#b152_funciones_emocionales"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#autoeficacia">
-  <rdf:type rdf:resource="#Habilidades_sociales_y_emocionales"/>
-  <usa_funcion rdf:resource="#b126"/>
-  <usa_funcion rdf:resource="#b164"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Creencia en la propia capacidad para lograr objetivos</rdfs:comment>
+<owl:NamedIndividual rdf:about="#arc_68ba8e63-2cb0-4e20-bd2e-04c1a55a1ba1">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#carreras_con_arrastre"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#b126">
-  <rdf:type rdf:resource="#b126_funciones_personalidad"/>
+<owl:NamedIndividual rdf:about="#carreras_con_arrastre">
+  <rdf:type rdf:resource="#Actividades_fisicas"/>
+  <act_tiene_beneficio rdf:resource="#b730"/>
+  <act_tiene_beneficio rdf:resource="#b735"/>
+  <act_tiene_beneficio rdf:resource="#b760"/>
+  <act_tiene_dificultad rdf:resource="#Medio"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_físicos"/>
+  <act_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
+  <act_tiene_objetivo rdf:resource="#obj_desarrollar_fuerza_tren_inferior"/>
+  <act_tiene_objetivo rdf:resource="#obj_mejorar_resistencia_muscular"/>
+  <usa_capacidad rdf:resource="#fuerza"/>
+  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mejora fuerza de piernas y trabajo cooperativoza de piernas y trabajo cooperativo</tiene_beneficio>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Un niño corre mientras arrastra a otro sentado sobre una colchoneta</tiene_desarrollo>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carreras con arrastre</tiene_nombre>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#autoestima">
-  <rdf:type rdf:resource="#Habilidades_sociales_y_emocionales"/>
-  <usa_funcion rdf:resource="#b126"/>
-  <usa_funcion rdf:resource="#b152"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Confianza en uno mismo y valoración personal</rdfs:comment>
+<owl:NamedIndividual rdf:about="#obj_desarrollar_fuerza_tren_inferior">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desarrollar la fuerza de tracción en tren inferior</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_mejorar_resistencia_muscular">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mejorar la resistencia muscular</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_6b9c089a-bd47-4709-bc87-f23f8c7ce0e1">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#respiración_y_movimiento"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#respiración_y_movimiento">
+  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
+  <act_tiene_dificultad rdf:resource="#Medio"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
+  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
+  <act_tiene_objetivo rdf:resource="#obj_coordinar_respiracion_movimiento"/>
+  <usa_capacidad rdf:resource="#autocontrol"/>
+  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Esta práctica ayuda a los niños a calmarse, concentrarse y prepararse mentalmente para la clase, promoviendo el autocontrol emocional</tiene_beneficio>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Antes de comenzar la clase, se guía a los niños en una breve sesión de respiración profunda, sincronizando la inhalación y exhalación con movimientos suaves de brazos inspirados en técnicas de Aikido</tiene_desarrollo>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Respiración y Movimiento</tiene_nombre>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_coordinar_respiracion_movimiento">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coordinar la respiración con el movimiento para armonizar cuerpo y mente</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_7c30408a-6f17-4719-a7c4-6c152b0e6de6">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#respira_como_un_sensei"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#respira_como_un_sensei">
+  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
+  <act_tiene_dificultad rdf:resource="#Bajo"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
+  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
+  <act_tiene_objetivo rdf:resource="#obj_aprender_regulacion_emocional_con_respiracion"/>
+  <usa_capacidad rdf:resource="#regulación_emocional"/>
+  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Integra la autorregulación fisiológica con el cambio de pensamiento en situaciones reales del tatami.</tiene_beneficio>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En momentos de agitación (tras juegos intensos o un conflicto menor), el instructor guía una breve pausa: los niños se sientan, cierran los ojos y hacen 3 respiraciones profundas mientras piensan:
+- “Estoy tranquilo.”
+- “Esto me ayuda a mejorar.”
+
+Luego, se puede invitar a comentar cómo se sienten y qué pueden hacer diferente la próxima vez.</tiene_desarrollo>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Respira como un sensei</tiene_nombre>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_aprender_regulacion_emocional_con_respiracion">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aprender a regular la respiración para gestionar emociones y concentrarse</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_85771155-5a21-498f-9ed6-d3a3c6a2a499">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#construcción_guiada"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#construcción_guiada">
+  <rdf:type rdf:resource="#Actividades_técnicas"/>
+  <act_tiene_dificultad rdf:resource="#Medio"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_técnicos"/>
+  <act_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
+  <act_tiene_objetivo rdf:resource="#obj_facilitar_comprension_tecnica_guiada"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El alumno observa una técnica realizada por el instructor (sin explicación) y luego intenta reconstruirla verbal y físicamente, en pequeños pasos.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_facilitar_comprension_tecnica_guiada">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Facilitar la comprensión progresiva de una técnica a través de indicaciones paso a paso</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_891b68bd-09df-4ace-849c-4fb9e696ef5e">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#subidas_explosivas"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#subidas_explosivas">
+  <rdf:type rdf:resource="#Actividades_fisicas"/>
+  <act_tiene_dificultad rdf:resource="#Alto"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_físicos"/>
+  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
+  <act_tiene_objetivo rdf:resource="#obj_desarrollar_fuerza_explosiva"/>
+  <act_tiene_objetivo rdf:resource="#obj_mejorar_equilibrio_dinamico"/>
+  <usa_capacidad rdf:resource="#fuerza"/>
+  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mejora potencia muscular y agilidad</tiene_beneficio>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Saltos verticales sobre colchonetas bajas repetidos en series</tiene_desarrollo>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Subidas explosivas</tiene_nombre>
+  <tiene_objetivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Estimular fuerza rápida de piernas</tiene_objetivo>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_desarrollar_fuerza_explosiva">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desarrollar la fuerza explosiva y reactividad del tren inferior</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_mejorar_equilibrio_dinamico">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mejorar el equilibrio dinámico</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_9620d2f6-3cef-43aa-9821-53e7f7ccfc27">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#el_empujón"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#el_empujón">
+  <rdf:type rdf:resource="#Actividades_valores"/>
+  <act_tiene_dificultad rdf:resource="#Bajo"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_valores"/>
+  <act_tiene_modalidad rdf:resource="#actividad_grupal"/>
+  <act_tiene_modalidad rdf:resource="#actividad_teatralizada"/>
+  <act_tiene_objetivo rdf:resource="#obj_relexión_justicia_responsabilidad"/>
+  <usa_capacidad rdf:resource="#rectitud_gi"/>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1) Elegimos a tres alumnos y sentamos al resto.
+2) A los tres elegidos les pedimos, sin que lo escuchen el resto: que uno empuje a otro, cuando el profesor no esté mirando, y que el empujado acuse al que no ha hecho nada de haberlo empujado.
+3) El profesor castiga al acusado, sin escuchar nada.
+4) Iniciar la discusión:
+- ¿ha sido justo el profesor?
+- ¿qué tendría que haber hecho el profesor?
+- ¿y el compañero que ha acusado al otro?
+- ¿y el que ha empujado lo ha hecho bien?</tiene_desarrollo>
+  <tiene_enseñanza rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cuando somos justos, escuchamos a los demás. Si hay un conflicto o desacuerdo, ser justo significa escuchar lo que los otros tienen que decir antes de tomar una decisión.</tiene_enseñanza>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El empujón</tiene_nombre>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_relexión_justicia_responsabilidad">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Promover la reflexión sobre la justicia, la verdad, la responsabilidad individual y la importancia de actuar con imparcialidad ante un conflicto.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_ac12eb29-0cce-480b-a24d-26de6b77926a">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#transforma_el_pensamiento"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#transforma_el_pensamiento">
+  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
+  <act_tiene_contraindicación rdf:resource="#e9a10"/>
+  <act_tiene_dificultad rdf:resource="#Medio"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
+  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
+  <act_tiene_modalidad rdf:resource="#actividad_juego"/>
+  <act_tiene_objetivo rdf:resource="#obj_transformar_pensamiento_negativo"/>
+  <usa_capacidad rdf:resource="#regulación_emocional"/>
+  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ayuda a los niños a identificar pensamientos distorsionados y generar una actitud más resiliente y autónoma.</tiene_beneficio>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Después de una actividad frustrante o una caída, el instructor propone un juego:
+- Presenta un pensamiento negativo común (“No me sale, soy malo”).
+- Los niños deben convertirlo en una versión más útil y realista:
+   “No me ha salido hoy, pero puedo mejorar.”
+    “Es difícil, pero ya he aprendido otras cosas.”
+También se habla de causas realistas: “¿Qué ha pasado? ¿Qué depende de ti?”</tiene_desarrollo>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Transforma el pensamiento</tiene_nombre>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#e9a10">
+  <rdf:type rdf:resource="#Clasificaciones"/>
+  <rdf:type rdf:resource="#Contexto_edad"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b126_f1"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b130_f1"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b140_f2"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b164_f1"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b210_f2"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b230_f2"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b440_f1"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b730_f2"/>
+  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b760_f2"/>
+  <edad_final rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</edad_final>
+  <edad_inicial rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</edad_inicial>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Edad entre los 9 y los 10 años, etapa media de primaria</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_transformar_pensamiento_negativo">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desarrollar la capacidad de cambiar pensamientos negativos por otros más positivos</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#impacto_e9a10_b126_f1">
+  <rdf:type rdf:resource="#Impactos"/>
+  <edad rdf:resource="#e9a10"/>
+  <funcion rdf:resource="#b126"/>
+  <impacto rdf:resource="#f1"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#impacto_e9a10_b130_f1">
+  <rdf:type rdf:resource="#Impactos"/>
+  <edad rdf:resource="#e9a10"/>
+  <funcion rdf:resource="#b130"/>
+  <impacto rdf:resource="#f1"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#impacto_e9a10_b140_f2">
+  <rdf:type rdf:resource="#Impactos"/>
+  <edad rdf:resource="#e9a10"/>
+  <funcion rdf:resource="#b140"/>
+  <impacto rdf:resource="#f2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#impacto_e9a10_b164_f1">
+  <rdf:type rdf:resource="#Impactos"/>
+  <edad rdf:resource="#e9a10"/>
+  <funcion rdf:resource="#b164"/>
+  <impacto rdf:resource="#f1"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#impacto_e9a10_b210_f2">
+  <rdf:type rdf:resource="#Impactos"/>
+  <edad rdf:resource="#e9a10"/>
+  <funcion rdf:resource="#b210"/>
+  <impacto rdf:resource="#f2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#impacto_e9a10_b230_f2">
+  <rdf:type rdf:resource="#Impactos"/>
+  <edad rdf:resource="#e9a10"/>
+  <funcion rdf:resource="#b230"/>
+  <impacto rdf:resource="#f2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#impacto_e9a10_b440_f1">
+  <rdf:type rdf:resource="#Impactos"/>
+  <edad rdf:resource="#e9a10"/>
+  <funcion rdf:resource="#b440"/>
+  <impacto rdf:resource="#f1"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#impacto_e9a10_b730_f2">
+  <rdf:type rdf:resource="#Impactos"/>
+  <edad rdf:resource="#e9a10"/>
+  <funcion rdf:resource="#b730"/>
+  <impacto rdf:resource="#f2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#impacto_e9a10_b760_f2">
+  <rdf:type rdf:resource="#Impactos"/>
+  <edad rdf:resource="#e9a10"/>
+  <funcion rdf:resource="#b760"/>
+  <impacto rdf:resource="#f2"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_c0c07d66-c782-4353-8b87-1d46af2e1f5c">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#cuerda_de_resistencia"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#cuerda_de_resistencia">
+  <rdf:type rdf:resource="#Actividades_fisicas"/>
+  <act_tiene_dificultad rdf:resource="#Medio"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_físicos"/>
+  <act_tiene_modalidad rdf:resource="#actividad_grupal"/>
+  <act_tiene_objetivo rdf:resource="#obj_mejorar_coordinacion_postural"/>
+  <act_tiene_objetivo rdf:resource="#obj_mejorar_potencia_desplazamiento"/>
+  <usa_capacidad rdf:resource="#fuerza"/>
+  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aumenta la fuerza de agarre y tracción</tiene_beneficio>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tiran de una cuerda desde posiciones fijas o dinámicas</tiene_desarrollo>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cuerda de resistencia</tiene_nombre>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_mejorar_coordinacion_postural">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <act_tiene_objetivo rdf:resource="#obj_mejorar_coordinacion_postural"/>
+  <act_tiene_objetivo rdf:resource="#obj_mejorar_potencia_desplazamiento"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fomentar la coordinación y el control postural</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_mejorar_potencia_desplazamiento">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Incrementar fuerza y potencia en desplazamientos</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_c35e4906-aefc-488f-8694-a9dfd96929e4">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#desplazamientos_en_shikko_adelante_atrás"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#desplazamientos_en_shikko_adelante_atrás">
+  <rdf:type rdf:resource="#Actividades_técnicas"/>
+  <act_tiene_contraindicación rdf:resource="#lesión_rodilla"/>
+  <act_tiene_dificultad rdf:resource="#Medio"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_técnicos"/>
+  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
+  <act_tiene_objetivo rdf:resource="#obj_mejorar_desplazamientos_rodillas_postura"/>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desplazarse en shikko hacia adelante hasta llegar al límite del tatami, volver desplazándose hacia atrás.</tiene_desarrollo>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desplazarse en shikko hacia adelante hasta llegar al límite del tatami, volver desplazándose hacia atrás.</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_c965f91d-99ec-433b-b711-f7d4757c5050">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#estatua_de_Aikido"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#estatua_de_Aikido">
+  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
+  <act_tiene_dificultad rdf:resource="#Bajo"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
+  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
+  <act_tiene_objetivo rdf:resource="#obj_mejorar_autocontrol_fisico_emocional"/>
+  <usa_capacidad rdf:resource="#autocontrol"/>
+  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Esta actividad ayuda a los niños a desarrollar la capacidad de detenerse y controlar sus impulsos, mejorando su atención y disciplina</tiene_beneficio>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Los niños caminan libremente por el tatami, Y Al escuchar una señal (una palmada o una palabra clave), deben detenerse inmediatamente y mantener una postura determinada (por ejemplo, estar sentados en seiza) sin moverse hasta que se dé la siguiente señal.</tiene_desarrollo>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Estatua de Aikido</tiene_nombre>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_mejorar_autocontrol_fisico_emocional">
+  <rdf:type rdf:resource="#Objetivos"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_dcbe88a0-89e2-41d8-b51e-9295db2c6a5d">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#juego_del_guía"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#juego_del_guía">
+  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
+  <act_tiene_dificultad rdf:resource="#Medio"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
+  <act_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
+  <act_tiene_objetivo rdf:resource="#obj_estimular_confianza__escucha_activa"/>
+  <usa_capacidad rdf:resource="#autocontrol"/>
+  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Esta actividad fortalece la comunicación, la empatía y el control de los impulsos, ya que los niños deben confiar en su compañero y actuar con cuidado y responsabilidad.</tiene_beneficio>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En parejas, un niño cierra los ojos y pone una mano en su compañero, bien en el hombro o mano contra mano. A continuación, se desplazan suavemente por el tatami, guiando el compañero que ve al que no. Luego, intercambian roles.</tiene_desarrollo>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">juego del guía</tiene_nombre>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_estimular_confianza__escucha_activa">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Estimular la confianza interpersonal y la escucha activa</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_e8cf8519-125e-4c21-bfd0-114f9b22a08e">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#visualiza_tu_mejor_versión"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#visualiza_tu_mejor_versión">
+  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
+  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
+  <act_tiene_objetivo rdf:resource="#obj_fomentar_visualizacion_positiva"/>
+  <usa_capacidad rdf:resource="#regulación_emocional"/>
+  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Favorece el enfoque, reduce el miedo al error y fortalece la motivación</tiene_beneficio>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Planteamos a cada alumno un ejercicio o técnica que tienen que hacer delante de sus compañeros. El instructor guía una breve visualización:
+- "Imagina que entras al tatami con confianza."
+- "Ves a tus compañeros. Estás concentrado. Sientes tu respiración firme."
+- "Realizas tu técnica con energía y calma."
+Luego se les pide a los niños que compartan una palabra que defina cómo se quieren sentir durante el ejercicio.</tiene_desarrollo>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Visualiza tu mejor versión</tiene_nombre>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_fomentar_visualizacion_positiva">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fomentar la visualización positiva y la autoeficacia</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_e93ab67d-1106-426f-b0cb-9f5fb53bf967">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#el_guerrero_interior"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#el_guerrero_interior">
+  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
+  <act_tiene_dificultad rdf:resource="#Medio"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
+  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
+  <act_tiene_objetivo rdf:resource="#obj_desarrollar_autoestima_valores"/>
+  <usa_capacidad rdf:resource="#regulación_emocional"/>
+  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Los niños aprenden a reemplazar pensamientos negativos automáticos por otros más amables y constructivos.</tiene_beneficio>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Después de realizar una técnica complicada o tras un error en un ejercicio, el instructor invita al grupo a sentarse en seiza y decir en voz baja frases como:
+- “Estoy aprendiendo poco a poco.”
+- “Puedo equivocarme y seguir mejorando.”
+- “Cada intento me hace más fuerte.”
+Se puede acompañar con un gesto (por ejemplo, mano en el corazón o en el muslo) para anclar el mensaje.</tiene_desarrollo>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El guerrero interior</tiene_nombre>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_desarrollar_autoestima_valores">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desarrollar la autoestima y la conexión con los valores personales</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_f196e57c-8524-4647-8631-4cbdfd793b62">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#lo_que_siento_y_lo_que_necesito"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#lo_que_siento_y_lo_que_necesito">
+  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
+  <act_tiene_dificultad rdf:resource="#Medio"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
+  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
+  <act_tiene_objetivo rdf:resource="#obj_expresar_emociones_necesidades"/>
+  <usa_capacidad rdf:resource="#regulación_emocional"/>
+  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Favorece la expresión emocional clara y el desarrollo de una explicación más equilibrada de lo ocurrido.</tiene_beneficio>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Después de un malentendido con un compañero durante una técnica, se hace una breve dinámica guiada. El niño debe completar frases como:
+- “Me he sentido ___ cuando ___.”
+- “Creo que ha pasado porque ___.”
+- “Lo que me gustaría es ___.”
+El instructor puede modelar la frase primero y luego los niños la repiten de forma voluntaria.</tiene_desarrollo>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lo que siento y lo que necesito</tiene_nombre>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_expresar_emociones_necesidades">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fomentar el reconocimiento y expresión emocional de forma constructiva</rdfs:comment>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_fd1b5150-c132-4d6c-8eef-2a13e01a67bb">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#desafío_de_equilibrio"/>
+  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_alumno rdf:resource="#alumno_04"/>
+  <arc_tiene_contexto rdf:resource="#género_mujer"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#desafío_de_equilibrio">
+  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
+  <act_tiene_dificultad rdf:resource="#Medio"/>
+  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
+  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
+  <act_tiene_objetivo rdf:resource="#obj_potenciar_control_corporal_emocional"/>
+  <usa_capacidad rdf:resource="#autocontrol"/>
+  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Este ejercicio mejora la concentración, la paciencia y la capacidad de los niños para controlar sus acciones y reacciones.</tiene_beneficio>
+  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Los niños caminan lentamente por el tatami en completo silencio, prestando atención a cada paso, a su postura y a su respiración. Se les anima a ser conscientes de su entorno y de sus propios movimientos.</tiene_desarrollo>
+  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Caminar en Silencio</tiene_nombre>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#obj_potenciar_control_corporal_emocional">
+  <rdf:type rdf:resource="#Objetivos"/>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Potenciar el control corporal y la gestión de la frustración ante el reto físico</rdfs:comment>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#b110">
@@ -1748,10 +2923,6 @@ Por ejemplo: Se fatiga fácilmente. No mantiene el esfuerzo.</rdfs:comment>
 
 <owl:NamedIndividual rdf:about="#b176">
   <rdf:type rdf:resource="#b176_funciones_movimientos_complejos"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#b180">
-  <rdf:type rdf:resource="#b180_funciones_experiencias_con_uno_mismo_y_el_tiempo"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#b210">
@@ -1910,24 +3081,8 @@ Por ejemplo: Se fatiga fácilmente. No mantiene el esfuerzo.</rdfs:comment>
   <rdf:type rdf:resource="#b670_funciones_sensaciones_sexuales_reproductoras"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#b710">
-  <rdf:type rdf:resource="#b710_funciones_movilidad_articulaciones"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#b715">
-  <rdf:type rdf:resource="#b715_funciones_estabilidad_articulaciones"/>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#b720">
   <rdf:type rdf:resource="#b720_funciones_movilidad_huesos"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#b730">
-  <rdf:type rdf:resource="#b730_funciones_fuerza_muscular"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#b735">
-  <rdf:type rdf:resource="#b735_funciones_tonto_muscular"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#b740">
@@ -1940,10 +3095,6 @@ Por ejemplo: Se fatiga fácilmente. No mantiene el esfuerzo.</rdfs:comment>
 
 <owl:NamedIndividual rdf:about="#b755">
   <rdf:type rdf:resource="#b755_funciones_reflejos_movimiento_involuntario"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#b765">
-  <rdf:type rdf:resource="#b765_funciones_movimiento_involuntario"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#b770">
@@ -1986,232 +3137,9 @@ Por ejemplo: Se fatiga fácilmente. No mantiene el esfuerzo.</rdfs:comment>
   <rdf:type rdf:resource="#Apartados_clase"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#caminar_en_silencio">
-  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
-  <act_tiene_beneficio rdf:resource="#b126"/>
-  <act_tiene_beneficio rdf:resource="#b180"/>
-  <act_tiene_dificultad rdf:resource="#Bajo"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
-  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
-  <act_tiene_objetivo rdf:resource="#obj_fomentar_atencion_plena"/>
-  <usa_capacidad rdf:resource="#autocontrol"/>
-  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Este ejercicio mejora la concentración, la paciencia y la capacidad de los niños para controlar sus acciones y reacciones.</tiene_beneficio>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Los niños caminan lentamente por el tatami en completo silencio, prestando atención a cada paso, a su postura y a su respiración. Se les anima a ser conscientes de su entorno y de sus propios movimientos.</tiene_desarrollo>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Caminar en Silencio</tiene_nombre>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#fundamentos_sociales_y_emocionales">
-  <rdf:type rdf:resource="#Tipos_fundamentos"/>
-  <usa_capacidad rdf:resource="#autocontrol"/>
-  <usa_capacidad rdf:resource="#autoeficacia"/>
-  <usa_capacidad rdf:resource="#autoestima"/>
-  <usa_capacidad rdf:resource="#empatía"/>
-  <usa_capacidad rdf:resource="#perseverancia"/>
-  <usa_capacidad rdf:resource="#regulación_emocional"/>
-  <usa_capacidad rdf:resource="#responsabilidad"/>
-  <usa_capacidad rdf:resource="#trabajo_en_equipo"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_fomentar_atencion_plena">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fomentar la conciencia plena y la atención al entorno y al propio cuerpo</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#capacidad_actitud">
-  <rdf:type rdf:resource="#Capacidades_técnicas"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de mantener una actitud marcial correcta, con una actitud corporal correcta, y concentrado en la ejecución.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#capacidad_adaptación">
-  <rdf:type rdf:resource="#Capacidades_técnicas"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de adaptarse a uke y a las circunstancias del momento.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#capacidad_comprensión_táctica">
-  <rdf:type rdf:resource="#Capacidades_técnicas"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de cuándo aplicar qué técnica</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#capacidad_concentración">
-  <rdf:type rdf:resource="#Capacidades_técnicas"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de estar concentrado en la ejecución de la técnica.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#capacidad_coordinación">
-  <rdf:type rdf:resource="#Capacidades_técnicas"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de coordinar todos los elementos corporales implicados en la ejecución.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#capacidad_equilibrio">
-  <rdf:type rdf:resource="#Capacidades_técnicas"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de mantener un correcto equilibrio en la realización de los ejercicios.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#capacidad_memoria_motriz">
-  <rdf:type rdf:resource="#Capacidades_técnicas"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de recordar la secuencia de movimientos de la técnica.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#capacidad_orientación">
-  <rdf:type rdf:resource="#Capacidades_técnicas"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad necesaria para evitar colisiones, mantener la distancia, etc.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#capacidad_principios">
-  <rdf:type rdf:resource="#Capacidades_técnicas"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de usar correctamente los principios del Aikido: distancia, coordinación, actitud, visión, etc.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#capacidad_ritmo">
-  <rdf:type rdf:resource="#Capacidades_técnicas"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de mantener un ritmo sostenido y adecuado en la realización de la técnica.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#capacidad_tiempo_reacción">
-  <rdf:type rdf:resource="#Capacidades_técnicas"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de reaccionar en el momento adecuado</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#carrera_a_la_pata_coja">
-  <rdf:type rdf:resource="#Actividades_valores"/>
-  <act_tiene_dificultad rdf:resource="#Bajo"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_valores"/>
-  <act_tiene_modalidad rdf:resource="#actividad_grupal"/>
-  <act_tiene_modalidad rdf:resource="#actividad_teatralizada"/>
-  <act_tiene_objetivo rdf:resource="#obj_reflexión_sobre_rectitud"/>
-  <usa_capacidad rdf:resource="#rectitud_gi"/>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1) Elegimos a dos alumnos, de similares características, para realizar una carrera a la pata coja.
-2) A parte, le decimos a uno de ellos, que no vaya a la pata coja y corra todo lo que pueda.
-3) Cuando llegue primero, declaramos vencedor al tramposo.
-4)  Iniciamos la discusión:
-- ¿es justo que declare vencedor al tramposo?
-- ¿quién ha actuado bien?</tiene_desarrollo>
-  <tiene_enseñanza rdf:datatype="http://www.w3.org/2001/XMLSchema#string">jugar de forma justa para que todos se diviertan</tiene_enseñanza>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">La carrera a la pata coja</tiene_nombre>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reflexionar sobre la rectitud</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#fundamentos_valores">
-  <rdf:type rdf:resource="#Tipos_fundamentos"/>
-  <usa_capacidad rdf:resource="#compasion_jin"/>
-  <usa_capacidad rdf:resource="#coraje_yu"/>
-  <usa_capacidad rdf:resource="#honestidad_makoto"/>
-  <usa_capacidad rdf:resource="#honor_meiyo"/>
-  <usa_capacidad rdf:resource="#lealtad_chugi"/>
-  <usa_capacidad rdf:resource="#rectitud_gi"/>
-  <usa_capacidad rdf:resource="#respeto_rei"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_reflexión_sobre_rectitud">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fomentar la reflexión crítica sobre la rectitud  y el valor de respetar las normas en situaciones de desigualdad o injusticia aparente.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#rectitud_gi">
-  <rdf:type rdf:resource="#Valores"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#autocontrol"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#autoeficacia"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#responsabilidad"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gi representa la idea de actuar correctamente, tomar decisiones justas y hacer lo que es correcto sin dudar.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#carreras_con_arrastre">
-  <rdf:type rdf:resource="#Actividades_fisicas"/>
-  <act_tiene_beneficio rdf:resource="#b730"/>
-  <act_tiene_beneficio rdf:resource="#b735"/>
-  <act_tiene_beneficio rdf:resource="#b760"/>
-  <act_tiene_dificultad rdf:resource="#Medio"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_físicos"/>
-  <act_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
-  <act_tiene_objetivo rdf:resource="#obj_desarrollar_fuerza_tren_inferior"/>
-  <act_tiene_objetivo rdf:resource="#obj_mejorar_resistencia_muscular"/>
-  <usa_capacidad rdf:resource="#fuerza"/>
-  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mejora fuerza de piernas y trabajo cooperativoza de piernas y trabajo cooperativo</tiene_beneficio>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Un niño corre mientras arrastra a otro sentado sobre una colchoneta</tiene_desarrollo>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carreras con arrastre</tiene_nombre>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#fundamentos_físicos">
-  <rdf:type rdf:resource="#Tipos_fundamentos"/>
-  <usa_capacidad rdf:resource="#flexibilidad"/>
-  <usa_capacidad rdf:resource="#fuerza"/>
-  <usa_capacidad rdf:resource="#resistencia"/>
-  <usa_capacidad rdf:resource="#velocidad"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fundamentos para la mejora física de las personas</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_desarrollar_fuerza_tren_inferior">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desarrollar la fuerza de tracción en tren inferior</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_mejorar_resistencia_muscular">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mejorar la resistencia muscular</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#fuerza">
-  <rdf:type rdf:resource="#Capacidades_físicas_básicas"/>
-  <usa_funcion rdf:resource="#b710"/>
-  <usa_funcion rdf:resource="#b715"/>
-  <usa_funcion rdf:resource="#b730"/>
-  <usa_funcion rdf:resource="#b765"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Es la capacidad del músculo o de un grupo muscular para vencer una resistencia externa o para oponerse a ella. Es fundamental en casi todas las actividades físicas y deportivas.</rdfs:comment>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#chudan_tsuki">
   <rdf:type rdf:resource="#Ataques"/>
   <rdf:type rdf:resource="#Golpes"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#compasion_jin">
-  <rdf:type rdf:resource="#Valores"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#empatía"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#regulación_emocional"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jin es la bondad y la compasión hacia los demás, ser generoso y ayudar cuando sea necesario.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#empatía">
-  <rdf:type rdf:resource="#Habilidades_sociales_y_emocionales"/>
-  <usa_funcion rdf:resource="#b122"/>
-  <usa_funcion rdf:resource="#b130"/>
-  <usa_funcion rdf:resource="#b164"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Comprensión y sensibilidad hacia los sentimientos y perspectivas de los demás.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#regulación_emocional">
-  <rdf:type rdf:resource="#Habilidades_sociales_y_emocionales"/>
-  <usa_funcion rdf:resource="#b130"/>
-  <usa_funcion rdf:resource="#b152"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#construcción_guiada">
-  <rdf:type rdf:resource="#Actividades_técnicas"/>
-  <act_tiene_dificultad rdf:resource="#Medio"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_técnicos"/>
-  <act_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
-  <act_tiene_objetivo rdf:resource="#obj_facilitar_comprension_tecnica_guiada"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El alumno observa una técnica realizada por el instructor (sin explicación) y luego intenta reconstruirla verbal y físicamente, en pequeños pasos.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#fundamentos_técnicos">
-  <rdf:type rdf:resource="#Tipos_fundamentos"/>
-  <usa_capacidad rdf:resource="#capacidad_actitud"/>
-  <usa_capacidad rdf:resource="#capacidad_adaptación"/>
-  <usa_capacidad rdf:resource="#capacidad_comprensión_táctica"/>
-  <usa_capacidad rdf:resource="#capacidad_concentración"/>
-  <usa_capacidad rdf:resource="#capacidad_coordinación"/>
-  <usa_capacidad rdf:resource="#capacidad_equilibrio"/>
-  <usa_capacidad rdf:resource="#capacidad_memoria_motriz"/>
-  <usa_capacidad rdf:resource="#capacidad_orientación"/>
-  <usa_capacidad rdf:resource="#capacidad_principios"/>
-  <usa_capacidad rdf:resource="#capacidad_ritmo"/>
-  <usa_capacidad rdf:resource="#capacidad_tiempo_reacción"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_facilitar_comprension_tecnica_guiada">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Facilitar la comprensión progresiva de una técnica a través de indicaciones paso a paso</rdfs:comment>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#contextos1">
@@ -2230,47 +3158,6 @@ Por ejemplo: Se fatiga fácilmente. No mantiene el esfuerzo.</rdfs:comment>
   <rdf:type rdf:resource="#Contextos"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#coraje_yu">
-  <rdf:type rdf:resource="#Valores"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#autocontrol"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#autoeficacia"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#perseverancia"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Yu implica tener el coraje de hacer lo correcto incluso en situaciones difíciles o peligrosas.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#perseverancia">
-  <rdf:type rdf:resource="#Habilidades_sociales_y_emocionales"/>
-  <usa_funcion rdf:resource="#b130"/>
-  <usa_funcion rdf:resource="#b152"/>
-  <usa_funcion rdf:resource="#b164"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Persistencia para alcanzar objetivos a pesar de los obstáculos.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#cuerda_de_resistencia">
-  <rdf:type rdf:resource="#Actividades_fisicas"/>
-  <act_tiene_dificultad rdf:resource="#Medio"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_físicos"/>
-  <act_tiene_modalidad rdf:resource="#actividad_grupal"/>
-  <act_tiene_objetivo rdf:resource="#obj_mejorar_coordinacion_postural"/>
-  <act_tiene_objetivo rdf:resource="#obj_mejorar_potencia_desplazamiento"/>
-  <usa_capacidad rdf:resource="#fuerza"/>
-  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aumenta la fuerza de agarre y tracción</tiene_beneficio>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Tiran de una cuerda desde posiciones fijas o dinámicas</tiene_desarrollo>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cuerda de resistencia</tiene_nombre>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_mejorar_coordinacion_postural">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <act_tiene_objetivo rdf:resource="#obj_mejorar_coordinacion_postural"/>
-  <act_tiene_objetivo rdf:resource="#obj_mejorar_potencia_desplazamiento"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fomentar la coordinación y el control postural</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_mejorar_potencia_desplazamiento">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Incrementar fuerza y potencia en desplazamientos</rdfs:comment>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#d1">
   <rdf:type rdf:resource="#Deficiencia_ligera"/>
 </owl:NamedIndividual>
@@ -2283,84 +3170,12 @@ Por ejemplo: Se fatiga fácilmente. No mantiene el esfuerzo.</rdfs:comment>
   <rdf:type rdf:resource="#Deficiencia_grave"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#desafío_de_equilibrio">
-  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
-  <act_tiene_dificultad rdf:resource="#Medio"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
-  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
-  <act_tiene_objetivo rdf:resource="#obj_potenciar_control_corporal_emocional"/>
-  <usa_capacidad rdf:resource="#autocontrol"/>
-  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Este ejercicio mejora la concentración, la paciencia y la capacidad de los niños para controlar sus acciones y reacciones.</tiene_beneficio>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Los niños caminan lentamente por el tatami en completo silencio, prestando atención a cada paso, a su postura y a su respiración. Se les anima a ser conscientes de su entorno y de sus propios movimientos.</tiene_desarrollo>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Caminar en Silencio</tiene_nombre>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_potenciar_control_corporal_emocional">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Potenciar el control corporal y la gestión de la frustración ante el reto físico</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#desplazamientos_en_shikko_adelante_atrás">
-  <rdf:type rdf:resource="#Actividades_técnicas"/>
-  <act_tiene_contraindicación rdf:resource="#lesión_rodilla"/>
-  <act_tiene_dificultad rdf:resource="#Medio"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_técnicos"/>
-  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
-  <act_tiene_objetivo rdf:resource="#obj_mejorar_desplazamientos_rodillas_postura"/>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desplazarse en shikko hacia adelante hasta llegar al límite del tatami, volver desplazándose hacia atrás.</tiene_desarrollo>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desplazarse en shikko hacia adelante hasta llegar al límite del tatami, volver desplazándose hacia atrás.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_mejorar_desplazamientos_rodillas_postura">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mejorar los desplazamientos re rodillas y el control postural</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#desplazamientos_en_shikko_girando">
-  <rdf:type rdf:resource="#Actividades_técnicas"/>
-  <act_tiene_contraindicación rdf:resource="#lesión_rodilla"/>
-  <act_tiene_dificultad rdf:resource="#Medio"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_técnicos"/>
-  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
-  <act_tiene_objetivo rdf:resource="#obj_mejorar_desplazamientos_rodillas_postura"/>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desplazarse en shikko, avanzando hacia adelante y ejecutando un giro 360º, hasta llegar al límite del tatami.</tiene_desarrollo>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desplazarse en shikko, avanzando hacia adelante y ejecutando un giro 360º, hasta llegar al límite del tatami.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#desplazamientos_en_shikko_lucha_espadas">
-  <rdf:type rdf:resource="#Actividades_técnicas"/>
-  <act_tiene_contraindicación rdf:resource="#lesión_rodilla"/>
-  <act_tiene_dificultad rdf:resource="#Medio"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_técnicos"/>
-  <act_tiene_modalidad rdf:resource="#actividad_grupal"/>
-  <act_tiene_objetivo rdf:resource="#obj_mejorar_desplazamientos_rodillas_postura"/>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Se dispone a medio grupo en un lado del tatami, y al otro medio en el otro. CAda alumno porta una trozo de churro de piscina, a la manera de espada. Cada lado avanza, en shikko, hacia el lado contrario, y en el momento de encuentro realizan una lucha de espadas, para quitarle al contrario la suya y volver a su lado.</tiene_desarrollo>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Se dispone a medio grupo en un lado del tatami, y al otro medio en el otro. CAda alumno porta una trozo de churro de piscina, a la manera de espada. Cada lado avanza, en shikko, hacia el lado contrario, y en el momento de encuentro realizan una lucha de espadas, para quitarle al contrario la suya y volver a su lado.</rdfs:comment>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#diferenciación_cinestésica">
   <rdf:type rdf:resource="#Capacidades_físicas_coordinativas"/>
   <usa_funcion rdf:resource="#b260"/>
   <usa_funcion rdf:resource="#b735"/>
   <usa_funcion rdf:resource="#b760"/>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Habilidad para lograr una gran exactitud y economía de los movimientos, ajustando con precisión la fuerza, el espacio y el tiempo de cada acción motora. Se basa en la percepción de los propios movimientos.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#e11a12">
-  <rdf:type rdf:resource="#Clasificaciones"/>
-  <rdf:type rdf:resource="#Contexto_edad"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b117_f3"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b164_f3"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b180_f2"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b210_f3"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b440_f3"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b445_f2"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b730_f3"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b760_f3"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b830_f1"/>
-  <edad_final rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</edad_final>
-  <edad_inicial rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</edad_inicial>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Edad ente 11 y 12 años, última etapa de primaria</rdfs:comment>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#impacto_e11a12_b117_f3">
@@ -2412,18 +3227,19 @@ Por ejemplo: Se fatiga fácilmente. No mantiene el esfuerzo.</rdfs:comment>
   <impacto rdf:resource="#f3"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#impacto_e11a12_b760_f3">
-  <rdf:type rdf:resource="#Impactos"/>
-  <edad rdf:resource="#e11a12"/>
-  <funcion rdf:resource="#b760"/>
-  <impacto rdf:resource="#f3"/>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#impacto_e11a12_b830_f1">
   <rdf:type rdf:resource="#Impactos"/>
   <edad rdf:resource="#e11a12"/>
   <funcion rdf:resource="#b830"/>
   <impacto rdf:resource="#f1"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#f2">
+  <rdf:type rdf:resource="#Facilitador_moderado"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#f1">
+  <rdf:type rdf:resource="#Facilitador_leve"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#e6a8">
@@ -2530,225 +3346,6 @@ Por ejemplo: Se fatiga fácilmente. No mantiene el esfuerzo.</rdfs:comment>
   <impacto rdf:resource="#d1"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#e9a10">
-  <rdf:type rdf:resource="#Clasificaciones"/>
-  <rdf:type rdf:resource="#Contexto_edad"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b126_f1"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b130_f1"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b140_f2"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b164_f1"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b210_f2"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b230_f2"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b440_f1"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b730_f2"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e9a10_b760_f2"/>
-  <edad_final rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</edad_final>
-  <edad_inicial rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</edad_inicial>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Edad entre los 9 y los 10 años, etapa media de primaria</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#impacto_e9a10_b126_f1">
-  <rdf:type rdf:resource="#Impactos"/>
-  <edad rdf:resource="#e9a10"/>
-  <funcion rdf:resource="#b126"/>
-  <impacto rdf:resource="#f1"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#impacto_e9a10_b130_f1">
-  <rdf:type rdf:resource="#Impactos"/>
-  <edad rdf:resource="#e9a10"/>
-  <funcion rdf:resource="#b130"/>
-  <impacto rdf:resource="#f1"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#impacto_e9a10_b140_f2">
-  <rdf:type rdf:resource="#Impactos"/>
-  <edad rdf:resource="#e9a10"/>
-  <funcion rdf:resource="#b140"/>
-  <impacto rdf:resource="#f2"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#impacto_e9a10_b164_f1">
-  <rdf:type rdf:resource="#Impactos"/>
-  <edad rdf:resource="#e9a10"/>
-  <funcion rdf:resource="#b164"/>
-  <impacto rdf:resource="#f1"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#impacto_e9a10_b210_f2">
-  <rdf:type rdf:resource="#Impactos"/>
-  <edad rdf:resource="#e9a10"/>
-  <funcion rdf:resource="#b210"/>
-  <impacto rdf:resource="#f2"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#impacto_e9a10_b230_f2">
-  <rdf:type rdf:resource="#Impactos"/>
-  <edad rdf:resource="#e9a10"/>
-  <funcion rdf:resource="#b230"/>
-  <impacto rdf:resource="#f2"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#impacto_e9a10_b440_f1">
-  <rdf:type rdf:resource="#Impactos"/>
-  <edad rdf:resource="#e9a10"/>
-  <funcion rdf:resource="#b440"/>
-  <impacto rdf:resource="#f1"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#impacto_e9a10_b730_f2">
-  <rdf:type rdf:resource="#Impactos"/>
-  <edad rdf:resource="#e9a10"/>
-  <funcion rdf:resource="#b730"/>
-  <impacto rdf:resource="#f2"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#impacto_e9a10_b760_f2">
-  <rdf:type rdf:resource="#Impactos"/>
-  <edad rdf:resource="#e9a10"/>
-  <funcion rdf:resource="#b760"/>
-  <impacto rdf:resource="#f2"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#el_empujón">
-  <rdf:type rdf:resource="#Actividades_valores"/>
-  <act_tiene_dificultad rdf:resource="#Bajo"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_valores"/>
-  <act_tiene_modalidad rdf:resource="#actividad_grupal"/>
-  <act_tiene_modalidad rdf:resource="#actividad_teatralizada"/>
-  <act_tiene_objetivo rdf:resource="#obj_relexión_justicia_responsabilidad"/>
-  <usa_capacidad rdf:resource="#rectitud_gi"/>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1) Elegimos a tres alumnos y sentamos al resto.
-2) A los tres elegidos les pedimos, sin que lo escuchen el resto: que uno empuje a otro, cuando el profesor no esté mirando, y que el empujado acuse al que no ha hecho nada de haberlo empujado.
-3) El profesor castiga al acusado, sin escuchar nada.
-4) Iniciar la discusión:
-- ¿ha sido justo el profesor?
-- ¿qué tendría que haber hecho el profesor?
-- ¿y el compañero que ha acusado al otro?
-- ¿y el que ha empujado lo ha hecho bien?</tiene_desarrollo>
-  <tiene_enseñanza rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cuando somos justos, escuchamos a los demás. Si hay un conflicto o desacuerdo, ser justo significa escuchar lo que los otros tienen que decir antes de tomar una decisión.</tiene_enseñanza>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El empujón</tiene_nombre>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_relexión_justicia_responsabilidad">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Promover la reflexión sobre la justicia, la verdad, la responsabilidad individual y la importancia de actuar con imparcialidad ante un conflicto.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#el_guerrero_interior">
-  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
-  <act_tiene_dificultad rdf:resource="#Medio"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
-  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
-  <act_tiene_objetivo rdf:resource="#obj_desarrollar_autoestima_valores"/>
-  <usa_capacidad rdf:resource="#regulación_emocional"/>
-  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Los niños aprenden a reemplazar pensamientos negativos automáticos por otros más amables y constructivos.</tiene_beneficio>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Después de realizar una técnica complicada o tras un error en un ejercicio, el instructor invita al grupo a sentarse en seiza y decir en voz baja frases como:
-- “Estoy aprendiendo poco a poco.”
-- “Puedo equivocarme y seguir mejorando.”
-- “Cada intento me hace más fuerte.”
-Se puede acompañar con un gesto (por ejemplo, mano en el corazón o en el muslo) para anclar el mensaje.</tiene_desarrollo>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El guerrero interior</tiene_nombre>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_desarrollar_autoestima_valores">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desarrollar la autoestima y la conexión con los valores personales</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#el_oso_y_el_cangrejo">
-  <rdf:type rdf:resource="#Actividades_fisicas"/>
-  <act_tiene_dificultad rdf:resource="#Bajo"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_físicos"/>
-  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
-  <act_tiene_objetivo rdf:resource="#obj_desarrollar_fuerza_tronco_brazos"/>
-  <act_tiene_objetivo rdf:resource="#obj_estimular_coordinacion_general"/>
-  <usa_capacidad rdf:resource="#fuerza"/>
-  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mejora fuerza funcional y coordinación</tiene_beneficio>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Carrera en cuadrupedia frontal (oso) o supina (cangrejo)</tiene_desarrollo>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El oso y el cangrejo</tiene_nombre>
-  <tiene_objetivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desarrollar fuerza general</tiene_objetivo>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_desarrollar_fuerza_tronco_brazos">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mejorar fuerza en brazos, core y piernas</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_estimular_coordinacion_general">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Estimular la coordinación general y lateralidad</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#el_reparto_de_los_dulces">
-  <rdf:type rdf:resource="#Actividades_valores"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_valores"/>
-  <act_tiene_modalidad rdf:resource="#actividad_grupal"/>
-  <act_tiene_modalidad rdf:resource="#actividad_teatralizada"/>
-  <act_tiene_objetivo rdf:resource="#obj_reflexión_equidad_responsabilidad"/>
-  <tiene_valor rdf:resource="#rectitud_gi"/>
-  <usa_capacidad rdf:resource="#rectitud_gi"/>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1) Hacemos dos equipos
-2) Elegimos a un miembro de uno de los equipos para repartir los caramelos
-3) Le pedimos (aparte, sin que lo escuchen los compañeros) que reparta los caramelos dando un caramelo a cada uno, pero que a los de su equipo les dé dos caramelos, en lugar de uno.
-4) Iniciar la discusión: 
- - ¿les parece que ha actuado bien? 
-- ¿cómo debería haberlo hecho? 
-- ¿qué harían ellos?
-
-Variantes: 
-- Hay caramelos para todos
-- No hay caramelos para todos
-- Hay un caramelo para todos, y sobran algunos más</tiene_desarrollo>
-  <tiene_enseñanza rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Justicia es tratar a todos por igual.</tiene_enseñanza>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El reparto de los dulces</tiene_nombre>
-  <usa_materiales rdf:datatype="http://www.w3.org/2001/XMLSchema#string">caramelos</usa_materiales>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_reflexión_equidad_responsabilidad">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Favorecer la reflexión sobre la equidad, el trato justo entre iguales y la importancia de actuar con imparcialidad cuando se tiene una responsabilidad sobre los demás.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#empuje_de_sumo">
-  <rdf:type rdf:resource="#Actividades_fisicas"/>
-  <act_tiene_beneficio rdf:resource="#b730"/>
-  <act_tiene_beneficio rdf:resource="#b735"/>
-  <act_tiene_dificultad rdf:resource="#Medio"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_físicos"/>
-  <act_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
-  <act_tiene_objetivo rdf:resource="#obj_mejorar_equilibrio_estrategia"/>
-  <act_tiene_objetivo rdf:resource="#obj_potenciar_fuerza_maxima"/>
-  <usa_capacidad rdf:resource="#fuerza"/>
-  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fortalece piernas, brazos y equilibrio postural</tiene_beneficio>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En parejas, intentan empujarse fuera de un círculo con el torso recto</tiene_desarrollo>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Empuje de sumo</tiene_nombre>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_mejorar_equilibrio_estrategia">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Trabajar la estrategia y el equilibrio</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_potenciar_fuerza_maxima">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Potenciar la fuerza máxima y control del centro de gravedad</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#encadenamiento_técnicas">
-  <rdf:type rdf:resource="#Actividades_técnicas"/>
-  <act_tiene_dificultad rdf:resource="#Medio"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_técnicos"/>
-  <act_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
-  <act_tiene_objetivo rdf:resource="#obj_desarrollar_fluidez_memoria_motriz"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Realización secuencial de tres técnicas básicas (por ejemplo, ikkyo, shihonage, iriminage) de forma fluida, con cambios al ritmo de una señal sonora.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_desarrollar_fluidez_memoria_motriz">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desarrollar fluidez en la transición entre técnicas y mejorar la memoria motriz</rdfs:comment>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#equilibrio">
   <rdf:type rdf:resource="#Capacidades_físicas_coordinativas"/>
   <usa_funcion rdf:resource="#b235"/>
@@ -2760,22 +3357,6 @@ Variantes:
 <owl:NamedIndividual rdf:about="#eri_dori">
   <rdf:type rdf:resource="#Agarres"/>
   <rdf:type rdf:resource="#Ataques"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#estatua_de_Aikido">
-  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
-  <act_tiene_dificultad rdf:resource="#Bajo"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
-  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
-  <act_tiene_objetivo rdf:resource="#obj_mejorar_autocontrol_fisico_emocional"/>
-  <usa_capacidad rdf:resource="#autocontrol"/>
-  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Esta actividad ayuda a los niños a desarrollar la capacidad de detenerse y controlar sus impulsos, mejorando su atención y disciplina</tiene_beneficio>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Los niños caminan libremente por el tatami, Y Al escuchar una señal (una palmada o una palabra clave), deben detenerse inmediatamente y mantener una postura determinada (por ejemplo, estar sentados en seiza) sin moverse hasta que se dé la siguiente señal.</tiene_desarrollo>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Estatua de Aikido</tiene_nombre>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_mejorar_autocontrol_fisico_emocional">
-  <rdf:type rdf:resource="#Objetivos"/>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#estiramientos">
@@ -2831,28 +3412,6 @@ Variantes:
   <tiene_orden rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">6.0</tiene_orden>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#f1">
-  <rdf:type rdf:resource="#Facilitador_leve"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#f2">
-  <rdf:type rdf:resource="#Facilitador_moderado"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#f3">
-  <rdf:type rdf:resource="#Facilitador_fuerte"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#flexibilidad">
-  <rdf:type rdf:resource="#Capacidades_físicas_básicas"/>
-  <usa_funcion rdf:resource="#b710"/>
-  <usa_funcion rdf:resource="#b715"/>
-  <usa_funcion rdf:resource="#b720"/>
-  <usa_funcion rdf:resource="#b735"/>
-  <usa_funcion rdf:resource="#b740"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Es la capacidad de los músculos y articulaciones para realizar movimientos con la máxima amplitud posible, sin sufrir daños. Está influenciada por la elasticidad muscular y la movilidad articular.</rdfs:comment>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#fundamentos1">
   <rdf:type rdf:resource="#Fundamentos"/>
 </owl:NamedIndividual>
@@ -2867,69 +3426,6 @@ Variantes:
 
 <owl:NamedIndividual rdf:about="#fundamentos4">
   <rdf:type rdf:resource="#Fundamentos"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#resistencia">
-  <rdf:type rdf:resource="#Capacidades_físicas_básicas"/>
-  <usa_funcion rdf:resource="#b410"/>
-  <usa_funcion rdf:resource="#b440"/>
-  <usa_funcion rdf:resource="#b455"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Es la capacidad del organismo para soportar y oponerse a la fatiga durante esfuerzos prolongados. Permite mantener un nivel de rendimiento durante un tiempo determinado.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#velocidad">
-  <rdf:type rdf:resource="#Capacidades_físicas_básicas"/>
-  <usa_funcion rdf:resource="#b210"/>
-  <usa_funcion rdf:resource="#b260"/>
-  <usa_funcion rdf:resource="#b760"/>
-  <usa_funcion rdf:resource="#b765"/>
-  <usa_funcion rdf:resource="#b770"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Es la capacidad de realizar acciones motrices en el menor tiempo posible. No se refiere solo a la velocidad de desplazamiento, sino también a la velocidad de reacción y a la velocidad de movimiento de segmentos corporales.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#responsabilidad">
-  <rdf:type rdf:resource="#Habilidades_sociales_y_emocionales"/>
-  <usa_funcion rdf:resource="#b126"/>
-  <usa_funcion rdf:resource="#b164"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Capacidad de ser confiable y cumplir con las obligaciones.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#trabajo_en_equipo">
-  <rdf:type rdf:resource="#Habilidades_sociales_y_emocionales"/>
-  <usa_funcion rdf:resource="#b122"/>
-  <usa_funcion rdf:resource="#b134"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Colaboración y cooperación con otros para alcanzar metas comunes.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#honestidad_makoto">
-  <rdf:type rdf:resource="#Valores"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#responsabilidad"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#trabajo_en_equipo"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Makoto significa ser siempre honesto y sincero en palabras y acciones, sin falsedad ni engaño.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#honor_meiyo">
-  <rdf:type rdf:resource="#Valores"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#autocontrol"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#autoestima"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#responsabilidad"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Meiyo representa el honor, vivir y actuar de una manera que sea digna y que refleje bien en uno mismo y en su comunidad.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#lealtad_chugi">
-  <rdf:type rdf:resource="#Valores"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#empatía"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#responsabilidad"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#trabajo_en_equipo"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chugi implica ser leal y fiel a las personas que te rodean, a tus principios y a tus responsabilidades.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#respeto_rei">
-  <rdf:type rdf:resource="#Valores"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#empatía"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#regulación_emocional"/>
-  <desarrolla_habilidad_social_emocional rdf:resource="#trabajo_en_equipo"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rei se refiere a la cortesía, el respeto hacia los demás y la manera de tratar a las personas con dignidad.</rdfs:comment>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#gedan_tsuki">
@@ -2960,14 +3456,6 @@ Variantes:
   <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b730_f3"/>
   <tiene_género rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hombre</tiene_género>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ser del género hombre.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#género_mujer">
-  <rdf:type rdf:resource="#Clasificaciones"/>
-  <rdf:type rdf:resource="#Contexto_género"/>
-  <ctx_tiene_impacto rdf:resource="#impacto_e11a12_b760_f3"/>
-  <tiene_género rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mujer</tiene_género>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ser del género mujer.</rdfs:comment>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#género_otro">
@@ -3012,22 +3500,6 @@ Variantes:
   <impacto rdf:resource="#f2"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#impacto_lesión_rodilla_b280_d2">
-  <rdf:type rdf:resource="#Impactos"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#impacto_lesión_rodilla_b710_d3">
-  <rdf:type rdf:resource="#Impactos"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#impacto_lesión_rodilla_b715_d3">
-  <rdf:type rdf:resource="#Impactos"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#impacto_lesión_rodilla_b780_d3">
-  <rdf:type rdf:resource="#Impactos"/>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#inmovilizacion"/>
 
 <owl:NamedIndividual rdf:about="#irimi">
@@ -3043,23 +3515,6 @@ Variantes:
 <owl:NamedIndividual rdf:about="#jodan_tsuki">
   <rdf:type rdf:resource="#Ataques"/>
   <rdf:type rdf:resource="#Golpes"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#juego_del_guía">
-  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
-  <act_tiene_dificultad rdf:resource="#Medio"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
-  <act_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
-  <act_tiene_objetivo rdf:resource="#obj_estimular_confianza__escucha_activa"/>
-  <usa_capacidad rdf:resource="#autocontrol"/>
-  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Esta actividad fortalece la comunicación, la empatía y el control de los impulsos, ya que los niños deben confiar en su compañero y actuar con cuidado y responsabilidad.</tiene_beneficio>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En parejas, un niño cierra los ojos y pone una mano en su compañero, bien en el hombro o mano contra mano. A continuación, se desplazan suavemente por el tatami, guiando el compañero que ve al que no. Luego, intercambian roles.</tiene_desarrollo>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">juego del guía</tiene_nombre>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_estimular_confianza__escucha_activa">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Estimular la confianza interpersonal y la escucha activa</rdfs:comment>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#juji_garami">
@@ -3114,56 +3569,6 @@ Variantes:
   <rdf:type rdf:resource="#Defensas"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#la_carrera">
-  <rdf:type rdf:resource="#Actividades_valores"/>
-  <act_tiene_dificultad rdf:resource="#Bajo"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_valores"/>
-  <act_tiene_modalidad rdf:resource="#actividad_grupal"/>
-  <act_tiene_modalidad rdf:resource="#actividad_teatralizada"/>
-  <act_tiene_objetivo rdf:resource="#obj_reflexión_equidad_igualdad"/>
-  <usa_capacidad rdf:resource="#rectitud_gi"/>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1) Elegimos a tres alumnos: uno más mayor y rápido, otro menos rápido, y otro de los más pequeños.
-2) Planteamos dos situaciones:
-- La primera, los tres parten desde la misma posición, salen corriendo y tienen que llegar al otro extremo.
--  La segunda, se le da una ventaja al menos rápido y una ventaja mayor al más pequeño.
-3) Iniciar la discusión:
-    ¿Qué situación es más justa, la primera o la segunda?</tiene_desarrollo>
-  <tiene_enseñanza rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Justicia es darle a cada uno lo que necesita y que esto, muchas veces implica, no darles lo mismo a todos en cada momento.</tiene_enseñanza>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">La carrera</tiene_nombre>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1) Elegimos a tres alumnos: uno más mayor y rápido, otro menos rápido, y otro de los más pequeños.
-2) Planteamos dos situaciones:
-- La primera, los tres parten desde la misma posición, salen corriendo y tienen que llegar al otro extremo.
--  La segunda, se le da una ventaja al menos rápido y una ventaja mayor al más pequeño.
-3) Iniciar la discusión:
-    ¿Qué situación es más justa, la primera o la segunda?</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_reflexión_equidad_igualdad">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fomentar la reflexión sobre el valor de la equidad frente a la igualdad, y comprender que la justicia puede implicar adaptar las condiciones para que todos tengan las mismas oportunidades.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#lo_que_siento_y_lo_que_necesito">
-  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
-  <act_tiene_dificultad rdf:resource="#Medio"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
-  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
-  <act_tiene_objetivo rdf:resource="#obj_expresar_emociones_necesidades"/>
-  <usa_capacidad rdf:resource="#regulación_emocional"/>
-  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Favorece la expresión emocional clara y el desarrollo de una explicación más equilibrada de lo ocurrido.</tiene_beneficio>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Después de un malentendido con un compañero durante una técnica, se hace una breve dinámica guiada. El niño debe completar frases como:
-- “Me he sentido ___ cuando ___.”
-- “Creo que ha pasado porque ___.”
-- “Lo que me gustaría es ___.”
-El instructor puede modelar la frase primero y luego los niños la repiten de forma voluntaria.</tiene_desarrollo>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lo que siento y lo que necesito</tiene_nombre>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_expresar_emociones_necesidades">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fomentar el reconocimiento y expresión emocional de forma constructiva</rdfs:comment>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#mae_geri">
   <rdf:type rdf:resource="#Ataques"/>
   <rdf:type rdf:resource="#Patadas"/>
@@ -3197,51 +3602,6 @@ El instructor puede modelar la frase primero y luego los niños la repiten de fo
 <owl:NamedIndividual rdf:about="#nikkyo">
   <rdf:type rdf:resource="#Defensas"/>
   <rdf:type rdf:resource="#Inmovilizaciones"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_aprender_regulacion_emocional_con_respiracion">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aprender a regular la respiración para gestionar emociones y concentrarse</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_coordinar_respiracion_movimiento">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Coordinar la respiración con el movimiento para armonizar cuerpo y mente</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_desarrollar_fuerza_explosiva">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desarrollar la fuerza explosiva y reactividad del tren inferior</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_desarrollar_respuesta_espontanea">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desarrollar la capacidad de respuesta espontánea ante estímulos inesperados</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_fomentar_atencion_sensopercepcion">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fomentar la conciencia corporal y la atención sin depender de la visión</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_fomentar_visualizacion_positiva">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fomentar la visualización positiva y la autoeficacia</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_mejorar_coordinacion_observacion">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mejorar la coordinación con un compañero y la capacidad de observación e imitación</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_mejorar_equilibrio_dinamico">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mejorar el equilibrio dinámico</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#obj_transformar_pensamiento_negativo">
-  <rdf:type rdf:resource="#Objetivos"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Desarrollar la capacidad de cambiar pensamientos negativos por otros más positivos</rdfs:comment>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#objetivos1">
@@ -3324,34 +3684,6 @@ El instructor puede modelar la frase primero y luego los niños la repiten de fo
   <rdf:type rdf:resource="#Estados_recomendaciones"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#respira_como_un_sensei">
-  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
-  <act_tiene_dificultad rdf:resource="#Bajo"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
-  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
-  <act_tiene_objetivo rdf:resource="#obj_aprender_regulacion_emocional_con_respiracion"/>
-  <usa_capacidad rdf:resource="#regulación_emocional"/>
-  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Integra la autorregulación fisiológica con el cambio de pensamiento en situaciones reales del tatami.</tiene_beneficio>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">En momentos de agitación (tras juegos intensos o un conflicto menor), el instructor guía una breve pausa: los niños se sientan, cierran los ojos y hacen 3 respiraciones profundas mientras piensan:
-- “Estoy tranquilo.”
-- “Esto me ayuda a mejorar.”
-
-Luego, se puede invitar a comentar cómo se sienten y qué pueden hacer diferente la próxima vez.</tiene_desarrollo>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Respira como un sensei</tiene_nombre>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#respiración_y_movimiento">
-  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
-  <act_tiene_dificultad rdf:resource="#Medio"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
-  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
-  <act_tiene_objetivo rdf:resource="#obj_coordinar_respiracion_movimiento"/>
-  <usa_capacidad rdf:resource="#autocontrol"/>
-  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Esta práctica ayuda a los niños a calmarse, concentrarse y prepararse mentalmente para la clase, promoviendo el autocontrol emocional</tiene_beneficio>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Antes de comenzar la clase, se guía a los niños en una breve sesión de respiración profunda, sincronizando la inhalación y exhalación con movimientos suaves de brazos inspirados en técnicas de Aikido</tiene_desarrollo>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Respiración y Movimiento</tiene_nombre>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#ritmo">
   <rdf:type rdf:resource="#Capacidades_físicas_coordinativas"/>
   <usa_funcion rdf:resource="#b156"/>
@@ -3373,15 +3705,6 @@ Luego, se puede invitar a comentar cómo se sienten y qué pueden hacer diferent
 <owl:NamedIndividual rdf:about="#sankyo">
   <rdf:type rdf:resource="#Defensas"/>
   <rdf:type rdf:resource="#Inmovilizaciones"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#secuencia_ciega">
-  <rdf:type rdf:resource="#Actividades_técnicas"/>
-  <act_tiene_dificultad rdf:resource="#Alto"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_técnicos"/>
-  <act_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
-  <act_tiene_objetivo rdf:resource="#obj_fomentar_atencion_sensopercepcion"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El alumno realiza una secuencia aprendida (3 técnicas) con los ojos cerrados o vendados, guiado solo por la voz del uke o del instructor.</rdfs:comment>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#sensei1">
@@ -3416,20 +3739,6 @@ Luego, se puede invitar a comentar cómo se sienten y qué pueden hacer diferent
 <owl:NamedIndividual rdf:about="#soto_kaiten_nage">
   <rdf:type rdf:resource="#Defensas"/>
   <rdf:type rdf:resource="#Proyecciones"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#subidas_explosivas">
-  <rdf:type rdf:resource="#Actividades_fisicas"/>
-  <act_tiene_dificultad rdf:resource="#Alto"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_físicos"/>
-  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
-  <act_tiene_objetivo rdf:resource="#obj_desarrollar_fuerza_explosiva"/>
-  <act_tiene_objetivo rdf:resource="#obj_mejorar_equilibrio_dinamico"/>
-  <usa_capacidad rdf:resource="#fuerza"/>
-  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Mejora potencia muscular y agilidad</tiene_beneficio>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Saltos verticales sobre colchonetas bajas repetidos en series</tiene_desarrollo>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Subidas explosivas</tiene_nombre>
-  <tiene_objetivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Estimular fuerza rápida de piernas</tiene_objetivo>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#sumi_otoshi">
@@ -3694,43 +4003,6 @@ Luego, se puede invitar a comentar cómo se sienten y qué pueden hacer diferent
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">defensor</rdfs:comment>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#transforma_el_pensamiento">
-  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
-  <act_tiene_contraindicación rdf:resource="#e9a10"/>
-  <act_tiene_dificultad rdf:resource="#Medio"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
-  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
-  <act_tiene_modalidad rdf:resource="#actividad_juego"/>
-  <act_tiene_objetivo rdf:resource="#obj_transformar_pensamiento_negativo"/>
-  <usa_capacidad rdf:resource="#regulación_emocional"/>
-  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ayuda a los niños a identificar pensamientos distorsionados y generar una actitud más resiliente y autónoma.</tiene_beneficio>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Después de una actividad frustrante o una caída, el instructor propone un juego:
-- Presenta un pensamiento negativo común (“No me sale, soy malo”).
-- Los niños deben convertirlo en una versión más útil y realista:
-   “No me ha salido hoy, pero puedo mejorar.”
-    “Es difícil, pero ya he aprendido otras cosas.”
-También se habla de causas realistas: “¿Qué ha pasado? ¿Qué depende de ti?”</tiene_desarrollo>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Transforma el pensamiento</tiene_nombre>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#técnica_en_espejo">
-  <rdf:type rdf:resource="#Actividades_técnicas"/>
-  <act_tiene_dificultad rdf:resource="#Medio"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_técnicos"/>
-  <act_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
-  <act_tiene_objetivo rdf:resource="#obj_mejorar_coordinacion_observacion"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El alumno ejecuta una técnica básica (por ejemplo, ikkyo omote) frente a un compañero que hace de espejo, imitando el movimiento.</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#técnica_reactiva">
-  <rdf:type rdf:resource="#Actividades_técnicas"/>
-  <act_tiene_dificultad rdf:resource="#Alto"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_técnicos"/>
-  <act_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
-  <act_tiene_objetivo rdf:resource="#obj_desarrollar_respuesta_espontanea"/>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">El instructor o compañero cambia la energía o dirección del ataque (por ejemplo, empuje fuerte o suave), y el alumno debe elegir una técnica adecuada en función del estímulo.</rdfs:comment>
-</owl:NamedIndividual>
-
 <owl:NamedIndividual rdf:about="#ude_garami">
   <rdf:type rdf:resource="#Defensas"/>
   <rdf:type rdf:resource="#Inmovilizaciones"/>
@@ -3754,21 +4026,6 @@ También se habla de causas realistas: “¿Qué ha pasado? ¿Qué depende de ti
 <owl:NamedIndividual rdf:about="#ushiro_waza">
   <rdf:type rdf:resource="#Waza"/>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">uke detrás de tori</rdfs:comment>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#visualiza_tu_mejor_versión">
-  <rdf:type rdf:resource="#Actividades_sociales_emocionales"/>
-  <act_tiene_fundamento rdf:resource="#fundamentos_sociales_y_emocionales"/>
-  <act_tiene_modalidad rdf:resource="#actividad_individual"/>
-  <act_tiene_objetivo rdf:resource="#obj_fomentar_visualizacion_positiva"/>
-  <usa_capacidad rdf:resource="#regulación_emocional"/>
-  <tiene_beneficio rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Favorece el enfoque, reduce el miedo al error y fortalece la motivación</tiene_beneficio>
-  <tiene_desarrollo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Planteamos a cada alumno un ejercicio o técnica que tienen que hacer delante de sus compañeros. El instructor guía una breve visualización:
-- "Imagina que entras al tatami con confianza."
-- "Ves a tus compañeros. Estás concentrado. Sientes tu respiración firme."
-- "Realizas tu técnica con energía y calma."
-Luego se les pide a los niños que compartan una palabra que defina cómo se quieren sentir durante el ejercicio.</tiene_desarrollo>
-  <tiene_nombre rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Visualiza tu mejor versión</tiene_nombre>
 </owl:NamedIndividual>
 
 <owl:NamedIndividual rdf:about="#yoko_ukemi">
@@ -3875,261 +4132,116 @@ Luego se les pide a los niños que compartan una palabra que defina cómo se qui
   <rdf:type rdf:resource="#dan"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c">
+<owl:NamedIndividual rdf:about="#rcm_b3b93d39-98dc-42c1-8346-1ea357148720">
   <rdf:type rdf:resource="#Recomendaciones_realizadas"/>
-  <rcm_tiene_alumno rdf:resource="#alumno_04"/>
-  <rcm_tiene_alumno rdf:resource="#alumno_03"/>
-  <rcm_tiene_contexto rdf:resource="#género_mujer"/>
-  <rcm_tiene_descripción rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CASO 14</rcm_tiene_descripción>
-  <rcm_tiene_evaluación rdf:datatype="http://www.w3.org/2001/XMLSchema#string">defectuosa</rcm_tiene_evaluación>
-  <rcm_tiene_fecha_creación rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fecha</rcm_tiene_fecha_creación>
-  <rcm_tiene_fecha_evaluación rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fecha</rcm_tiene_fecha_evaluación>
-  <rcm_tiene_fecha_modificación rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fecha</rcm_tiene_fecha_modificación>
-  <rcm_tiene_motivo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mis motivos tendré</rcm_tiene_motivo>
-  <rcm_tiene_observaciones rdf:datatype="http://www.w3.org/2001/XMLSchema#string">observo mucho</rcm_tiene_observaciones>
+  <rcm_tiene_alumno rdf:resource="#alumno_02"/>
+  <rcm_tiene_alumno rdf:resource="#alumno_01"/>
+  <rcm_tiene_fundamento rdf:resource="#fundamentos_físicos"/>
+  <rcm_tiene_modalidad rdf:resource="#actividad_grupal"/>
+  <rcm_tiene_descripción rdf:datatype="http://www.w3.org/2001/XMLSchema#string">una buena descripción</rcm_tiene_descripción>
+  <rcm_tiene_observaciones rdf:datatype="http://www.w3.org/2001/XMLSchema#string">mejor observación</rcm_tiene_observaciones>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#arc_60e2d951-089e-4662-9464-99e87c812f49">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#caminar_en_silencio"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_45293e38-627c-4c8d-b963-9c3ebafbfedb">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#carrera_a_la_pata_coja"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_68ba8e63-2cb0-4e20-bd2e-04c1a55a1ba1">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#carreras_con_arrastre"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_85771155-5a21-498f-9ed6-d3a3c6a2a499">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#construcción_guiada"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_c0c07d66-c782-4353-8b87-1d46af2e1f5c">
+<owl:NamedIndividual rdf:about="#arc_7a53047c-5880-4d58-bdea-f9115b0e11c4">
   <rdf:type rdf:resource="#Actividades_recomendadas"/>
   <arc_tiene_actividad rdf:resource="#cuerda_de_resistencia"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_b3b93d39-98dc-42c1-8346-1ea357148720"/>
+  <arc_tiene_contexto rdf:resource="#lesión_rodilla"/>
+  <arc_tiene_alumno rdf:resource="#alumno_02"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#arc_fd1b5150-c132-4d6c-8eef-2a13e01a67bb">
+<owl:NamedIndividual rdf:about="#rcm_b2cad618-9cf5-4569-83e5-8f73ac285a19">
+  <rdf:type rdf:resource="#Recomendaciones_realizadas"/>
+  <rcm_tiene_alumno rdf:resource="#alumno_03"/>
+  <rcm_tiene_alumno rdf:resource="#alumno_01"/>
+  <rcm_tiene_contexto rdf:resource="#género_hombre"/>
+  <rcm_tiene_fundamento rdf:resource="#fundamentos_físicos"/>
+  <rcm_tiene_modalidad rdf:resource="#actividad_individual"/>
+  <rcm_tiene_modalidad rdf:resource="#actividad_grupal"/>
+  <rcm_tiene_descripción rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fggsdgfdfg</rcm_tiene_descripción>
+  <rcm_tiene_observaciones rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dshsdfgsgf</rcm_tiene_observaciones>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_f4b1be6f-fbbf-48cf-8727-e187972f81ca">
   <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#desafío_de_equilibrio"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_actividad rdf:resource="#cuerda_de_resistencia"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_b2cad618-9cf5-4569-83e5-8f73ac285a19"/>
+  <arc_tiene_contexto rdf:resource="#género_hombre"/>
+  <arc_tiene_alumno rdf:resource="#alumno_01"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#arc_c35e4906-aefc-488f-8694-a9dfd96929e4">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#desplazamientos_en_shikko_adelante_atrás"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_1a84a897-d272-486a-957d-891e9fcafa0b">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#desplazamientos_en_shikko_girando"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_2b7e39f6-a8d1-4174-be8d-31400adce718">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#desplazamientos_en_shikko_lucha_espadas"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_9620d2f6-3cef-43aa-9821-53e7f7ccfc27">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#el_empujón"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_e93ab67d-1106-426f-b0cb-9f5fb53bf967">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#el_guerrero_interior"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_1d108d06-9514-49c4-8bc1-295a733447b6">
+<owl:NamedIndividual rdf:about="#arc_dd1493e4-afae-4ba2-a508-3b44820fc571">
   <rdf:type rdf:resource="#Actividades_recomendadas"/>
   <arc_tiene_actividad rdf:resource="#el_oso_y_el_cangrejo"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_b2cad618-9cf5-4569-83e5-8f73ac285a19"/>
+  <arc_tiene_contexto rdf:resource="#género_hombre"/>
+  <arc_tiene_alumno rdf:resource="#alumno_01"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#arc_52772de4-b1ea-46e1-b9c3-af3939a3b4f7">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#el_reparto_de_los_dulces"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_5083e148-696e-43d7-891c-f3e7f5052ad9">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#empuje_de_sumo"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_150f8323-6fba-47b1-bc48-cbde4da0b0fa">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#encadenamiento_técnicas"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_c965f91d-99ec-433b-b711-f7d4757c5050">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#estatua_de_Aikido"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_dcbe88a0-89e2-41d8-b51e-9295db2c6a5d">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#juego_del_guía"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_58eb3299-e755-4d7d-815b-adc4cd26e939">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#la_carrera"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_f196e57c-8524-4647-8631-4cbdfd793b62">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#lo_que_siento_y_lo_que_necesito"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_7c30408a-6f17-4719-a7c4-6c152b0e6de6">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#respira_como_un_sensei"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_6b9c089a-bd47-4709-bc87-f23f8c7ce0e1">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#respiración_y_movimiento"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_4daf55ea-714a-4409-a198-85fb14fb69c7">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#secuencia_ciega"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
-</owl:NamedIndividual>
-
-<owl:NamedIndividual rdf:about="#arc_891b68bd-09df-4ace-849c-4fb9e696ef5e">
+<owl:NamedIndividual rdf:about="#arc_7c081816-1733-4ece-b9ff-52eee2fb8f50">
   <rdf:type rdf:resource="#Actividades_recomendadas"/>
   <arc_tiene_actividad rdf:resource="#subidas_explosivas"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_b2cad618-9cf5-4569-83e5-8f73ac285a19"/>
+  <arc_tiene_contexto rdf:resource="#género_hombre"/>
+  <arc_tiene_alumno rdf:resource="#alumno_01"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#arc_ac12eb29-0cce-480b-a24d-26de6b77926a">
-  <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#transforma_el_pensamiento"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+<owl:NamedIndividual rdf:about="#rcm_94de6ee5-35a7-4dd6-90ae-ecfa5367ed2d">
+  <rdf:type rdf:resource="#Recomendaciones_realizadas"/>
+  <rcm_tiene_alumno rdf:resource="#alumno_01"/>
+  <rcm_tiene_alumno rdf:resource="#alumno_02"/>
+  <rcm_tiene_contexto rdf:resource="#género_hombre"/>
+  <rcm_tiene_fundamento rdf:resource="#fundamentos_físicos"/>
+  <rcm_tiene_modalidad rdf:resource="#actividad_grupal"/>
+  <rcm_tiene_modalidad rdf:resource="#actividad_individual"/>
+  <rcm_tiene_modalidad rdf:resource="#actividad_por_parejas"/>
+  <rcm_tiene_descripción rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aquí va la descripción de la recomendación</rcm_tiene_descripción>
+  <rcm_tiene_observaciones rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Aquí las observaciones que queramos hacer</rcm_tiene_observaciones>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#arc_0cdfdcf0-eb37-43d4-b204-bbdc92ab8689">
+<owl:NamedIndividual rdf:about="#arc_e8090a62-fe8a-4202-ad8d-cb4cf591ae59">
   <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#técnica_en_espejo"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_actividad rdf:resource="#carreras_con_arrastre"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_94de6ee5-35a7-4dd6-90ae-ecfa5367ed2d"/>
+  <arc_tiene_contexto rdf:resource="#género_hombre"/>
+  <arc_tiene_alumno rdf:resource="#alumno_01"/>
+  <arc_tiene_alumno rdf:resource="#alumno_02"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#arc_0c19260b-2458-48a1-8020-ef021cc53bda">
+<owl:NamedIndividual rdf:about="#arc_e6206d8f-4322-4141-8a90-a442ecb29b7a">
   <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#técnica_reactiva"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_actividad rdf:resource="#cuerda_de_resistencia"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_94de6ee5-35a7-4dd6-90ae-ecfa5367ed2d"/>
+  <arc_tiene_contexto rdf:resource="#género_hombre"/>
+  <arc_tiene_alumno rdf:resource="#alumno_01"/>
+  <arc_tiene_alumno rdf:resource="#alumno_02"/>
 </owl:NamedIndividual>
 
-<owl:NamedIndividual rdf:about="#arc_e8cf8519-125e-4c21-bfd0-114f9b22a08e">
+<owl:NamedIndividual rdf:about="#arc_c937e8ca-07bc-4251-9995-cd75fe01dc16">
   <rdf:type rdf:resource="#Actividades_recomendadas"/>
-  <arc_tiene_actividad rdf:resource="#visualiza_tu_mejor_versión"/>
-  <arc_tiene_recomendación rdf:resource="#rcm_c4145d4a-1f45-415e-b3e8-d6be7da4b50c"/>
-  <arc_tiene_contexto rdf:resource="#género_mujer"/>
-  <arc_tiene_alumno rdf:resource="#alumno_04"/>
-  <arc_tiene_alumno rdf:resource="#alumno_03"/>
+  <arc_tiene_actividad rdf:resource="#el_oso_y_el_cangrejo"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_94de6ee5-35a7-4dd6-90ae-ecfa5367ed2d"/>
+  <arc_tiene_contexto rdf:resource="#género_hombre"/>
+  <arc_tiene_alumno rdf:resource="#alumno_01"/>
+  <arc_tiene_alumno rdf:resource="#alumno_02"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_ac8e62c6-dac7-41f9-a9ba-90baaedda9e2">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#empuje_de_sumo"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_94de6ee5-35a7-4dd6-90ae-ecfa5367ed2d"/>
+  <arc_tiene_contexto rdf:resource="#género_hombre"/>
+  <arc_tiene_alumno rdf:resource="#alumno_01"/>
+  <arc_tiene_alumno rdf:resource="#alumno_02"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#arc_89c9982d-a622-4f7e-acdf-318851b3165d">
+  <rdf:type rdf:resource="#Actividades_recomendadas"/>
+  <arc_tiene_actividad rdf:resource="#subidas_explosivas"/>
+  <arc_tiene_recomendación rdf:resource="#rcm_94de6ee5-35a7-4dd6-90ae-ecfa5367ed2d"/>
+  <arc_tiene_contexto rdf:resource="#género_hombre"/>
+  <arc_tiene_alumno rdf:resource="#alumno_01"/>
+  <arc_tiene_alumno rdf:resource="#alumno_02"/>
 </owl:NamedIndividual>
 
 

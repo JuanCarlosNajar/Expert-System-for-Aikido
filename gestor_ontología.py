@@ -8,6 +8,7 @@ formato owl. Implementa el patrón Singleton para que se cree una única instanc
 """
 from owlready2 import get_ontology, Thing
 import itertools # importo herramientas de iteradores
+from .config import DEBUG
 
 """
 CREO LAS CLASES DE LAS ONTOLOGIAS
@@ -25,7 +26,10 @@ class Fundamentos:
             if f.name == fundamento:
                 return f
         return None
-
+    
+    def instances(self):
+        return self.fundamentos.instances()
+    
 class Objetivos:
     def __init__(self, ontologia):
         self.ontologia = ontologia
@@ -36,6 +40,9 @@ class Objetivos:
             if o.name == objetivo:
                 return o
         return None
+    
+    def instances(self):
+        return self.objetivos.instances()
 
 # Clase para gestionar las Actividades
 class Actividades:
@@ -161,7 +168,8 @@ class Actividades:
         elif act.act_tiene_beneficio: # compruebo que tenga al menos un elemento
             funciones.append(act.act_tiene_beneficio)
         else:
-            print("No se encontraron beneficios")
+            if DEBUG:
+                print("No se encontraron beneficios")
         return funciones
     
     # Devuelve una lista con el nombre de todas las actividades
@@ -182,7 +190,8 @@ class Actividades:
         elif act.act_tiene_contraindicación: # compruebo que tenga al menos un elemento
             contextos.append(act.act_tiene_contraindicación)
         else:
-            print("No se encontraron contraindicaciones")
+            if DEBUG:
+                print("No se encontraron contraindicaciones")
         return contextos
     
 # Clase para gestionar los Grupos
@@ -194,6 +203,10 @@ class Contextos:
     def __init__(self,ontologia):
         self.contexto = ontologia.Clasificaciones
         self.ontologia = ontologia
+
+    # Devuelve todas las entidades de los contextos 
+    def instances(self): 
+        return self.contexto.instances()
 
     # Es necesario inferir el contexto edad a partir de la edad del alumno
     # Contexto_edad es una clase de la ontología
@@ -250,7 +263,8 @@ class Contextos:
                 elif impacto.funcion:
                     funciones_afectadas.append(impacto.funcion)
                 else:
-                    print("No se encontró el contexto")
+                    if DEBUG:
+                        print("No se encontró el contexto")
 
             # Eliminar duplicados si es necesario
             funciones_afectadas = list(set(funciones_afectadas))
@@ -309,7 +323,8 @@ class Alumnos():
         elif alumno.tiene_contexto:
             contextos.append(alumno.tiene_contexto)
         else:
-            print("No se encontraron contextos")
+            if DEBUG:
+                print("No se encontraron contextos")
         return [c.name for c in contextos]
     
     # Devuelve los contextos de un alumno, dado su nombre, los inferidos y los explícitos
@@ -334,7 +349,8 @@ class GestorOntologia:
     # Inicializa y carga la ontología.
     # Este método solo se llama desde el constructor de la clase
     def _inicializar(self, ruta_ontologia):
-        print("INICIALIZAR ONTOLOGIA")
+        if DEBUG:
+            print("INICIALIZAR ONTOLOGIA")
         if hasattr(self, "_inicializado"):
             return
         if not ruta_ontologia:
@@ -342,7 +358,8 @@ class GestorOntologia:
         self.ruta = ruta_ontologia
         self.ontologia = get_ontology(self.ruta).load()
         self._inicializado = True
-        print(f"[Ontología] Cargada desde: {self.ruta}")
+        if DEBUG:
+            print(f"[Ontología] Cargada desde: {self.ruta}")
 
     # Devuelve la ontología cargada
     def get_ontologia(self):
@@ -364,34 +381,38 @@ class GestorOntologia:
         clase = self.get_clase(clase_nombre)
         if clase:
             nuevo = clase(individuo_nombre)
-            print(f"[Ontología] Individuo '{individuo_nombre}' creado de la clase '{clase_nombre}'")
+            if DEBUG:
+                print(f"[Ontología] Individuo '{individuo_nombre}' creado de la clase '{clase_nombre}'")
             return nuevo
         else:
-            print(f"[ERROR] Clase '{clase_nombre}' no encontrada.")
+            if DEBUG:
+                print(f"[ERROR] Clase '{clase_nombre}' no encontrada.")
             return None
 
     def eliminar_individuo(self, nombre):
         individuo = self.get_individuo(nombre)
         if individuo:
             individuo.destroy()
-            print(f"[Ontología] Individuo '{nombre}' eliminado.")
-        else:
-            print(f"[ERROR] Individuo '{nombre}' no encontrado.")
-
+            if DEBUG:
+                print(f"[Ontología] Individuo '{nombre}' eliminado.")
+      
     def get_propiedades_de_clase(self, clase_nombre):
         clase = self.get_clase(clase_nombre)
         if clase:
             propiedades = list(clase.get_class_properties())
-            print(f"[Ontología] Propiedades de la clase '{clase_nombre}': {[p.name for p in propiedades]}")
+            if DEBUG:
+                print(f"[Ontología] Propiedades de la clase '{clase_nombre}': {[p.name for p in propiedades]}")
             return propiedades
         else:
-            print(f"[ERROR] Clase '{clase_nombre}' no encontrada.")
+            if DEBUG:
+                print(f"[ERROR] Clase '{clase_nombre}' no encontrada.")
             return []
 
     def get_propiedades_de_individuo(self, nombre_individuo):
         individuo = self.get_individuo(nombre_individuo)
         if not individuo:
-            print(f"[ERROR] Individuo '{nombre_individuo}' no encontrado.")
+            if DEBUG:
+                print(f"[ERROR] Individuo '{nombre_individuo}' no encontrado.")
             return {}
 
         propiedades = {}
@@ -405,7 +426,8 @@ class GestorOntologia:
             if valores:
                 propiedades[prop.name] = valores
 
-        print(f"[Ontología] Propiedades de '{nombre_individuo}': {list(propiedades.keys())}")
+        if DEBUG:
+            print(f"[Ontología] Propiedades de '{nombre_individuo}': {list(propiedades.keys())}")
         return propiedades
 
     def get_instancias_de_clase(self, clase_nombre):
@@ -413,15 +435,20 @@ class GestorOntologia:
         if clase:
             if clase.instances():
                 instancias = list(clase.instances())
-                print(f"[Ontología] Instancias de '{clase_nombre}': {[i.name for i in instancias]}")
+                if DEBUG:
+                    # Imprime los nombres de las instancias encontradas
+                    print(f"[Ontología] Instancias de '{clase_nombre}': {[i.name for i in instancias]}")
                 return instancias
             else:
                 return None
         else:
-            print(f"[ERROR] Clase '{clase_nombre}' no encontrada.")
+            if DEBUG:
+                print(f"[ERROR] Clase '{clase_nombre}' no encontrada.")
             return []
 
     def guardar(self, ruta=None):
         ruta_destino = ruta if ruta else self.ruta
         self.ontologia.save(file=ruta_destino, format="rdfxml")
-        print(f"[Ontología] Guardada en: {ruta_destino}")
+        if DEBUG:
+            print(f"[Ontología] Guardando en: {ruta_destino}")
+

@@ -9,12 +9,15 @@ Gestores implementados:
 2) Gestor de pantallas
 3) Gestor de iconos
 4) Gestor de ontología, de la base de conocimientos. Asumimos que gestionamos una única ontología.
+5) Gestor de sistema experto, el encargado de inferir las recomendaciones a partir de la ontología.
 """ 
 class GestoresApp:
     _gestor_contextos = None
     _gestor_pantallas = None
     _gestor_iconos= None
     _gestor_ontologia = None
+    _gestor_sistema_experto = None
+
 
     @classmethod
     def set_contextos(cls, gestor_contextos):
@@ -33,9 +36,14 @@ class GestoresApp:
         cls._gestor_ontologia = gestor_ontologia
 
     @classmethod
+    def set_sistema_experto(cls, gestor_sistema_experto):
+        cls._gestor_sistema_experto = gestor_sistema_experto
+
+
+    @classmethod
     def contextos(cls):
-        if cls._gestor_contextos is None:
-            raise Exception("[ERROR] Gestor de contextos no ha sido inicializado.")
+       # if cls._gestor_contextos is None:
+        #    raise Exception("[ERROR] Gestor de contextos no ha sido inicializado.")
         return cls._gestor_contextos
 
     @classmethod
@@ -55,3 +63,10 @@ class GestoresApp:
         if cls._gestor_ontologia is None:
             raise Exception("[ERROR] Gestor de ontología no ha sido inicializado.")
         return cls._gestor_ontologia
+    
+    @classmethod
+    def sistema_experto(cls):
+        if cls._gestor_sistema_experto is None:
+            raise Exception("[ERROR] Gestor de sistema experto no ha sido inicializado.")
+        return cls._gestor_sistema_experto
+    
