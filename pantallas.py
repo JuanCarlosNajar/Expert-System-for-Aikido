@@ -17,10 +17,10 @@ class PantallaGrupo(Pantalla):
         return toga.Label("GRUPOS", 
                     style=Pack(font_size=15, text_align=LEFT, color="yellow",flex=0))
     def _crear_cuerpo(self):
-        cuerpo = toga.Box(style=Pack(padding=10, margin_top=20,
+        cuerpo = toga.Box(style=Pack(margin=10, margin_top=20,
                                      background_color="#282828", flex=1,
                                      ))
-        cuerpo.add(toga.Label("Estamos en Grupos", style=Pack(padding=10)))  
+        cuerpo.add(toga.Label("Estamos en Grupos", style=Pack(margin=10)))  
         return cuerpo
 
     def _crear_pie(self):
@@ -29,28 +29,28 @@ class PantallaGrupo(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("HOME-2.png"),
             on_press=lambda x: self.on_press("inicio"),
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
         pie.add(toga.Box(style=Pack(flex=1))) # deja un espacio en medio de los dos botones
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("SALIDA-2.png"),
             on_press=lambda x: self.on_press_anterior(),
-            style=Pack(padding=10, margin_top=20,background_color="#343434",color="#343434", height=50)
+            style=Pack(margin=10, margin_top=20,background_color="#343434",color="#343434", height=50)
         )
         pie.add(boton)
         return pie
     
     def actualizar(self):
 
-        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
         contexto = GestoresApp.contextos().get_contexto("grupos")        
         grupos = contexto.get_grupos()
         for g in grupos:
             # NUEVA LÍNEA
-            linea_texto = toga.Box(style=Pack(direction=ROW, alignment=CENTER, padding=10,
+            linea_texto = toga.Box(style=Pack(direction=ROW, alignment=CENTER, margin=10,
                                      background_color="#282828",
                                      ))
             linea_texto.add(
@@ -62,7 +62,7 @@ class PantallaGrupo(Pantalla):
                                    )
                             )
             # TEXTO: nombre y comentario           
-            texto = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=0,
+            texto = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=0,
                                      background_color="#282828",
                                      ))
             texto.add(toga.Label(g.name, style=Pack(color="white")))
@@ -74,7 +74,7 @@ class PantallaGrupo(Pantalla):
             cuerpo.add(linea_texto)
             cuerpo.add(toga.Divider())
 
-        self.contenedor = toga.Box(style=Pack(direction=COLUMN,flex=1, padding=0, background_color="#282828"))
+        self.contenedor = toga.Box(style=Pack(direction=COLUMN,flex=1, margin=0, background_color="#282828"))
         self.contenedor.add(self.cabecera)
         self.contenedor.add(cuerpo)
         self.contenedor.add(self.pie)
@@ -100,14 +100,14 @@ class PantallaInicio(Pantalla):
     
     def _crear_cuerpo(self):
 
-        cuerpo = toga.Box(style=Pack(padding=10, margin_top=20,
+        cuerpo = toga.Box(style=Pack(margin=10, margin_top=20,
                                      background_color="#282828", flex=1,
                                      ))
         
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("Grupos-2.png"),
             on_press=lambda x: self.on_press("grupos"),
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         cuerpo.add(boton)
         
@@ -115,28 +115,28 @@ class PantallaInicio(Pantalla):
             icon=GestoresApp.iconos().obtener_icono("Alumnos-2.png"),
             on_press=lambda x: self.on_press("alumnos"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         cuerpo.add(boton)
 
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("Actividades-2.png"),
             on_press=lambda x: self.on_press("actividades"),
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         cuerpo.add(boton)
 
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("Problematicas-2.png"),
             on_press=lambda x: self.on_press("problemas"),
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         cuerpo.add(boton)
 
         boton = toga.Button(
-            icon=GestoresApp.iconos().obtener_icono("Recomendacion-2.png"),
+            icon=GestoresApp.iconos().obtener_icono("recomendacion-2.png"),
             on_press=lambda x: self.on_press("recomendaciones"),
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         cuerpo.add(boton)
 
@@ -148,14 +148,14 @@ class PantallaInicio(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("HOME-2.png"),
             on_press=lambda x: self.on_press("inicio"),
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
         pie.add(toga.Box(style=Pack(flex=1))) # deja un espacio en medio de los dos botones
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("SALIDA-2.png"),
             on_press=lambda x: self.on_press_anterior(),
-            style=Pack(padding=10, margin_top=20,background_color="#343434",color="#343434", height=50)
+            style=Pack(margin=10, margin_top=20,background_color="#343434",color="#343434", height=50)
         )
         pie.add(boton)
         return pie
@@ -188,12 +188,12 @@ class PantallaFichaGrupo(Pantalla):
                     style=Pack(font_size=15, text_align=LEFT, color="yellow"))
     def _crear_cuerpo(self):
         # CONTENEDOR PRINCIPAL DEL CUERPO
-        cuerpo=toga.Box(style=Pack(direction=COLUMN, padding=10, margin_top=20,
+        cuerpo=toga.Box(style=Pack(direction=COLUMN, margin=10, margin_top=20,
                                      background_color="#282828", flex=1,
                                      ))
         # BOX-1: NOMBRE GRUPO
         #        LABEL + INPUT
-        etiqueta=toga.Label("NOMBRE",style=Pack(padding=10, margin_top=20,
+        etiqueta=toga.Label("NOMBRE",style=Pack(margin=10, margin_top=20,
                                      color="#717476"))
         entrada = toga.TextInput(self.grupo)
         box1 = toga.Box(style=Pack(direction=ROW,flex=0))
@@ -202,7 +202,7 @@ class PantallaFichaGrupo(Pantalla):
         cuerpo.add(box1)
         # BOX-2: DESCRIPCIÓN
         #       LABEL + INPUT
-        etiqueta=toga.Label("DESCRIPCIÓN",style=Pack(padding=10, margin_top=20,
+        etiqueta=toga.Label("DESCRIPCIÓN",style=Pack(margin=10, margin_top=20,
                                      color="#717476"))
         entrada = toga.MultilineTextInput(self.descripcion)
         box2 = toga.Box(style=Pack(direction=COLUMN,flex=0))
@@ -217,19 +217,19 @@ class PantallaFichaGrupo(Pantalla):
 
         box_alumnos=toga.Box(style=Pack(direction=ROW,flex=0))
         boton=toga.Button("ALUMNOS")
-        etiqueta=toga.Label("ALUMNOS",style=Pack(padding=10, margin_top=20, color="#717476"))
+        etiqueta=toga.Label("ALUMNOS",style=Pack(margin=10, margin_top=20, color="#717476"))
         box_alumnos.add(boton)
         box_alumnos.add(etiqueta)
 
         box_problematicas=toga.Box(style=Pack(direction=ROW,flex=0))
         boton=toga.Button("PROBLEMATICAS")
-        etiqueta=toga.Label("PROBLEMATICAS",style=Pack(padding=10, margin_top=20, color="#717476"))
+        etiqueta=toga.Label("PROBLEMATICAS",style=Pack(margin=10, margin_top=20, color="#717476"))
         box_problematicas.add(boton)
         box_problematicas.add(etiqueta)
 
         box_recomendaciones=toga.Box(style=Pack(direction=ROW,flex=0))
         boton=toga.Button("RECOMENDACIONES")
-        etiqueta=toga.Label("RECOMENDACIONES",style=Pack(padding=10, margin_top=20, color="#717476"))
+        etiqueta=toga.Label("RECOMENDACIONES",style=Pack(margin=10, margin_top=20, color="#717476"))
         box_recomendaciones.add(boton)
         box_recomendaciones.add(etiqueta)
 
@@ -245,14 +245,14 @@ class PantallaFichaGrupo(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("HOME-2.png"),
             on_press=lambda x: self.on_press("inicio"),
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
         pie.add(toga.Box(style=Pack(flex=1))) # deja un espacio en medio de los dos botones
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("SALIDA-2.png"),
             on_press=lambda x: self.on_press_anterior(),
-            style=Pack(padding=10, margin_top=20,background_color="#343434",color="#343434", height=50)
+            style=Pack(margin=10, margin_top=20,background_color="#343434",color="#343434", height=50)
         )
         pie.add(boton)
         return pie
@@ -272,17 +272,17 @@ class PantallaRecomendaciones(Pantalla):
     def actualizar(self):
         if DEBUG:
             print("Actualizando pantalla de recomendaciones")
-        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
-        content = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=0,
+        content = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=0,
                                      background_color="#282828", 
                                      ))
         contexto = GestoresApp.contextos().get_contexto("recomendaciones")        
         recomendaciones = contexto.get_recomendaciones()
         for g in recomendaciones:
             # NUEVA LÍNEA
-            linea_texto = toga.Box(style=Pack(direction=ROW, alignment=CENTER, padding=10,
+            linea_texto = toga.Box(style=Pack(direction=ROW, alignment=CENTER, margin=10,
                                      background_color="#282828",
                                      ))
             linea_texto.add(
@@ -294,7 +294,7 @@ class PantallaRecomendaciones(Pantalla):
                                    )
                             )
             # TEXTO: nombre y comentario           
-            texto = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=0,
+            texto = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=0,
                                      background_color="#282828",
                                      ))
             texto.add(toga.Label(g.name, style=Pack(color="white")))
@@ -310,7 +310,7 @@ class PantallaRecomendaciones(Pantalla):
             content.add(toga.Divider())
         
         cuerpo.add(toga.ScrollContainer(content=content,style=Pack(flex=1)))
-        self.contenedor = toga.Box(style=Pack(direction=COLUMN,flex=1, padding=0, background_color="#282828"))
+        self.contenedor = toga.Box(style=Pack(direction=COLUMN,flex=1, margin=0, background_color="#282828"))
         self.contenedor.add(self.cabecera)
         self.contenedor.add(cuerpo)
         self.contenedor.add(self.pie)
@@ -323,13 +323,13 @@ class PantallaRecomendaciones(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("HOME-2.png"),
             on_press=lambda x: self.on_press("inicio"),
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("CREAR-1.png"),
             on_press=lambda x: self.on_press("rcm_datos_alta"),
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
 
@@ -337,7 +337,7 @@ class PantallaRecomendaciones(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("SALIDA-2.png"),
             on_press=lambda x: self.on_press_anterior(),
-            style=Pack(padding=10, margin_top=20,background_color="#343434",color="#343434", height=50)
+            style=Pack(margin=10, margin_top=20,background_color="#343434",color="#343434", height=50)
         )
         pie.add(boton)
         return pie
@@ -361,7 +361,7 @@ class PantallaRcmDetalles(Pantalla):
     def _crear_cabecera(self):
         if DEBUG:
             print("Creando cabecera de pantalla de detalles de recomendaciones")
-        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
         etiqueta = toga.Label("Recomendaciones - Detalles", 
@@ -370,7 +370,7 @@ class PantallaRcmDetalles(Pantalla):
 
         botones = toga.Box()
         """
-        botones = toga.Box(style=Pack(direction=ROW, alignment=RIGHT, padding=5, margin_top=5,
+        botones = toga.Box(style=Pack(direction=ROW, alignment=RIGHT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
         """
@@ -378,7 +378,7 @@ class PantallaRcmDetalles(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("DATOS-1.png"),
             on_press=lambda x: self.on_press("rcm_datos"),
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
         
@@ -386,15 +386,15 @@ class PantallaRcmDetalles(Pantalla):
             icon=GestoresApp.iconos().obtener_icono("FILTROS-1.png"),
             on_press=lambda x: self.on_press("rcm_filtros_1"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
 
         boton = toga.Button(
-            icon=GestoresApp.iconos().obtener_icono("ACTIVIDADES-2.png"),
+            icon=GestoresApp.iconos().obtener_icono("Actividades-2.png"),
             on_press=lambda x: self.on_press("rcm_actividades_1"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
         
@@ -408,20 +408,20 @@ class PantallaRcmDetalles(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("HOME-2.png"),
             on_press=lambda x: self.on_press("inicio"),
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
         pie.add(toga.Box(style=Pack(flex=1))) # deja un espacio en medio de los dos botones
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("SALIDA-2.png"),
             on_press=lambda x: self.on_press_anterior(),
-            style=Pack(padding=10, margin_top=20,background_color="#343434",color="#343434", height=50)
+            style=Pack(margin=10, margin_top=20,background_color="#343434",color="#343434", height=50)
         )
         pie.add(boton)
         return pie
 
     def _crear_cuerpo(self):
-        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
 
@@ -439,10 +439,10 @@ class PantallaRcmDetalles(Pantalla):
                 texto += metadatos["fecha_evaluacion"][0] if metadatos["fecha_evaluacion"] else "'sin fecha evaluación'"
         
                 etiqueta = toga.Label(texto,
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             else:
                 etiqueta = toga.Label("No hay datos disponibles",
-                               style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                               style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
         return cuerpo
 
@@ -450,7 +450,7 @@ class PantallaRcmDetalles(Pantalla):
         if DEBUG:
             print("Actualizando pantalla de detalles de recomendaciones")
         self.actualiza_datos()
-        self.contenedor = toga.Box(style=Pack(direction=COLUMN,flex=1, padding=0, background_color="#282828"))
+        self.contenedor = toga.Box(style=Pack(direction=COLUMN,flex=1, margin=0, background_color="#282828"))
         self.contenedor.add(self.cabecera)
         cuerpo = self._crear_cuerpo()
         self.contenedor.add(cuerpo)
@@ -469,7 +469,7 @@ class PantallaRcmDatos(Pantalla):
     def _crear_cabecera(self):
         if DEBUG:
             print("Creando cabecera de pantalla de datoss de recomendaciones")
-        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=0
                                      ))
         etiqueta = toga.Label("Recomendaciones - Datos", 
@@ -478,7 +478,7 @@ class PantallaRcmDatos(Pantalla):
 
         botones = toga.Box()
         """
-        botones = toga.Box(style=Pack(direction=ROW, alignment=RIGHT, padding=5, margin_top=5,
+        botones = toga.Box(style=Pack(direction=ROW, alignment=RIGHT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
         """
@@ -486,7 +486,7 @@ class PantallaRcmDatos(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("DETALLES-1.png"),
             on_press=lambda x: self.on_press("rcm_detalles"),
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
         
@@ -494,15 +494,15 @@ class PantallaRcmDatos(Pantalla):
             icon=GestoresApp.iconos().obtener_icono("FILTROS-1.png"),
             on_press=lambda x: self.on_press("rcm_filtros_1"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
 
         boton = toga.Button(
-            icon=GestoresApp.iconos().obtener_icono("ACTIVIDADES-2.png"),
+            icon=GestoresApp.iconos().obtener_icono("Actividades-2.png"),
             on_press=lambda x: self.on_press("rcm_actividades_1"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
         
@@ -516,70 +516,70 @@ class PantallaRcmDatos(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("HOME-2.png"),
             on_press=lambda x: self.on_press("inicio"),
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
         pie.add(toga.Box(style=Pack(flex=1))) # deja un espacio en medio de los dos botones
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("SALIDA-2.png"),
             on_press=lambda x: self.on_press_anterior(),
-            style=Pack(padding=10, margin_top=20,background_color="#343434",color="#343434", height=50)
+            style=Pack(margin=10, margin_top=20,background_color="#343434",color="#343434", height=50)
         )
         pie.add(boton)
         return pie
 
     def _crear_cuerpo(self):
-        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
         
         if  self.datos:
-            linea_nombre = toga.Box(style=Pack(direction=ROW, alignment=CENTER, padding=0,
+            linea_nombre = toga.Box(style=Pack(direction=ROW, alignment=CENTER, margin=0,
                                      background_color="#282828",
                                      ))
             etiqueta = toga.Label("NOMBRE:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             linea_nombre.add(etiqueta)
             campo_nombre = toga.TextInput(value=self.datos["id"],
                                  style=Pack(font_size=15, text_align=LEFT, 
                                             color="#343434",background_color="#747779",
-                                             padding=10, flex=1))
+                                             margin=10, flex=1))
             linea_nombre.add(campo_nombre)
             cuerpo.add(linea_nombre)
             etiqueta = toga.Label("DESCRIPCIÓN:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
             campo_descripcion = toga.MultilineTextInput(value=self.datos["descripcion"][0],
                                  style=Pack(font_size=15, text_align=LEFT, color="#343434",
-                                            background_color="#747779",padding=10))
+                                            background_color="#747779",margin=10))
             cuerpo.add(campo_descripcion)
             
             etiqueta = toga.Label("EVALUACIÓN:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
             evaluacion = self.datos["evaluacion"][0] if self.datos["evaluacion"] else "Sin evaluación"
             campo_evaluacion = toga.TextInput(value=evaluacion,
                                  style=Pack(font_size=15, text_align=LEFT, color="#343434",
-                                            background_color="#747779",padding=10))
+                                            background_color="#747779",margin=10))
             cuerpo.add(campo_evaluacion)
             
-            linea_fecha = toga.Box(style=Pack(direction=ROW, alignment=CENTER, padding=0,
+            linea_fecha = toga.Box(style=Pack(direction=ROW, alignment=CENTER, margin=0,
                                      background_color="#282828",
                                      ))
             etiqueta = toga.Label("FECHA EVALUACIÓN:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             linea_fecha.add(etiqueta)
             fecha_evaluacion = self.datos["fecha_evaluacion"][0] if self.datos["fecha_evaluacion"] else "Sin fecha evaluación"
             campo_fecha = toga.TextInput(value=fecha_evaluacion,
                                  style=Pack(font_size=15, text_align=LEFT, 
                                             color="#343434",background_color="#747779",
-                                             padding=10, flex=1))
+                                             margin=10, flex=1))
             linea_fecha.add(campo_fecha)
             cuerpo.add(linea_fecha)
  
         else:
             etiqueta = toga.Label("No hay datos disponibles",
-                               style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                               style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
         return cuerpo
 
@@ -587,7 +587,7 @@ class PantallaRcmDatos(Pantalla):
         if DEBUG:
             print("Actualizando pantalla de datos de recomendaciones")
         self.actualiza_datos()
-        self.contenedor = toga.Box(style=Pack(direction=COLUMN, padding=0, background_color="#282828"))
+        self.contenedor = toga.Box(style=Pack(direction=COLUMN, margin=0, background_color="#282828"))
         self.contenedor.add(self.cabecera)
         cuerpo = self._crear_cuerpo()
         self.contenedor.add(cuerpo)
@@ -614,7 +614,7 @@ class PantallaRcmFiltros_1(Pantalla):
     def _crear_cabecera(self):
         if DEBUG:
             print("Creando cabecera de pantalla de filtros 1 de recomendaciones")
-        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=0
                                      ))
         etiqueta = toga.Label("Recomendaciones - Filtros - 1", 
@@ -623,7 +623,7 @@ class PantallaRcmFiltros_1(Pantalla):
 
         botones = toga.Box()
         """
-        botones = toga.Box(style=Pack(direction=ROW, alignment=RIGHT, padding=5, margin_top=5,
+        botones = toga.Box(style=Pack(direction=ROW, alignment=RIGHT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
         """
@@ -631,7 +631,7 @@ class PantallaRcmFiltros_1(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("DETALLES-1.png"),
             on_press=lambda x: self.on_press("rcm_detalles"),
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
         
@@ -639,15 +639,15 @@ class PantallaRcmFiltros_1(Pantalla):
             icon=GestoresApp.iconos().obtener_icono("DATOS-1.png"),
             on_press=lambda x: self.on_press("rcm_datos"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
 
         boton = toga.Button(
-            icon=GestoresApp.iconos().obtener_icono("ACTIVIDADES-2.png"),
+            icon=GestoresApp.iconos().obtener_icono("Actividades-2.png"),
             on_press=lambda x: self.on_press("rcm_actividades_1"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
         
@@ -661,73 +661,73 @@ class PantallaRcmFiltros_1(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("HOME-2.png"),
             on_press=lambda x: self.on_press("inicio"),
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
         pie.add(toga.Box(style=Pack(flex=1))) # deja un espacio en medio de los dos botones
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("SALIDA-2.png"),
             on_press=lambda x: self.on_press_anterior(),
-            style=Pack(padding=10, margin_top=20,background_color="#343434",color="#343434", height=50)
+            style=Pack(margin=10, margin_top=20,background_color="#343434",color="#343434", height=50)
         )
         pie.add(boton)
         return pie
 
     def _crear_cuerpo(self):
-        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
         
         if  self.criterios:
-            linea_grupo = toga.Box(style=Pack(direction=ROW, alignment=CENTER, padding=0,
+            linea_grupo = toga.Box(style=Pack(direction=ROW, alignment=CENTER, margin=0,
                                      background_color="#282828",
                                      ))
             etiqueta = toga.Label("GRUPO:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             linea_grupo.add(etiqueta)
             campo_grupo = toga.Selection(value=self.criterios["grupo"],
                                  style=Pack(font_size=15, text_align=LEFT, 
                                             color="#343434",background_color="#747779",
-                                             padding=10, flex=1))
+                                             margin=10, flex=1))
             linea_grupo.add(campo_grupo)
             cuerpo.add(linea_grupo)
             # MUESTRA LOS ALUMNOS
             etiqueta = toga.Label("ALUMNOS:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
             lista_alumnos = toga.Box(style=Pack(direction=COLUMN, background_color="#747779"))
             for alumno in self.criterios["alumnos"]:
                 checkbox_alumno = toga.Switch(text=alumno,value=True)
                 lista_alumnos.add(checkbox_alumno)
-            container_alumnos = toga.ScrollContainer(content = lista_alumnos,style=Pack(padding=10, background_color="#282828"))
+            container_alumnos = toga.ScrollContainer(content = lista_alumnos,style=Pack(margin=10, background_color="#282828"))
             cuerpo.add(container_alumnos)
          
               # MUESTRA LOS CONTEXTOS
             etiqueta = toga.Label("CONTEXTOS:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
             lista_contextos = toga.Box(style=Pack(direction=COLUMN, background_color="#747779"))
             for contexto in self.criterios["contextos"]:
                 checkbox_contexto = toga.Switch(text=contexto,value=True)
                 lista_contextos.add(checkbox_contexto)
-            container_contextos = toga.ScrollContainer(content = lista_contextos,style=Pack(padding=10, background_color="#282828"))
+            container_contextos = toga.ScrollContainer(content = lista_contextos,style=Pack(margin=10, background_color="#282828"))
             cuerpo.add(container_contextos)   
 
              # MUESTRA BOTON SIGUIENTE PANTALLA FILTROS 2
-            boton_box = toga.Box(style=Pack(direction=ROW, padding=0, flex=0))
+            boton_box = toga.Box(style=Pack(direction=ROW, margin=0, flex=0))
             boton_box.add(toga.Box(style=Pack(flex=1))) # este box es para que el boton aparezca a la derecha del todo
  
             boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("FLECHA-DER-1.png"),
                 on_press=lambda x: self.on_press("rcm_filtros_2"),
-                style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50,flex=0)
+                style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50,flex=0)
             )
             boton_box.add(boton)
             cuerpo.add(boton_box)
            
         else:
             etiqueta = toga.Label("No hay filtros disponibles",
-                               style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                               style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
         return cuerpo
 
@@ -735,7 +735,7 @@ class PantallaRcmFiltros_1(Pantalla):
         if DEBUG:
             print("Actualizando pantalla 1 de filtros  de recomendaciones")
         self.actualiza_criterios()
-        self.contenedor = toga.Box(style=Pack(direction=COLUMN, padding=0, background_color="#282828"))
+        self.contenedor = toga.Box(style=Pack(direction=COLUMN, margin=0, background_color="#282828"))
         self.contenedor.add(self.cabecera)
         cuerpo = self._crear_cuerpo()
         self.contenedor.add(cuerpo)
@@ -762,7 +762,7 @@ class PantallaRcmFiltros_2(Pantalla):
     def _crear_cabecera(self):
         if DEBUG:
             print("Creando cabecera de pantalla de filtros 2 de recomendaciones")
-        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=0
                                      ))
         etiqueta = toga.Label("Recomendaciones - Filtros - 2", 
@@ -771,7 +771,7 @@ class PantallaRcmFiltros_2(Pantalla):
 
         botones = toga.Box()
         """
-        botones = toga.Box(style=Pack(direction=ROW, alignment=RIGHT, padding=5, margin_top=5,
+        botones = toga.Box(style=Pack(direction=ROW, alignment=RIGHT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
         """
@@ -779,7 +779,7 @@ class PantallaRcmFiltros_2(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("DETALLES-1.png"),
             on_press=lambda x: self.on_press("rcm_detalles"),
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
         
@@ -787,15 +787,15 @@ class PantallaRcmFiltros_2(Pantalla):
             icon=GestoresApp.iconos().obtener_icono("DATOS-1.png"),
             on_press=lambda x: self.on_press("rcm_datos"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
 
         boton = toga.Button(
-            icon=GestoresApp.iconos().obtener_icono("ACTIVIDADES-2.png"),
+            icon=GestoresApp.iconos().obtener_icono("Actividades-2.png"),
             on_press=lambda x: self.on_press("rcm_actividades_1"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
         
@@ -809,72 +809,72 @@ class PantallaRcmFiltros_2(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("HOME-2.png"),
             on_press=lambda x: self.on_press("inicio"),
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
         pie.add(toga.Box(style=Pack(flex=1))) # deja un espacio en medio de los dos botones
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("SALIDA-2.png"),
             on_press=lambda x: self.on_press_anterior(),
-            style=Pack(padding=10, margin_top=20,background_color="#343434",color="#343434", height=50)
+            style=Pack(margin=10, margin_top=20,background_color="#343434",color="#343434", height=50)
         )
         pie.add(boton)
         return pie
 
     def _crear_cuerpo(self):
-        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
         
         if  self.criterios:
             # MUESTRA LOS FUNDAMENTOS
             etiqueta = toga.Label("FUNDAMENTOS:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
             lista_fundamentos = toga.Box(style=Pack(direction=COLUMN, background_color="#747779"))
             for fundamento in self.criterios["fundamentos"]:
                 checkbox_fundamento = toga.Switch(text=fundamento,value=True)
                 lista_fundamentos.add(checkbox_fundamento)
-            container_fundamentos = toga.ScrollContainer(content = lista_fundamentos,style=Pack(padding=10, background_color="#282828"))
+            container_fundamentos = toga.ScrollContainer(content = lista_fundamentos,style=Pack(margin=10, background_color="#282828"))
             cuerpo.add(container_fundamentos)
   
              # MUESTRA LOS OBJETIVOS
             etiqueta = toga.Label("OBJETIVOS:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
             lista_objetivos = toga.Box(style=Pack(direction=COLUMN, background_color="#747779"))
             for objetivo in self.criterios["objetivos"]:
                 checkbox_objetivo = toga.Switch(text=objetivo,value=True)
                 lista_objetivos.add(checkbox_objetivo)
-            container_objetivos = toga.ScrollContainer(content = lista_objetivos,style=Pack(padding=10, background_color="#282828"))
+            container_objetivos = toga.ScrollContainer(content = lista_objetivos,style=Pack(margin=10, background_color="#282828"))
             cuerpo.add(container_objetivos)
          
               # MUESTRA LOS CONTEXTOS
             etiqueta = toga.Label("MODALIDADES:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
             lista_modalidades = toga.Box(style=Pack(direction=COLUMN, background_color="#747779"))
             for modalidad in self.criterios["modalidades"]:
                 checkbox_modalidad = toga.Switch(text=modalidad,value=True)
                 lista_modalidades.add(checkbox_modalidad)
-            container_modalidades = toga.ScrollContainer(content = lista_modalidades,style=Pack(padding=10, background_color="#282828"))
+            container_modalidades = toga.ScrollContainer(content = lista_modalidades,style=Pack(margin=10, background_color="#282828"))
             cuerpo.add(container_modalidades)   
 
              # MUESTRA BOTON SIGUIENTE PANTALLA FILTROS 2
-            boton_box = toga.Box(style=Pack(direction=ROW, padding=0, flex=0))
+            boton_box = toga.Box(style=Pack(direction=ROW, margin=0, flex=0))
             boton_box.add(toga.Box(style=Pack(flex=1))) # este box es para que el boton aparezca a la derecha del todo
  
             boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("FLECHA-IZQ-1.png"),
                 on_press=lambda x: self.on_press("rcm_filtros_1"),
-                style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50,flex=0)
+                style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50,flex=0)
             )
             boton_box.add(boton)
             cuerpo.add(boton_box)
 
         else:
             etiqueta = toga.Label("No hay filtros disponibles",
-                               style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                               style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
         return cuerpo
 
@@ -882,7 +882,7 @@ class PantallaRcmFiltros_2(Pantalla):
         if DEBUG:
             print("Actualizando pantalla 1 de filtros  de recomendaciones")
         self.actualiza_criterios()
-        self.contenedor = toga.Box(style=Pack(direction=COLUMN, padding=0, background_color="#282828"))
+        self.contenedor = toga.Box(style=Pack(direction=COLUMN, margin=0, background_color="#282828"))
         self.contenedor.add(self.cabecera)
         cuerpo = self._crear_cuerpo()
         self.contenedor.add(cuerpo)
@@ -903,7 +903,7 @@ class PantallaRcmActividades_1(Pantalla):
     def _crear_cabecera(self):
         if DEBUG:
             print("Creando cabecera de pantalla de actividades 1 de recomendaciones")
-        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=0
                                      ))
         etiqueta = toga.Label("Recomendaciones - Actividades", 
@@ -915,7 +915,7 @@ class PantallaRcmActividades_1(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("DETALLES-1.png"),
             on_press=lambda x: self.on_press("rcm_detalles"),
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
         
@@ -923,7 +923,7 @@ class PantallaRcmActividades_1(Pantalla):
             icon=GestoresApp.iconos().obtener_icono("DATOS-1.png"),
             on_press=lambda x: self.on_press("rcm_datos"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
 
@@ -931,7 +931,7 @@ class PantallaRcmActividades_1(Pantalla):
             icon=GestoresApp.iconos().obtener_icono("FILTROS-1.png"),
             on_press=lambda x: self.on_press("rcm_filtros_1"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
         
@@ -945,33 +945,33 @@ class PantallaRcmActividades_1(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("HOME-2.png"),
             on_press=lambda x: self.on_press("inicio"),
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
         pie.add(toga.Box(style=Pack(flex=1))) # deja un espacio en medio de los dos botones
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("SALIDA-2.png"),
             on_press=lambda x: self.on_press_anterior(),
-            style=Pack(padding=10, margin_top=20,background_color="#343434",color="#343434", height=50)
+            style=Pack(margin=10, margin_top=20,background_color="#343434",color="#343434", height=50)
         )
         pie.add(boton)
         return pie
 
     def _crear_cuerpo(self):
-        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
         
         if  self.actividades_recomendadas:
             # MUESTRA LAS ACTIVIDADES RECOMENDADAS
-            content = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=0,
+            content = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=0,
                                      background_color="#282828", 
                                      ))
             for actividad in self.actividades_recomendadas:
                 arc_datos = actividad["datos"]
                 arc_actividad = actividad["actividad"]
                 # NUEVA LÍNEA
-                linea_texto = toga.Box(style=Pack(direction=ROW, alignment=CENTER, padding=10,
+                linea_texto = toga.Box(style=Pack(direction=ROW, alignment=CENTER, margin=10,
                                      background_color="#282828",
                                      ))
                 linea_texto.add(
@@ -983,7 +983,7 @@ class PantallaRcmActividades_1(Pantalla):
                                    )
                             )
                 # TEXTO: nombre y comentario           
-                texto = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=0,
+                texto = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=0,
                                      background_color="#282828",
                                      ))
                 texto.add(toga.Label(arc_datos["nombre"].upper(), style=Pack(color="white")))
@@ -996,7 +996,7 @@ class PantallaRcmActividades_1(Pantalla):
  
         else:
             etiqueta = toga.Label("No hay actividades disponibles",
-                               style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                               style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
         return cuerpo
 
@@ -1004,7 +1004,7 @@ class PantallaRcmActividades_1(Pantalla):
         if DEBUG:
             print("Actualizando pantalla 1 de filtros  de recomendaciones")
         self.actualiza_actividades()
-        self.contenedor = toga.Box(style=Pack(direction=COLUMN, padding=0, background_color="#282828"))
+        self.contenedor = toga.Box(style=Pack(direction=COLUMN, margin=0, background_color="#282828"))
         self.contenedor.add(self.cabecera)
         cuerpo = self._crear_cuerpo()
         self.contenedor.add(cuerpo)
@@ -1040,7 +1040,7 @@ class PantallaRcmActividades_2(Pantalla):
     def _crear_cabecera(self):
         if DEBUG:
             print("Creando cabecera de pantalla de ficha de actividad de recomendaciones")
-        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=0
                                      ))
         etiqueta = toga.Label("Recomendaciones - Ficha Actividad", 
@@ -1049,7 +1049,7 @@ class PantallaRcmActividades_2(Pantalla):
 
         botones = toga.Box()
         """
-        botones = toga.Box(style=Pack(direction=ROW, alignment=RIGHT, padding=5, margin_top=5,
+        botones = toga.Box(style=Pack(direction=ROW, alignment=RIGHT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
         """
@@ -1057,7 +1057,7 @@ class PantallaRcmActividades_2(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("DETALLES-1.png"),
             on_press=lambda x: self.on_press("rcm_detalles"),
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
         
@@ -1065,15 +1065,15 @@ class PantallaRcmActividades_2(Pantalla):
             icon=GestoresApp.iconos().obtener_icono("DATOS-1.png"),
             on_press=lambda x: self.on_press("rcm_datos"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
 
         boton = toga.Button(
-            icon=GestoresApp.iconos().obtener_icono("ACTIVIDADES-2.png"),
+            icon=GestoresApp.iconos().obtener_icono("Actividades-2.png"),
             on_press=lambda x: self.on_press("rcm_actividades_1"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
         
@@ -1087,20 +1087,20 @@ class PantallaRcmActividades_2(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("HOME-2.png"),
             on_press=lambda x: self.on_press("inicio"),
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
         pie.add(toga.Box(style=Pack(flex=1))) # deja un espacio en medio de los dos botones
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("SALIDA-2.png"),
             on_press=lambda x: self.on_press_anterior(),
-            style=Pack(padding=10, margin_top=20,background_color="#343434",color="#343434", height=50)
+            style=Pack(margin=10, margin_top=20,background_color="#343434",color="#343434", height=50)
         )
         pie.add(boton)
         return pie
 
     def _crear_cuerpo(self):
-        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
         
@@ -1111,13 +1111,13 @@ class PantallaRcmActividades_2(Pantalla):
             if DEBUG:
                 print("PANTALLA_RCM_ACTIVIDADES_2:",self.datos)
             etiqueta = toga.Label(act_datos["nombre"].upper(),
-                                 style=Pack(font_size=15, text_align=LEFT, color="#747779", padding=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="#747779", margin=10))
             cuerpo.add(etiqueta)
             etiqueta = toga.Label(act_actividad["desarrollo"],
-                                 style=Pack(font_size=15, text_align=LEFT, background_color="#343434", color="#747779", padding=10,height=350, width=550, flex=0))
+                                 style=Pack(font_size=15, text_align=LEFT, background_color="#343434", color="#747779", margin=10,height=350, width=550, flex=0))
             cuerpo.add(etiqueta)
             etiqueta = toga.Label("Recomendado para:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="#747779", padding=10, flex=0))
+                                 style=Pack(font_size=15, text_align=LEFT, color="#747779", margin=10, flex=0))
             cuerpo.add(etiqueta)
             texto = "Contexto: " + act_datos["contexto"]
             texto += "\n" + "Alumnos: "
@@ -1129,24 +1129,24 @@ class PantallaRcmActividades_2(Pantalla):
                     texto += ", "
                 texto += a
             etiqueta = toga.Label(texto,
-                                 style=Pack(font_size=15, text_align=LEFT, background_color="#343434", color="#747779", padding=10,height=200, width=550, flex=0))
+                                 style=Pack(font_size=15, text_align=LEFT, background_color="#343434", color="#747779", margin=10,height=200, width=550, flex=0))
             cuerpo.add(etiqueta)
             espacio =toga.Box(style=Pack(flex=1))
             cuerpo.add(espacio)
              # MUESTRA BOTON ANTERIOR PANTALLA ACTIVIDADES 2
-            boton_box = toga.Box(style=Pack(direction=ROW, padding=0, flex=0))
+            boton_box = toga.Box(style=Pack(direction=ROW, margin=0, flex=0))
             boton_box.add(toga.Box(style=Pack(flex=1))) # este box es para que el boton aparezca a la derecha del todo
  
             boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("FLECHA-IZQ-1.png"),
                 on_press=lambda x: self.on_press_anterior(),
-                style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50,flex=0)
+                style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50,flex=0)
             )
             boton_box.add(boton)
             cuerpo.add(boton_box)
         else:
             etiqueta = toga.Label("No hay actividades disponibles",
-                               style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                               style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
         return cuerpo
 
@@ -1154,7 +1154,7 @@ class PantallaRcmActividades_2(Pantalla):
         if DEBUG:
             print("Actualizando pantalla ficha de actividades recomendadas")
         self.actualiza_datos()
-        self.contenedor = toga.Box(style=Pack(direction=COLUMN, padding=0, background_color="#282828"))
+        self.contenedor = toga.Box(style=Pack(direction=COLUMN, margin=0, background_color="#282828"))
         self.contenedor.add(self.cabecera)
         cuerpo = self._crear_cuerpo()
         self.contenedor.add(cuerpo)
@@ -1176,7 +1176,7 @@ class PantallaRcmDatos_alta(Pantalla):
     def _crear_cabecera(self):
         if DEBUG:
             print("Creando cabecera de pantalla de datos de recomendaciones")
-        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=0
                                      ))
         etiqueta = toga.Label("Recomendaciones - Datos - Creación", 
@@ -1185,7 +1185,7 @@ class PantallaRcmDatos_alta(Pantalla):
 
         botones = toga.Box()
         """
-        botones = toga.Box(style=Pack(direction=ROW, alignment=RIGHT, padding=5, margin_top=5,
+        botones = toga.Box(style=Pack(direction=ROW, alignment=RIGHT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
         """
@@ -1193,7 +1193,7 @@ class PantallaRcmDatos_alta(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("DETALLES-1.png"),
             on_press=lambda x: self.on_press("rcm_detalles"),
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
         """
@@ -1201,16 +1201,16 @@ class PantallaRcmDatos_alta(Pantalla):
             icon=GestoresApp.iconos().obtener_icono("FILTROS-1.png"),
             on_press=lambda x: self.on_press("rcm_filtros_1_alta"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
 
         """
         boton = toga.Button(
-            icon=GestoresApp.iconos().obtener_icono("ACTIVIDADES-2.png"),
+            icon=GestoresApp.iconos().obtener_icono("Actividades-2.png"),
             on_press=lambda x: self.on_press("rcm_actividades_1"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
         """
@@ -1224,51 +1224,51 @@ class PantallaRcmDatos_alta(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("HOME-2.png"),
             on_press=lambda x: self.on_press("inicio"),
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("GENERAR-1.png"),
             on_press=lambda x: self.generar_recomendacion(),
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
         pie.add(toga.Box(style=Pack(flex=1))) # deja un espacio en medio de los dos botones
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("SALIDA-2.png"),
             on_press=lambda x: self.on_press_anterior(),
-            style=Pack(padding=10, margin_top=20,background_color="#343434",color="#343434", height=50)
+            style=Pack(margin=10, margin_top=20,background_color="#343434",color="#343434", height=50)
         )
         pie.add(boton)
         return pie
 
     def _crear_cuerpo(self):
-        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
         
         if  self.datos:
             etiqueta = toga.Label("DESCRIPCIÓN:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
             campo_descripcion = toga.MultilineTextInput(id="campo_descripcion",value=self.datos["descripcion"],
                                  style=Pack(font_size=15, text_align=LEFT, color="#343434",
-                                            background_color="#747779",padding=10),
+                                            background_color="#747779",margin=10),
                                             on_change=self.cambia_datos)
             cuerpo.add(campo_descripcion)
             self.descripcion = campo_descripcion            
             etiqueta = toga.Label("OBSERVACIONES:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
             campo_observaciones = toga.MultilineTextInput(id="campo_observaciones", value=self.datos["observaciones"],
                                  style=Pack(font_size=15, text_align=LEFT, color="#343434",
-                                            background_color="#747779",padding=10),
+                                            background_color="#747779",margin=10),
                                             on_change = self.cambia_datos)
             cuerpo.add(campo_observaciones)
             self.observaciones=campo_observaciones            
         else:
             etiqueta = toga.Label("No hay datos disponibles",
-                               style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                               style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
         return cuerpo
 
@@ -1276,7 +1276,7 @@ class PantallaRcmDatos_alta(Pantalla):
         if DEBUG:
             print("Actualizando pantalla de datos de alta de recomendaciones")
         self.actualiza_datos()
-        self.contenedor = toga.Box(style=Pack(direction=COLUMN, padding=0, background_color="#282828"))
+        self.contenedor = toga.Box(style=Pack(direction=COLUMN, margin=0, background_color="#282828"))
         self.contenedor.add(self.cabecera)
         cuerpo = self._crear_cuerpo()
         self.contenedor.add(cuerpo)
@@ -1363,7 +1363,7 @@ class PantallaRcmFiltros_1_alta(Pantalla):
     def _crear_cabecera(self):
         if DEBUG:
             print("Creando cabecera de pantalla de filtros 1 de alta de recomendaciones")
-        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=0
                                      ))
         etiqueta = toga.Label("Recomendaciones - Creación - Filtros - 1", 
@@ -1376,7 +1376,7 @@ class PantallaRcmFiltros_1_alta(Pantalla):
             icon=GestoresApp.iconos().obtener_icono("DATOS-1.png"),
             on_press=lambda x: self.on_press("rcm_datos_alta"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
        
@@ -1390,26 +1390,26 @@ class PantallaRcmFiltros_1_alta(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("HOME-2.png"),
             on_press=lambda x: self.on_press("inicio"),
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("GENERAR-1.png"),
             on_press=lambda x: self.generar_recomendacion,
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
         pie.add(toga.Box(style=Pack(flex=1))) # deja un espacio en medio de los dos botones
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("SALIDA-2.png"),
             on_press=lambda x: self.on_press_anterior(),
-            style=Pack(padding=10, margin_top=20,background_color="#343434",color="#343434", height=50)
+            style=Pack(margin=10, margin_top=20,background_color="#343434",color="#343434", height=50)
         )
         pie.add(boton)
         return pie
 
     def _crear_cuerpo(self):
-        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
         
@@ -1440,25 +1440,25 @@ class PantallaRcmFiltros_1_alta(Pantalla):
                 if widget.value:
                     for cb in self.checkboxes_contextos:
                         cb.value = False
-            linea_grupo = toga.Box(style=Pack(direction=ROW, alignment=CENTER, padding=0,
+            linea_grupo = toga.Box(style=Pack(direction=ROW, alignment=CENTER, margin=0,
                                      background_color="#282828",
                                      ))
             etiqueta = toga.Label("GRUPO:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             linea_grupo.add(etiqueta)
             campo_grupo = toga.Selection(value=self.criterios["grupo"],
+                                 items =["grupo no seleccionado"] + sorted( [g.name for g in self.filtro_grupos]),
                                  style=Pack(font_size=15, text_align=LEFT, 
                                             color="#343434",background_color="#747779",
-                                             padding=10, flex=1),
+                                             margin=10, flex=1),
                                 )
-            campo_grupo.items =["grupo no seleccionado"] + sorted( [g.name for g in self.filtro_grupos])
             self.campo_grupos = campo_grupo
             linea_grupo.add(campo_grupo)
             cuerpo.add(linea_grupo)
             # MUESTRA LOS ALUMNOS
             linea_alumnos = toga.Box(style=Pack(direction=ROW, alignment="top"))
             etiqueta = toga.Label("ALUMNOS:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding_left=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin_left=10))
             linea_alumnos.add(etiqueta)
 
             switch_seleccionar_alumnos = toga.Switch(text="Seleccionar todos",style=Pack(color = "white"),
@@ -1475,13 +1475,13 @@ class PantallaRcmFiltros_1_alta(Pantalla):
                 checkbox_alumno = toga.Switch(text=alumno.name,value=seleccionado)
                 lista_alumnos.add(checkbox_alumno)
                 self.checkboxes_alumnos.append(checkbox_alumno)
-            container_alumnos = toga.ScrollContainer(content = lista_alumnos,style=Pack(padding=10, background_color="#282828"))
+            container_alumnos = toga.ScrollContainer(content = lista_alumnos,style=Pack(margin=10, background_color="#282828"))
             cuerpo.add(container_alumnos)
          
               # MUESTRA LOS CONTEXTOS
             linea_contextos = toga.Box(style=Pack(direction=ROW, alignment="top"))
             etiqueta = toga.Label("CONTEXTOS:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding_left=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin_left=10))
             linea_contextos.add(etiqueta)
             switch_seleccionar_contextos = toga.Switch(text="Seleccionar todos",style=Pack(color = "white"),
                                             on_change=seleccionar_todos_contextos)
@@ -1496,24 +1496,24 @@ class PantallaRcmFiltros_1_alta(Pantalla):
                 checkbox_contexto = toga.Switch(text=contexto,value=seleccionado)
                 lista_contextos.add(checkbox_contexto)
                 self.checkboxes_contextos.append(checkbox_contexto)
-            container_contextos = toga.ScrollContainer(content = lista_contextos,style=Pack(padding=10, background_color="#282828"))
+            container_contextos = toga.ScrollContainer(content = lista_contextos,style=Pack(margin=10, background_color="#282828"))
             cuerpo.add(container_contextos)   
 
              # MUESTRA BOTON SIGUIENTE PANTALLA FILTROS 2
-            boton_box = toga.Box(style=Pack(direction=ROW, padding=0, flex=0))
+            boton_box = toga.Box(style=Pack(direction=ROW, margin=0, flex=0))
             boton_box.add(toga.Box(style=Pack(flex=1))) # este box es para que el boton aparezca a la derecha del todo
  
             boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("FLECHA-DER-1.png"),
                 on_press=lambda x: self.on_press("rcm_filtros_2_alta"),
-                style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50,flex=0)
+                style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50,flex=0)
             )
             boton_box.add(boton)
             cuerpo.add(boton_box)
             
         else:
             etiqueta = toga.Label("No hay filtros disponibles",
-                               style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                               style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
         return cuerpo
     
@@ -1521,7 +1521,7 @@ class PantallaRcmFiltros_1_alta(Pantalla):
         if DEBUG:
             print("Actualizando pantalla 1 de filtros  de recomendaciones")
         self.actualiza_criterios()
-        self.contenedor = toga.Box(style=Pack(direction=COLUMN, padding=0, background_color="#282828"))
+        self.contenedor = toga.Box(style=Pack(direction=COLUMN, margin=0, background_color="#282828"))
         self.contenedor.add(self.cabecera)
         cuerpo = self._crear_cuerpo()
         self.contenedor.add(cuerpo)
@@ -1584,7 +1584,7 @@ class PantallaRcmFiltros_2_alta(Pantalla):
     def _crear_cabecera(self):
         if DEBUG:
             print("Creando cabecera de pantalla de filtros 2 de alta de recomendaciones")
-        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cabecera = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=0
                                      ))
         etiqueta = toga.Label("Recomendaciones - Creación - Filtros - 2", 
@@ -1597,7 +1597,7 @@ class PantallaRcmFiltros_2_alta(Pantalla):
             icon=GestoresApp.iconos().obtener_icono("DATOS-1.png"),
             on_press=lambda x: self.on_press("rcm_datos_alta"), # el lambda hace que se pase por el método
                                                          # por referencia, sin que se ejecute
-            style=Pack(padding=10, margin_top=20,)
+            style=Pack(margin=10, margin_top=20,)
         )
         botones.add(boton)
        
@@ -1611,26 +1611,26 @@ class PantallaRcmFiltros_2_alta(Pantalla):
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("HOME-2.png"),
             on_press=lambda x: self.on_press("inicio"),
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("GENERAR-1.png"),
             on_press=lambda x: self.generar_recomendacion,
-            style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50)
+            style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50)
         )
         pie.add(boton)
         pie.add(toga.Box(style=Pack(flex=1))) # deja un espacio en medio de los dos botones
         boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("SALIDA-2.png"),
             on_press=lambda x: self.on_press_anterior(),
-            style=Pack(padding=10, margin_top=20,background_color="#343434",color="#343434", height=50)
+            style=Pack(margin=10, margin_top=20,background_color="#343434",color="#343434", height=50)
         )
         pie.add(boton)
         return pie
 
     def _crear_cuerpo(self):
-        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, padding=5, margin_top=5,
+        cuerpo = toga.Box(style=Pack(direction=COLUMN, alignment=LEFT, margin=5, margin_top=5,
                                      background_color="#282828", flex=1
                                      ))
         
@@ -1640,9 +1640,9 @@ class PantallaRcmFiltros_2_alta(Pantalla):
             self.checkboxes_fundamentos=[]
             self.checkboxes_objetivos=[]
             self.checkboxes_modalidades=[]
-            lista_fundamentos = toga.Box(style=Pack(direction=COLUMN, background_color="#747779"))
-            lista_objetivos = toga.Box(style=Pack(direction=COLUMN, background_color="#747779"))
-            lista_modalidades = toga.Box(style=Pack(direction=COLUMN, background_color="#747779"))
+            lista_fundamentos = toga.Box(style=Pack(direction=COLUMN, background_color="#747779",flex=1))
+            lista_objetivos = toga.Box(style=Pack(direction=COLUMN, background_color="#747779",flex=1))
+            lista_modalidades = toga.Box(style=Pack(direction=COLUMN, background_color="#747779",flex=1))
 
             # Handlers
             def seleccionar_todos_fundamentos(widget):
@@ -1675,7 +1675,7 @@ class PantallaRcmFiltros_2_alta(Pantalla):
             # MUESTRA LOS FUNDAMENTOS
             linea_fundamentos = toga.Box(style=Pack(direction=ROW, alignment="top"))
             etiqueta = toga.Label("FUNDAMENTOS:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding_left=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin_left=10))
             linea_fundamentos.add(etiqueta)
 
             switch_seleccionar_fundamentos = toga.Switch(text="Seleccionar todos",style=Pack(color = "white"),
@@ -1691,13 +1691,13 @@ class PantallaRcmFiltros_2_alta(Pantalla):
                 checkbox_fundamento = toga.Switch(text=fundamento,value=seleccionado)
                 lista_fundamentos.add(checkbox_fundamento)
                 self.checkboxes_fundamentos.append(checkbox_fundamento)
-            container_fundamentos = toga.ScrollContainer(content = lista_fundamentos,style=Pack(padding=10, background_color="#282828"))
+            container_fundamentos = toga.ScrollContainer(content = lista_fundamentos,style=Pack(margin=10, background_color="#282828"))
             cuerpo.add(container_fundamentos)
          
               # MUESTRA LOS OBJETIVOS
             linea_objetivos = toga.Box(style=Pack(direction=ROW, alignment="top"))
             etiqueta = toga.Label("OBJETIVOS:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding_left=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin_left=10))
             linea_objetivos.add(etiqueta)
             switch_seleccionar_objetivos = toga.Switch(text="Seleccionar todos",style=Pack(color = "white"),
                                             on_change=seleccionar_todos_objetivos)
@@ -1712,12 +1712,12 @@ class PantallaRcmFiltros_2_alta(Pantalla):
                 checkbox_objetivo = toga.Switch(text=objetivo,value=seleccionado)
                 lista_objetivos.add(checkbox_objetivo)
                 self.checkboxes_objetivos.append(checkbox_objetivo)
-            container_objetivos = toga.ScrollContainer(content = lista_objetivos,style=Pack(padding=10, background_color="#282828"))
+            container_objetivos = toga.ScrollContainer(content = lista_objetivos,style=Pack(margin=10, background_color="#282828"))
             cuerpo.add(container_objetivos)   
              # MUESTRA LAS MODALIDADES
             linea_modalidades = toga.Box(style=Pack(direction=ROW, alignment="top"))
             etiqueta = toga.Label("MODALIDADES:",
-                                 style=Pack(font_size=15, text_align=LEFT, color="white", padding_left=10))
+                                 style=Pack(font_size=15, text_align=LEFT, color="white", margin_left=10))
             linea_modalidades.add(etiqueta)
             switch_seleccionar_modalidades = toga.Switch(text="Seleccionar todos",style=Pack(color = "white"),
                                             on_change=seleccionar_todos_modalidades)
@@ -1732,24 +1732,24 @@ class PantallaRcmFiltros_2_alta(Pantalla):
                 checkbox_modalidad = toga.Switch(text=modalidad,value=seleccionado)
                 lista_modalidades.add(checkbox_modalidad)
                 self.checkboxes_modalidades.append(checkbox_modalidad)
-            container_modalidades = toga.ScrollContainer(content = lista_modalidades,style=Pack(padding=10, background_color="#282828"))
+            container_modalidades = toga.ScrollContainer(content = lista_modalidades,style=Pack(margin=10, background_color="#282828"))
             cuerpo.add(container_modalidades)   
 
              # MUESTRA BOTON SIGUIENTE PANTALLA FILTROS 2
-            boton_box = toga.Box(style=Pack(direction=ROW, padding=0, flex=0))
+            boton_box = toga.Box(style=Pack(direction=ROW, margin=0, flex=0))
             boton_box.add(toga.Box(style=Pack(flex=1))) # este box es para que el boton aparezca a la derecha del todo
  
             boton = toga.Button(
             icon=GestoresApp.iconos().obtener_icono("FLECHA-IZQ-1.png"),
                 on_press=lambda x: self.on_press("rcm_filtros_1_alta"),
-                style=Pack(padding=10, margin_top=10,background_color="#343434",color="#343434",height=50,flex=0)
+                style=Pack(margin=10, margin_top=10,background_color="#343434",color="#343434",height=50,flex=0)
             )
             boton_box.add(boton)
             cuerpo.add(boton_box)
             
         else:
             etiqueta = toga.Label("No hay filtros disponibles",
-                               style=Pack(font_size=15, text_align=LEFT, color="white", padding=10))
+                               style=Pack(font_size=15, text_align=LEFT, color="white", margin=10))
             cuerpo.add(etiqueta)
         return cuerpo
     
@@ -1757,7 +1757,7 @@ class PantallaRcmFiltros_2_alta(Pantalla):
         if DEBUG:
             print("Actualizando pantalla 2 de filtros de alta de recomendaciones")
         self.actualiza_criterios()
-        self.contenedor = toga.Box(style=Pack(direction=COLUMN, padding=0, background_color="#282828"))
+        self.contenedor = toga.Box(style=Pack(direction=COLUMN, margin=0, background_color="#282828"))
         self.contenedor.add(self.cabecera)
         cuerpo = self._crear_cuerpo()
         self.contenedor.add(cuerpo)

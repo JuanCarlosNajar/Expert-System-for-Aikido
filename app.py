@@ -4,7 +4,18 @@ Autor: Juan Carlos Nájar Compán
 Version: 1.0.0
 Fecha: 8 de junio de 2025
 """
-
+# --- MONKEY PATCH PARA ANDROID/PYTHON 3.10+ (collections.Mapping, MutableMapping, Sequence) ---
+import collections
+import collections.abc
+import sys
+if sys.version_info >= (3, 10):
+    if not hasattr(collections, 'Mapping'):
+        collections.Mapping = collections.abc.Mapping
+    if not hasattr(collections, 'MutableMapping'):
+        collections.MutableMapping = collections.abc.MutableMapping
+    if not hasattr(collections, 'Sequence'):
+        collections.Sequence = collections.abc.Sequence
+# --- FIN MONKEY PATCH ---
 import toga
 from toga.style import Pack
 from toga.style.pack import COLUMN, ROW, RIGHT, LEFT, CENTER
